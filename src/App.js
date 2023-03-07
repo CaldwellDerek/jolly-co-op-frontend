@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from "./components/pages/Login"
 import FindGame from "./components/pages/Find-Game";
-import "./components/Find-Game/style.css"
+import "./components/pages/Find-Game/style.css"
 
 function App() {
   return (
