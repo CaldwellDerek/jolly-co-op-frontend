@@ -33,8 +33,11 @@ function FindGame() {
                     currentPlatforms.push("Nintendo")
                 }  else if (plat.includes("NES")){
                     currentPlatforms.push("Nintendo")
+                } else if (plat.includes("GameCube")){
+                    currentPlatforms.push("Nintendo")
+                } else if (plat.includes("Web")){
+                    currentPlatforms.push("Web")
                 }
-                // currentPlatforms.push(index.playform.name);
             }
             platforms.push(currentPlatforms);
         }
