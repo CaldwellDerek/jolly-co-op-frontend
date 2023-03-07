@@ -28,7 +28,7 @@ function FindGame() {
             <form className="search-game-form" onSubmit={handleSubmit}>
                 <label htmlFor="search-game">Search for a Game!</label>
                 <input type="text" name="search-game" id="search-game" required />
-                <button type="submit">Search</button>
+                <button className="search-button" type="submit">Search</button>
             </form>
             <div className='card-container'>
                 {cards}
