@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import GenerateCard from './GenerateCard'
+import "../styling/FindGame.css"
 
 function FindGame() {
     const [cards, setCards] = useState([]);
@@ -9,7 +10,7 @@ function FindGame() {
 
         let game = document.querySelector("#search-game").value;
 
-        const gameData = await fetch(`https://api.rawg.io/api/games?page_size=5&search=${game}&key=7d95d52e79314e3e86649fa211b6be93`);
+        const gameData = await fetch(`https://api.rawg.io/api/games?page_size=12&search=${game}&key=7d95d52e79314e3e86649fa211b6be93`);
         const response = await gameData.json();
         console.log(response.results);
 
@@ -23,13 +24,15 @@ function FindGame() {
     }
 
     return (
-        <div>
+        <div className='find-game-container'>
             <form className="search-game-form" onSubmit={handleSubmit}>
                 <label htmlFor="search-game">Search for a Game!</label>
                 <input type="text" name="search-game" id="search-game" required />
                 <button type="submit">Search</button>
             </form>
-            {cards}
+            <div className='card-container'>
+                {cards}
+            </div>
         </div>
     );
 }
