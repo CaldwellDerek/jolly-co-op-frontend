@@ -1,0 +1,18 @@
+.Navbar {
+    display: flex;
+    background-color: #f0f6f6;
+    justify-content:right;
+ 
+    
+}
+
+.Navbar * {
+    font-size: 1rem;
+    padding:5px;
+    margin: 10px;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    background-color:rgb(212, 100, 100) ;
+    border-radius: 10px;
+    color:white;
+}

@@ -1,11 +1,41 @@
+import React, {useState, useEffect} from "react";
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from "./components/pages/Login"
+import  Navbar  from "./components/Navbar"
+import API from "./utils/API"
 
 function App() {
+  const [token, setToken] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userId, setUserId] = useState(0);
+
+  useEffect(()=>{
+    const savedToken = localStorage.getItem("token");
+    console.log(savedToken)
+    if(savedToken){
+      API.isValidToken(savedToken).then(tokenData=>{
+        if(tokenData.isValid){
+          setToken(savedToken);
+          setUserId(tokenData.user.id)
+          setIsLoggedIn(true)
+        } else {
+          localStorage.removeItem("token")
+        }
+      })
+    }
+  },[])
+
+  const logout = ()=>{
+    setToken('');
+    setUserId(0);
+    setIsLoggedIn(false);
+    localStorage.removeItem("token")
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
-      <h1>Navbar</h1>
+      <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
       <br/>
       <Routes>
         <Route path="/" element={<h1>Homepage</h1>}/>
