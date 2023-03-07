@@ -1,14 +1,26 @@
 import React from 'react';
 
-function GenerateCard(props) {
-    return (
-        <div className='game-card'>
-            <img src={props.img} alt="Game Art"/>
-            <h3>{props.name}</h3>
-            <p>Platforms: {props.platform}</p>
-            <p>Ratings: {props.rating}</p>
+const styleCard = {
+    width: "18rem",
+    margin: "10px"
+}
 
-            <button className="save-button" type='button'>Save</button>
+function GenerateCard(props) {
+    const platformList = props.platform.map((element, index)=> {
+        return <li className="list-group-item" key={index}>{element}</li>
+    });
+    return (
+        <div className="card" style={styleCard}>
+            <img src={props.img} className="card-img-top" alt="Game Art"/>
+            <div className="card-body d-flex flex-column justify-content-between align-items-center">
+                <h5 className="card-title">{props.name}</h5>
+                <p className="card-text">Available On</p>
+                <ul className="list-group">
+                    {platformList}
+                </ul>
+                <p className="card-text">Overall Rating: {props.rating}</p>
+                <button type="button" className="btn btn-primary">Save</button>
+            </div>
         </div>
     );
   }
