@@ -8,8 +8,13 @@ const Navbar = (props) => {
     <div className="Navbar">
         <Link to="/">Home</Link>
         <Link to="/findgame">Find Game</Link>
-        <Link to="/login">Login</Link>  {/* make switch with logout page if logged in */}
-       
+      
+       {props.isLoggedIn? 
+       <>
+       <Link to='/mylist'>My List</Link>
+       <Link to='/mygroup'>My Group</Link>
+       </>
+        : <Link to ="/login">Login</Link>}
         {props.isLoggedIn?<button onClick={props.logout}>Logout</button>:null}
     </div>
   )

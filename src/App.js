@@ -41,7 +41,7 @@ function App() {
       <br/>
       <Routes>
         <Route path="/" element={<h1>Homepage</h1>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<h1>Find Friend</h1>}/>
         <Route path="/findgames" element={<FindGame/>}/>
