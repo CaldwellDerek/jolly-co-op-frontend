@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
-import API from "../../"
+import API from "../../../utils/API"
 
 export const Login = () => {
   const [loginEmail, setloginEmail] = useState("");
   const [loginPassword, setloginPassword] = useState("");
+  const [signupUsername, setsignupUsername] = useState("");
   const [signupEmail, setsignupEmail] = useState("");
   const [signupPassword, setsignupPassword] = useState("");
 
@@ -18,6 +19,9 @@ export const Login = () => {
       case "loginPassword":
         setloginPassword(value);
         break;
+        case "signupUsername":
+            setsignupUsername(value);
+            break;
       case "signupEmail":
         setsignupEmail(value);
         break;
@@ -41,6 +45,20 @@ export const Login = () => {
         setloginPassword("")
     })
   }
+  const handleSignupSubmit = e =>{
+    e.preventDefault();
+    const userObj = {
+        email: signupEmail,
+        password: signupPassword, 
+        username: signupUsername
+    }
+    API.signup(userObj).then(data=>{
+        console.log(data)
+        setsignupUsername("")
+        setsignupEmail("")
+        setsignupPassword("")
+    })
+  }
 
   return (
     <div>
@@ -48,9 +66,7 @@ export const Login = () => {
         <h1>Login Here! </h1>
         <div  className="Login">
 
-        <form 
-        // onSubmit={handleFormSubmit}
-        >
+        <form onSubmit={handleFormSubmit}>
           <label for="loginEmail">Email:</label>
         
           <input
@@ -70,9 +86,15 @@ export const Login = () => {
             />
           <button>Login</button>
         </form>
-        <form 
-        // onSubmit={handleFormSubmit}
-        >
+        <form onSubmit={handleSignupSubmit}>
+        <label for="signupUsername">Username:</label>
+          
+          <input
+            type="text"
+            name="signupUsername"
+            value={signupUsername}
+            onChange={handleFormChange}/>{" "}
+
           <label for="signupEmail">Email:</label>
           
           <input
