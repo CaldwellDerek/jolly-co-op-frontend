@@ -10,7 +10,7 @@ function FindGame() {
 
         let game = document.querySelector("#search-game").value;
 
-        const gameData = await fetch(`https://api.rawg.io/api/games?page_size=5&search=${game}&key=7d95d52e79314e3e86649fa211b6be93`);
+        const gameData = await fetch(`https://api.rawg.io/api/games?page_size=10&search=${game}&key=7d95d52e79314e3e86649fa211b6be93`);
         const response = await gameData.json();
 
         let platforms = [];
@@ -18,12 +18,29 @@ function FindGame() {
         for (let obj of response.results){
             let currentPlatforms = [];
             for (let index of obj.platforms){
-                currentPlatforms.push(index.platform.name);
+                const plat = index.platform.name;
+                if (plat.includes("Xbox")){
+                    currentPlatforms.push("xbox");
+                } else if (plat.includes("PlayStation")){
+                    currentPlatforms.push("playstation")
+                } else if (plat.includes("PC")){
+                    currentPlatforms.push("pc")
+                } else if (plat.includes("Nintendo")){
+                    currentPlatforms.push("nintendo")
+                } else if (plat.includes("Game Boy")){
+                    currentPlatforms.push("nintendo")
+                } else if (plat.includes("Wii")){
+                    currentPlatforms.push("nintendo")
+                }  else if (plat.includes("NES")){
+                    currentPlatforms.push("nintendo")
+                }
+                // currentPlatforms.push(index.playform.name);
             }
             platforms.push(currentPlatforms);
         }
         
         console.log(response.results);
+        console.log(platforms)
         
         const allCards = response.results.map( (game, index) => {
             return (
