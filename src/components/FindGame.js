@@ -20,31 +20,41 @@ function FindGame() {
             for (let index of obj.platforms){
                 const plat = index.platform.name;
                 if (plat.includes("Xbox")){
-                    currentPlatforms.push("xbox");
+                    currentPlatforms.push("Xbox");
                 } else if (plat.includes("PlayStation")){
-                    currentPlatforms.push("playstation")
+                    currentPlatforms.push("PlayStation")
                 } else if (plat.includes("PC")){
-                    currentPlatforms.push("pc")
+                    currentPlatforms.push("PC")
                 } else if (plat.includes("Nintendo")){
-                    currentPlatforms.push("nintendo")
+                    currentPlatforms.push("Nintendo")
                 } else if (plat.includes("Game Boy")){
-                    currentPlatforms.push("nintendo")
+                    currentPlatforms.push("Nintendo")
                 } else if (plat.includes("Wii")){
-                    currentPlatforms.push("nintendo")
+                    currentPlatforms.push("Nintendo")
                 }  else if (plat.includes("NES")){
-                    currentPlatforms.push("nintendo")
+                    currentPlatforms.push("Nintendo")
                 }
                 // currentPlatforms.push(index.playform.name);
             }
             platforms.push(currentPlatforms);
         }
+
+        const filteredPlatforms = [];
+        for (let array of platforms){
+            const tempArray = array.filter( (element, index) => {
+                return array.indexOf(element) === index;
+            });
+            filteredPlatforms.push(tempArray);
+        }
         
+        console.log("API Results:")
         console.log(response.results);
-        console.log(platforms)
+        console.log("Filtered Platforms:")
+        console.log(filteredPlatforms);
         
         const allCards = response.results.map( (game, index) => {
             return (
-                <GenerateCard key={index} img={game.background_image} name={game.name} platform={platforms[index]} rating={game.rating}/>
+                <GenerateCard key={index} img={game.background_image} name={game.name} platform={filteredPlatforms[index]} rating={game.rating}/>
             )
         })
 
