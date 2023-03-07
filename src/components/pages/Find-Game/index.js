@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import GenerateCard from './GenerateCard'
-import "../styling/FindGame.css"
 
 function FindGame() {
     const [cards, setCards] = useState([]);
