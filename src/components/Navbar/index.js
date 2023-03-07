@@ -7,7 +7,7 @@ const Navbar = (props) => {
   return (
     <div className="Navbar">
         <Link to="/">Home</Link>
-        <Link to="/findgame">Find Game</Link>
+        <Link to="/findgames">Find Game</Link>
       
        {props.isLoggedIn? 
        <>
