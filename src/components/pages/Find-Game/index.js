@@ -55,11 +55,6 @@ function FindGame() {
                 return element.name;
             }));
         }
-
-        console.log("API Results:")
-        console.log(response.results);
-        console.log("Filtered Platforms:")
-        console.log(filteredPlatforms);
         
         const allCards = response.results.map( (game, index) => {
             return (

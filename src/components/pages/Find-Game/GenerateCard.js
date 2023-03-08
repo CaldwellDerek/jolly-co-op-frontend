@@ -10,9 +10,14 @@ function GenerateCard(props) {
         return <li className="list-group-item" key={index}>{element}</li>
     });
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        console.log(e.target);
+        const name = e.target.getAttribute("data-name");
+        const platforms = e.target.getAttribute("data-platforms");
+        const ratings = e.target.getAttribute("data-rating");
+        const genres = e.target.getAttribute("genres");
+        
+        
     }
 
     return (

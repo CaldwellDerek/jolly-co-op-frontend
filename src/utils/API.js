@@ -30,6 +30,15 @@ isValidToken:token=>{
             "Content-Type":"application/json"
         }        
         }).then(res=>res.json())
+    },
+    saveGame: gameObj=> {
+        return fetch(`${URL_PREFIX}/api/games`, {
+            method:"PUT",
+            body: JSON.stringify(gameObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
     }
 }
 
