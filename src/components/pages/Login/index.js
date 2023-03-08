@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import API from "../../../utils/API"
+import { useNavigate } from "react-router-dom";
 
 export const Login = (props) => {
   const [loginEmail, setloginEmail] = useState("");
@@ -8,6 +9,7 @@ export const Login = (props) => {
   const [signupUsername, setsignupUsername] = useState("");
   const [signupEmail, setsignupEmail] = useState("");
   const [signupPassword, setsignupPassword] = useState("");
+  let navigate = useNavigate();
 
   const handleFormChange = (e) => {
     console.log(e.target.value);
@@ -51,6 +53,8 @@ localStorage.setItem("token", data.token)
         setloginEmail("")
         setloginPassword("")
     })
+    let path = "/";
+    navigate(path);
   }
   const handleSignupSubmit = e =>{
     e.preventDefault();
@@ -71,8 +75,16 @@ localStorage.setItem("token", data.token)
         setsignupUsername("")
         setsignupEmail("")
         setsignupPassword("")
+        
     })
-  }
+    let path = "/";
+    navigate(path);
+}
+
+// const routeChange= () =>{
+//     let path = "/";
+//     navigate(path);
+//   }
 
   return (
     <div>
@@ -100,6 +112,8 @@ localStorage.setItem("token", data.token)
             />
           <button>Login</button>
         </form>
+
+
         <form onSubmit={handleSignupSubmit}>
         <label for="signupUsername">Username:</label>
           
@@ -126,7 +140,7 @@ localStorage.setItem("token", data.token)
             value={signupPassword}
             onChange={handleFormChange}
             />
-          <button>Signup</button>
+          <button >Signup</button>
         </form>
             </div>
       </div>
