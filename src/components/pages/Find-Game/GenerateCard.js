@@ -9,6 +9,12 @@ function GenerateCard(props) {
     const platformList = props.platform.map((element, index)=> {
         return <li className="list-group-item" key={index}>{element}</li>
     });
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+    }
+
     return (
         <div className="card" style={styleCard}>
             <img src={props.img} className="card-img-top" alt="Game Art"/>
@@ -19,7 +25,8 @@ function GenerateCard(props) {
                     {platformList}
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
-                <button type="button" className="btn btn-primary">Save</button>
+                <button type="button" className="btn btn-primary save-button" data-name={props.name} data-platforms={props.platform} data-rating={props.rating} 
+                genres={props.genres} onClick={handleClick}>Save</button>
             </div>
         </div>
     );

@@ -3,7 +3,8 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from "./components/pages/Login"
 import  Navbar  from "./components/Navbar"
 import API from "./utils/API"
-import FindGame from "./components/pages/Find-Game";
+import FindGame from "./components/pages/Find-Game"
+import MyList from "./components/pages/My-List"
 import "./components/pages/Find-Game/style.css"
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
         <Route path="/findfriend" element={<h1>Find Friend</h1>}/>
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup" element={<h1>Group Page</h1>}/>
-        <Route path="/mylist" element={<h1>My List</h1>}/>
+        <Route path="/mylist" element={<MyList />}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       </BrowserRouter>
