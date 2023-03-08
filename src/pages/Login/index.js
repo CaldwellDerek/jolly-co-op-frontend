@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import API from "../../../utils/API"
+import API from "../../utils/API"
 
 export const Login = () => {
   const [loginEmail, setloginEmail] = useState("");
