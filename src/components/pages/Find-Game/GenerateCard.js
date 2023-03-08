@@ -1,4 +1,5 @@
 import React from 'react';
+import API from "../../../utils/API";
 
 const styleCard = {
     width: "18rem",
@@ -10,14 +11,18 @@ function GenerateCard(props) {
         return <li className="list-group-item" key={index}>{element}</li>
     });
 
-    const handleClick = async (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
-        const name = e.target.getAttribute("data-name");
-        const platforms = e.target.getAttribute("data-platforms");
-        const ratings = e.target.getAttribute("data-rating");
-        const genres = e.target.getAttribute("genres");
-        
-        
+
+        const game = {
+            name: e.target.getAttribute("data-name"),
+            platforms: e.target.getAttribute("data-platforms"),
+            rating: e.target.getAttribute("data-rating"),
+            genres: e.target.getAttribute("data-genres")
+        }
+
+        API.saveGame(game, localStorage.getItem('token')).then(data => console.log(data));
+
     }
 
     return (
@@ -31,7 +36,7 @@ function GenerateCard(props) {
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
                 <button type="button" className="btn btn-primary save-button" data-name={props.name} data-platforms={props.platform} data-rating={props.rating} 
-                genres={props.genres} onClick={handleClick}>Save</button>
+                data-genres={props.genres} onClick={handleClick}>Save</button>
             </div>
         </div>
     );
