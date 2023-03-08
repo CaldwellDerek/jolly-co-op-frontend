@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import API from "../../utils/API"
 
-export const Login = () => {
+export const Login = (props) => {
   const [loginEmail, setloginEmail] = useState("");
   const [loginPassword, setloginPassword] = useState("");
   const [signupUsername, setsignupUsername] = useState("");
@@ -41,6 +41,13 @@ export const Login = () => {
     }
     API.login(userObj).then(data=>{
         console.log(data)
+if(data.token){
+    props.setToken(data.token)
+    props.setIsLoggedIn(true);
+    props.setUserId(data.user.id)
+}
+localStorage.setItem("token", data.token)
+
         setloginEmail("")
         setloginPassword("")
     })
@@ -54,6 +61,13 @@ export const Login = () => {
     }
     API.signup(userObj).then(data=>{
         console.log(data)
+        if(data.token){
+            props.setToken(data.token);
+            props.setIsLoggedIn(true);
+            props.setUserId(data.user.id)
+        }
+
+        localStorage.setItem("token", data.token)
         setsignupUsername("")
         setsignupEmail("")
         setsignupPassword("")
@@ -119,3 +133,4 @@ export const Login = () => {
     </div>
   );
 };
+
