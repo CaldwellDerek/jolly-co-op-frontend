@@ -49,14 +49,16 @@ function FindGame() {
             filteredPlatforms.push(tempArray);
         }
         
-        console.log("API Results:")
-        console.log(response.results);
-        console.log("Filtered Platforms:")
-        console.log(filteredPlatforms);
+        const genres = [];
+        for (let obj of response.results){
+            genres.push(obj.genres.map((element, index)=> {
+                return element.name;
+            }));
+        }
         
         const allCards = response.results.map( (game, index) => {
             return (
-                <GenerateCard key={index} img={game.background_image} name={game.name} platform={filteredPlatforms[index]} rating={game.rating}/>
+                <GenerateCard key={index} img={game.background_image} name={game.name} platform={filteredPlatforms[index]} rating={game.rating} genres={genres[index]}/>
             )
         })
 
