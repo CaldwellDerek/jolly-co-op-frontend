@@ -33,9 +33,9 @@ isValidToken:token=>{
     }
 }
 
-    getAllGroups : ()=>{
-        return fetch(`${URL_PREFIX}/api/groups`).then(res=>res.json())
-    }
+    // getAllGroups : ()=>{
+    //     return fetch(`${URL_PREFIX}/api/groups`).then(res=>res.json())
+    // }
 
 
 
