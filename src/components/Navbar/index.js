@@ -1,23 +1,41 @@
-import React from 'react';
-import {Link} from "react-router-dom"
-import "./style.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 const Navbar = (props) => {
-    
   return (
     <div className="Navbar">
-        <Link to="/findgames">Find Game</Link>
-      
-       {props.isLoggedIn? 
-       <>
-       <Link to={`/home/${props.userId}`}>Home</Link>
-       <Link to='/mylist'>My List</Link>
-       <Link to='/mygroup'>My Group</Link>
-       </>
-        : <Link to ="/login">Login</Link>}
-        {props.isLoggedIn?<button onClick={props.logout}>Logout</button>:null}
-    </div>
-  )
-}
+      <h1 className="title">JOLLY-COOP</h1>
+      <div className="NavbarBtnContainer">
+        <Link className="NavbarBtn" to="/findgames">
+          Find Game
+        </Link>
 
-export default Navbar
+        {props.isLoggedIn ? (
+          <>
+            <Link className="NavbarBtn" to={`/home/${props.userId}`}>
+              Home
+            </Link>
+            <Link className="NavbarBtn" to="/mylist">
+              My List
+            </Link>
+            <Link className="NavbarBtn" to="/mygroup">
+              My Group
+            </Link>
+          </>
+        ) : (
+          <Link className="NavbarBtn" to="/login">
+            Login
+          </Link>
+        )}
+        {props.isLoggedIn ? (
+          <button className="NavbarBtn" onClick={props.logout}>
+            Logout
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
