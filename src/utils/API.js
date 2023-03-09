@@ -30,7 +30,12 @@ isValidToken:token=>{
             "Content-Type":"application/json"
         }        
         }).then(res=>res.json())
+    },
+    getAllUsers: () => {
+        return fetch(`${URL_PREFIX}/api/users`).then(res=>res.json())
+
     }
+
 }
 
     // getAllGroups : ()=>{
