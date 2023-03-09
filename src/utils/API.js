@@ -16,6 +16,24 @@ const API = {
     }).then((res) => res.json());
   },
 
+
+    getAllUsers: () => {
+        return fetch(`${URL_PREFIX}/api/users`).then(res=>res.json())
+
+    },
+
+
+    saveGame: (gameObj, token)=> {
+        return fetch(`${URL_PREFIX}/api/games`, {
+            method:"PUT",
+            body: JSON.stringify(gameObj),
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    }, 
+
   login: (userObj) => {
     return fetch(`${URL_PREFIX}/api/users/login`, {
       method: "POST",
