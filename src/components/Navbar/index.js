@@ -5,7 +5,7 @@ import "./style.css";
 const Navbar = (props) => {
   return (
     <div className="Navbar">
-      <h1>JOLLY-COOP</h1>
+      <h1 className="title">JOLLY-COOP</h1>
       <div className="NavbarBtnContainer">
         <Link className="NavbarBtn" to="/findgames">
           Find Game
