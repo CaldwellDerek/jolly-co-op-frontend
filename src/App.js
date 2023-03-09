@@ -6,6 +6,8 @@ import API from "./utils/API"
 import FindGame from "./components/pages/Find-Game"
 import MyList from "./components/pages/My-List"
 import "./components/pages/Find-Game/style.css"
+import MyGroups from "./components/pages/My-Group";
+import FindFriend from "./components/pages/Find-Friend";
 import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
 import MyGroups from "./components/pages/My-Group"
@@ -49,7 +51,7 @@ function App() {
         <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
-        <Route path="/findfriend" element={<h1>Find Friend</h1>}/>
+        <Route path="/findfriend" element={<FindFriend/>}/>
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
         <Route path="/mylist" element={<MyList />}/>
