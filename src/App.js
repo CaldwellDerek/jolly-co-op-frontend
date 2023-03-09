@@ -3,10 +3,13 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from "./components/pages/Login"
 import  Navbar  from "./components/Navbar"
 import API from "./utils/API"
-import FindGame from "./components/pages/Find-Game";
+import FindGame from "./components/pages/Find-Game"
+import MyList from "./components/pages/My-List"
 import "./components/pages/Find-Game/style.css"
 import MyGroups from "./components/pages/My-Group";
 import FindFriend from "./components/pages/Find-Friend";
+import Home from "./components/pages/Home"
+
 
 function App() {
   const [token, setToken] = useState("");
@@ -42,12 +45,13 @@ function App() {
       <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
       <br/>
       <Routes>
-        <Route path="/" element={<h1>Homepage</h1>}/>
-        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn}/>}/>
+        <Route path="/" element={<h1>Logout Page</h1>}/>
+        <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<FindFriend/>}/>
         <Route path="/findgames" element={<FindGame/>}/>
-        <Route path="/mygroup" element={<MyGroups/>}/>
+        <Route path="/mygroup" element={<h1>Group Page</h1>}/>
         <Route path="/mylist" element={<h1>My List</h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
