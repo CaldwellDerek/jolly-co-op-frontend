@@ -95,6 +95,13 @@ const API = {
       },
     }).then((res) => res.json());
   },
+  countVotesofaUserinaGroup: (groupid,userid,token) => {
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid}/user/${userid}`, {
+      headers: {
+        "authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
 };
 
 export default API;
