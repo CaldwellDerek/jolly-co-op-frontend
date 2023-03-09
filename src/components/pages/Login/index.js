@@ -52,9 +52,10 @@ localStorage.setItem("token", data.token)
 
         setloginEmail("")
         setloginPassword("")
+        let path = `/home/${data.user.id}`;
+        navigate(path);
     })
-    let path = "/";
-    navigate(path);
+    
   }
   const handleSignupSubmit = e =>{
     e.preventDefault();
@@ -76,9 +77,9 @@ localStorage.setItem("token", data.token)
         setsignupEmail("")
         setsignupPassword("")
         
+        let path = `/home/${data.user.id}`;
+        navigate(path);
     })
-    let path = "/";
-    navigate(path);
 }
 
 // const routeChange= () =>{
