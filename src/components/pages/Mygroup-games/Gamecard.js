@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../../utils/API";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button"
 
 const styleCard = {
   width: "18rem",
@@ -10,7 +10,6 @@ const styleCard = {
 
 function Gamecard(props) {
   const params = useParams();
-  const [count, setCount] = useState(0);
   //Vote of a game
   const [vote, setVote] = useState(0);
   const [usergamevote, setUsergamevote] = useState(false)
@@ -55,7 +54,7 @@ function Gamecard(props) {
   const createVote = () => {
     const voteObj = { GameId: props.id };
     API.createVoteInaGroup(params.id, voteObj, props.token).then((data) => {
-      // console.log(data);
+      console.log(data);
       if (!data.msg){
         setVote(vote + 1)
       }
@@ -64,7 +63,7 @@ function Gamecard(props) {
   const deleteVote = () => {
     const voteObj = { GameId: props.id };
     API.deteleaGroup(params.id, voteObj, props.token).then((data) => {
-      // console.log(data);
+      console.log(data);
       setVote(vote - 1)
     });
   };
@@ -82,7 +81,7 @@ function Gamecard(props) {
   useEffect(()=>{
     fetchGameVoteofaUserinGroup()
     fetchGameVoteofaUser();
-  },[])
+  },[vote])
 
   return (
     <div className="card" style={styleCard}>

@@ -8,6 +8,7 @@ import MyList from "./components/pages/My-List"
 import "./components/pages/Find-Game/style.css"
 import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/mygroup" element={<h1>My Group</h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );
