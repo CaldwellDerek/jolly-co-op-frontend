@@ -16,7 +16,7 @@ function Gamecard(props) {
                 <h5 className="card-title">{props.name}</h5>
                 <p className="card-text">Available On</p>
                 <ul className="list-group">
-                    {/* {platformList} */}
+                    {props.platforms}
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
                 <button type="button" className="btn btn-primary">Vote</button>
