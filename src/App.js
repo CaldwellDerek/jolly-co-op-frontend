@@ -50,8 +50,7 @@ function App() {
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<h1>Find Friend</h1>}/>
         <Route path="/findgames" element={<FindGame/>}/>
-        <Route path="/mygroup" element={<h1>Group Page</h1>}/>
-        <Route path="/:id/mygroup/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
+        <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
         <Route path="/mylist" element={<MyList />}/>
         <Route path="/mygroup" element={<h1>My Group</h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
