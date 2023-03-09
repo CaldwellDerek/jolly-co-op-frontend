@@ -39,8 +39,12 @@ isValidToken:token=>{
     getAllGroups: () =>{
         return fetch(`${URL_PREFIX}/api/groups`).then(res=>res.json())
           
+        },
+        
+        getAllGames: () => {
+            return fetch(`${URL_PREFIX}/api/games`).then(res=>res.json())
         }
+        
     }
-
 
 export default API
