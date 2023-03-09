@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import API from "../../../utils/API";
-import Gamecard from "../../Gamecard/Gamecard";
+import Gamecard from "./Gamecard";
 import { Link } from "react-router-dom";
 
 const Allgamesingroup = (props) => {
@@ -10,12 +10,6 @@ const Allgamesingroup = (props) => {
   const [games, setGame] = useState([]);
   const [group, setGroup] = useState([]);
   const [user, setUser] = useState({});
-  const [votes, setVote] = useState("");
-//     const [token, setToken]= useState("");
-//     const [userId, setUserId] = useState("")
-
-//     setToken(props.token)
-//   setUserId(props.userId)
 
   //   const fetchUser = () => {
   //     API.getUserData(params.id, props.token).then((data) => {
@@ -27,11 +21,6 @@ const Allgamesingroup = (props) => {
     API.getGamesInaGroup(params.id, props.userId).then((data) => {
       setGame(data.Games);
       setGroup(data);
-    });
-  };
-  const fetchGroupVote = () => {
-    API.getVotesInaGroup(params.id, props.userId).then((data) => {
-      setVote(data.length);
     });
   };
 

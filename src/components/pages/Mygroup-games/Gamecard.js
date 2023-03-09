@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 
 const styleCard = {
   width: "18rem",
@@ -15,19 +15,29 @@ function Gamecard(props) {
   //     return <li className="list-group-item" key={index}>{element}</li>
   // });
   const fetchGameVoteofaUser = () => {
-    API.countVotesofaGame(params.id, props.userId, props.id, props.token).then(
+    API.countVotesofaUserofaGame(params.id, props.userId, props.id, props.token).then(
       (data) => {
         console.log(data);
       }
     );
   };
-
+  const createVote = () => {
+    const voteObj={GameId:props.id}
+    API.createVoteInaGroup(params.id, voteObj, props.token).then(
+      (data) => {
+        console.log(data);
+        // setCount(vote + 1)
+      }
+    );
+  };
   const fetchGameVote = () => {
     API.countVotesofaGame(props.id, params.id, props.token).then((data) => {
       console.log(data);
-      // setVote(data.count)
+      setVote(data.length)
     });
   };
+
+
   useEffect(() => {
     fetchGameVote();
   }, []);
@@ -42,13 +52,13 @@ function Gamecard(props) {
         <p className="card-text">Overall Rating: {props.rating}</p>
         <button
           type="button"
-          onClick={() => setCount(count + 1)}
+          onClick={() => createVote()}
           className="btn btn-primary"
         >
           👆🏼 Vote
         </button>
         <br></br>
-        <p>⛳️ Current: {vote}</p>
+        <p>⛳️ Current: {count}</p>
       </div>
     </div>
   );

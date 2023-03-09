@@ -71,13 +71,20 @@ const API = {
       },
     }).then((res) => res.json());
   },
-  countVotesofaGame: (groupid, userid, gameid, token) => {
+  countVotesofaUserofaGame: (groupid, userid, gameid, token) => {
     return fetch(`${URL_PREFIX}/api/votes/${groupid}/${userid}/${gameid} `, {
       headers: {
         "authorization": `Bearer ${token}`,
       },
     }).then((res) => res.json());
-  }
+  },
+  countVotesofaGame: (gameid, groupid,token) => {
+    return fetch(`${URL_PREFIX}/api/votes/game/${gameid}/group/${groupid}`, {
+      headers: {
+        "authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
 };
 
 export default API;
