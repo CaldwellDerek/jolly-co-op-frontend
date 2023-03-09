@@ -85,6 +85,16 @@ const API = {
       },
     }).then((res) => res.json());
   },
+  deteleaGroup:(groupid,voteObj,token)=>{
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid}`,{
+      method: "DELETE",
+      body: JSON.stringify(voteObj),
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
 };
 
 export default API;

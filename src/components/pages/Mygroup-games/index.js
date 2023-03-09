@@ -9,7 +9,7 @@ const Allgamesingroup = (props) => {
   const params = useParams();
   const [games, setGame] = useState([]);
   const [group, setGroup] = useState([]);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
   //   const fetchUser = () => {
   //     API.getUserData(params.id, props.token).then((data) => {

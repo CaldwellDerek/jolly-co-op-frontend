@@ -15,28 +15,36 @@ function Gamecard(props) {
   //     return <li className="list-group-item" key={index}>{element}</li>
   // });
   const fetchGameVoteofaUser = () => {
-    API.countVotesofaUserofaGame(params.id, props.userId, props.id, props.token).then(
-      (data) => {
-        console.log(data);
-      }
-    );
+    API.countVotesofaUserofaGame(
+      params.id,
+      props.userId,
+      props.id,
+      props.token
+    ).then((data) => {
+      console.log(data);
+    });
   };
   const createVote = () => {
-    const voteObj={GameId:props.id}
-    API.createVoteInaGroup(params.id, voteObj, props.token).then(
-      (data) => {
-        console.log(data);
-        // setCount(vote + 1)
-      }
-    );
+    const voteObj = { GameId: props.id };
+    API.createVoteInaGroup(params.id, voteObj, props.token).then((data) => {
+      console.log(data);
+      setCount(vote + 1)
+    });
+  };
+  const deleteVote = () => {
+    const voteObj = { GameId: props.id };
+    API.deteleaGroup(params.id, voteObj, props.token).then((data) => {
+      console.log(data);
+      setCount(vote - 1)
+    });
   };
   const fetchGameVote = () => {
     API.countVotesofaGame(props.id, params.id, props.token).then((data) => {
       console.log(data);
-      setVote(data.length)
+      setVote(data.length);
+      setCount(vote);
     });
   };
-
 
   useEffect(() => {
     fetchGameVote();
@@ -50,6 +58,7 @@ function Gamecard(props) {
         <p className="card-text">Available On</p>
         <ul className="list-group"></ul>
         <p className="card-text">Overall Rating: {props.rating}</p>
+        <div>
         <button
           type="button"
           onClick={() => createVote()}
@@ -57,6 +66,14 @@ function Gamecard(props) {
         >
           👆🏼 Vote
         </button>
+        <button
+          type="button"
+          onClick={() => deleteVote()}
+          className="btn btn-primary"
+        >
+          👇🏼 Cancle
+        </button>
+        </div>
         <br></br>
         <p>⛳️ Current: {count}</p>
       </div>
