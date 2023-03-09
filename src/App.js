@@ -8,6 +8,7 @@ import MyList from "./components/pages/My-List"
 import "./components/pages/Find-Game/style.css"
 import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
+import MyGroups from "./components/pages/My-Group"
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
         <Route path="/mylist" element={<MyList />}/>
-        <Route path="/mygroup" element={<h1>My Group</h1>}/>
+        <Route path="/mygroup" element={<MyGroups/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       </BrowserRouter>
