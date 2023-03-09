@@ -32,8 +32,8 @@ const API = {
                 "authorization": `Bearer ${token}`
             }
         }).then(res => res.json())
-    } 
-}
+    }, 
+
   login: (userObj) => {
     return fetch(`${URL_PREFIX}/api/users/login`, {
       method: "POST",

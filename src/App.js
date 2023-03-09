@@ -54,7 +54,7 @@ function App() {
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
         <Route path="/mylist" element={<MyList />}/>
-        <Route path="/mygroup" element={<h1>My Group</h1>}/>
+        <Route path="/mygroup" element={<MyGroups/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       </BrowserRouter>
