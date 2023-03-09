@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
-
+const members = [];
 
 const FindFriend = () => {
     const [data, setData] = useState([]);
@@ -20,11 +20,8 @@ const FindFriend = () => {
             })
             console.log(newUsers)
             setData(newUsers);
-            const members = [];
             document.querySelector('#add-member').addEventListener('click', e => {
                 members.push(data);
-        
-        
             })
         }
         fetchUsers()
@@ -49,7 +46,8 @@ return (
                         </tr>
                         {data.map((users) => (
                             <tr key={users.id}>
-                                <th>{users.username}<button id="add-member">+</button></th>
+                                <th>{users.username}<button id="add-member">+</button>
+                                </th>
                             </tr>
                         )
                         )}
@@ -71,16 +69,6 @@ return (
                     </tr>  */}
             </div>
             <button>submit</button>
-            {/* <form>
-                    <label for="groupName">Group Name:</label>
-                    <input
-                    type="text"
-                    name="groupName"
-                    value={groupName}
-                    // onChange={handleFormChange}
-                    />{" "}
-
-                </form> */}
         </div>
 
     </div>
