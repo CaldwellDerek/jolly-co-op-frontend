@@ -1,0 +1,28 @@
+.JollyH1 {
+    text-align: center;
+}
+
+.MyGroups{
+    margin: 5px;
+    background-color: gray;
+    height: 70vh;
+}
+.NewGroup{
+    margin-top: 25px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+.start-new{
+    height: 40px;
+    width: 70vw;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    background-color:rgb(212, 100, 100) ;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+}
+
+
