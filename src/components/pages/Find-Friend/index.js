@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
-const groupMembers = [];
-
+const members = [];
+// const group= ('')
 
 
 
@@ -12,34 +12,39 @@ const groupMembers = [];
 // hide the enter Group name, show search users.
 const StartGroup = () => {
     const [data, setData] = useState([]);
-    const [input, setInput] = useState();
-    const [name, setName] =useState('')
-    
+    const [input, setInput] = useState('');
+    const [name, setName] =useState('');
+    const [nameGroup, setnameGroup] = useState('');
+    const [groupMembers, setGroupMembers] = useState([])
     const getGroupName = (e)=>{
         setInput(e.target.value)
     };
-    const addGroupName = (e) => {
+    const addGroupName = () => {
         const copyName = [...name];
         copyName.push(input);
         // console.log(copyName)
         setName([...name, input]);
         setInput("")
         
-        const group = {
+        const groupTitle = {
             name: (copyName)
         }
+        // group.push(groupTitle)
+        console.log(groupTitle)
+        setnameGroup(copyName)
         // console.log(group)
-        // API.createGroup(group)
+        // API.createGroup()
     }
     
     
     const addMember = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const member = {
             id: e.target.getAttribute("data-id"),
             username: e.target.getAttribute("data-username")
         }
-        groupMembers.push(member)
+        members.push(member)
+        setGroupMembers(members)
         console.log(groupMembers)
         
         // pull the users info from on click button
@@ -84,10 +89,10 @@ const StartGroup = () => {
             </div>
             <div className="Group-Card">
                 <div>
-                    <h1>{}</h1>
+                    <h1>{nameGroup}</h1>
                     <h3>added members</h3>
                     <ul>
-                    {groupMembers.map((groupMember)=>{
+                    {members.map((groupMember)=>{
                         return (
                            <li>{groupMember.username}</li>
                         )
@@ -106,8 +111,8 @@ const StartGroup = () => {
                             <tr>
                                 <th> Results</th>
                             </tr>
-                            {data.map((users) => (
-                                <tr>
+                            {data.map((users, index) => (
+                                <tr key={index}>
                                     <th >{users.username}<button data-id={users.id} data-username={users.username} className='userInfo' id="add-member" onClick={addMember} >+</button>
                                     </th>
                                 </tr>
