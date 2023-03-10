@@ -41,6 +41,9 @@ function App() {
     setUserId(0);
     setIsLoggedIn(false);
     localStorage.removeItem("token")
+    return(
+      window.location.href = "/"
+    )
 
   }
 
