@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dancing+Script&display=swap");
+
+.footer {
+    display: flex;
+    background-color: #f1faee;
+    border-top: 5px solid rgb(212, 100, 100);
+    align-items: center;
+    bottom:0vh
+}
+.footerul{
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+}
+
+.footer h1{
+    font-family: 'Climate Crisis', cursive;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                 -8px 8px #f48fb1,
+                 -12px 12px #7e57c2,
+                 -16px 16px #2196f3,
+                 -20px 20px #26c6da,
+                 -24px 24px #43a047,
+                 -28px 28px #eeff41,
+                 -32px 32px #f9a825,
+                 -36px 36px #ff5722;
+    padding:1vw 1vw 1vw 5vw;
+  }

@@ -4,16 +4,16 @@ const API = {
     getUserData: (id, token) => {
         return fetch(`${URL_PREFIX}/api/users/${id}`, {
             headers: {
-                authorization: `Bearer ${token}`,
-            },
-        }).then((res) => res.json());
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => res.json());
     },
     isValidToken: (token) => {
         return fetch(`${URL_PREFIX}/api/users/isValidToken`, {
             headers: {
-                authorization: `Bearer ${token}`,
-            },
-        }).then((res) => res.json());
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => res.json());
     },
     getAllUsers: () => {
         return fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
@@ -56,22 +56,22 @@ const API = {
             method: "PUT",
             body: JSON.stringify(gameObj),
             headers: {
-                "Content-Type": "application/json",
-                authorization: `Bearer ${token}`,
-            },
-        }).then((res) => res.json());
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => res.json());
     },
     getGamesInaGroup: (groupid, token) => {
         return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
             headers: {
-                "authorization": `Bearer ${token}`,
+            "Authorization": `Bearer ${token}`,
             },
         }).then((res) => res.json());
     },
     getVotesInaGroup: (groupid, token) => {
         return fetch(`${URL_PREFIX}/api/votes/group/${groupid} `, {
             headers: {
-                authorization: `Bearer ${token}`,
+            "Authorization": `Bearer ${token}`,
             },
         }).then((res) => res.json());
     },
@@ -80,27 +80,93 @@ const API = {
             method: "PUT",
             body: JSON.stringify(voteObj),
             headers: {
-                "Content-Type": "application/json",
-                authorization: `Bearer ${token}`,
-            },
-        }).then((res) => res.json());
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => res.json());
     },
     countVotesofaGame: (groupid, userid, gameid, token) => {
         return fetch(`${URL_PREFIX}/api/votes/${groupid}/${userid}/${gameid} `, {
             headers: {
-                "authorization": `Bearer ${token}`,
-            },
-        }).then((res) => res.json());
+            "Authorization": `Bearer ${token}`,
+        },
+    }).then((res) => res.json());
     },
 
     deleteGame: (id, token) => {
         return fetch(`${URL_PREFIX}/api/games/${id}`, {
             method: "DELETE",
             headers: {
-                "authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`
             }
-        }).then(res => res.json());
-    }
+        }).then(res => res.json())
+    }, 
+
+  getAllGroups: () => {
+    return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
+    },
+
+
+    
+    getAllGames: () => {
+        return fetch(`${URL_PREFIX}/api/games`).then(res=>res.json())
+  },
+
+  getGamesInaGroup: (groupid, token) => {
+    return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  getVotesInaGroup: (groupid, token) => {
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid} `, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  createVoteInaGroup:(groupid,voteObj,token)=>{
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid}`,{
+      method: "PUT",
+      body: JSON.stringify(voteObj),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  countVotesofaUserofaGame: (groupid, userid, gameid, token) => {
+    return fetch(`${URL_PREFIX}/api/votes/${groupid}/${userid}/${gameid} `, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  countVotesofaGame: (gameid, groupid,token) => {
+    return fetch(`${URL_PREFIX}/api/votes/game/${gameid}/group/${groupid}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  deteleaGroup:(groupid,voteObj,token)=>{
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid}`,{
+      method: "DELETE",
+      body: JSON.stringify(voteObj),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  countVotesofaUserinaGroup: (groupid,userid,token) => {
+    return fetch(`${URL_PREFIX}/api/votes/group/${groupid}/user/${userid}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
 };
 
 export default API;

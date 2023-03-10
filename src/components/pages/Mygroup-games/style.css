@@ -2,9 +2,34 @@
     display:flex;
 
     justify-content: space-around;
+    align-items: end;
 }
 .cardbtn{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regularcard{
+    width: 18rem;
+    margin: 10px
+}
+
+.winner{
+    background-color: #e63946;
+    text-align: center;
+    height:6vh;
+}
+
+.loser{
+    background-color: #457b9d;
+    text-align: center;
+    height:6vh;
 }
