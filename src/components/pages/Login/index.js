@@ -94,7 +94,7 @@ localStorage.setItem("token", data.token)
         <div  className="Login">
 
         <form onSubmit={handleFormSubmit}>
-          <label for="loginEmail">Email:</label>
+          <label htmlFor="loginEmail">Email:</label>
         
           <input
             type="text"
@@ -103,7 +103,7 @@ localStorage.setItem("token", data.token)
             onChange={handleFormChange}
             />{" "}
         
-          <label for="loginPassword">Password:</label>
+          <label htmlFor="loginPassword">Password:</label>
         
           <input
             type="password"
@@ -116,7 +116,7 @@ localStorage.setItem("token", data.token)
 
 
         <form onSubmit={handleSignupSubmit}>
-        <label for="signupUsername">Username:</label>
+        <label htmlFor="signupUsername">Username:</label>
           
           <input
             type="text"
@@ -124,7 +124,7 @@ localStorage.setItem("token", data.token)
             value={signupUsername}
             onChange={handleFormChange}/>{" "}
 
-          <label for="signupEmail">Email:</label>
+          <label htmlFor="signupEmail">Email:</label>
           
           <input
             type="text"
@@ -133,7 +133,7 @@ localStorage.setItem("token", data.token)
             onChange={handleFormChange}
             />{" "}
         
-          <label for="signupPassword">Password:</label>
+          <label htmlFor="signupPassword">Password:</label>
         
           <input
             type="password"
