@@ -55,16 +55,7 @@ const API = {
   getAllGroups: () => {
     return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
   },
-  saveGame: (gameObj, token) => {
-    return fetch(`${URL_PREFIX}/api/games`, {
-      method: "PUT",
-      body: JSON.stringify(gameObj),
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-    }).then((res) => res.json());
-  },
+
   getGamesInaGroup: (groupid, token) => {
     return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
       headers: {

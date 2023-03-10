@@ -12,20 +12,22 @@ import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
 import Footer from "./components/Footer";
 
-
 function App() {
   const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userId, setUserId] = useState(0);
+  const [userName, setUserName] = useState("");
 
   useEffect(()=>{
     const savedToken = localStorage.getItem("token");
-    console.log(savedToken)
+    // console.log(savedToken)
     if(savedToken){
       API.isValidToken(savedToken).then(tokenData=>{
         if(tokenData.isValid){
+          console.log(tokenData)
           setToken(savedToken);
           setUserId(tokenData.user.id)
+          setUserName(tokenData.user.username)
           setIsLoggedIn(true)
         } else {
           localStorage.removeItem("token")
@@ -39,6 +41,7 @@ function App() {
     setUserId(0);
     setIsLoggedIn(false);
     localStorage.removeItem("token")
+
   }
 
   return (
@@ -53,7 +56,7 @@ function App() {
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<FindFriend/>}/>
         <Route path="/findgames" element={<FindGame/>}/>
-        <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId}/>}/>
+        <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId} userName={userName}/>}/>
         <Route path="/mylist" element={<MyList />}/>
         <Route path="/mygroup" element={<MyGroups/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
