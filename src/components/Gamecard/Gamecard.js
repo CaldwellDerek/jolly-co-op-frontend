@@ -14,15 +14,22 @@ function Gamecard(props) {
   // const platformList = props.platform.map((element, index)=> {
   //     return <li className="list-group-item" key={index}>{element}</li>
   // });
+  const fetchGameVoteofaUser = () => {
+    API.countVotesofaGame(params.id, props.userId, props.id, props.token).then(
+      (data) => {
+        console.log(data);
+      }
+    );
+  };
+
   const fetchGameVote = () => {
-    API.countVotesofaGame(params.id, props.userId, props.id, props.token).then((data) => {
+    API.countVotesofaGame(props.id, params.id, props.token).then((data) => {
       console.log(data);
-      setVote(data.count)
+      // setVote(data.count)
     });
   };
   useEffect(() => {
     fetchGameVote();
-    console.log(vote)
   }, []);
 
   return (
