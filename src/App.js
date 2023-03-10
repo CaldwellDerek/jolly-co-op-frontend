@@ -13,6 +13,7 @@ import Home from "./components/pages/Home"
 
 
 
+
 function App() {
   const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -39,6 +40,10 @@ function App() {
     setUserId(0);
     setIsLoggedIn(false);
     localStorage.removeItem("token")
+    return(
+      window.location.href = "/"
+    )
+
   }
 
   return (
