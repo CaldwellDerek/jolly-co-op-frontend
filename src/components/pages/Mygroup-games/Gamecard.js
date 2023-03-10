@@ -11,7 +11,7 @@ function Gamecard(props) {
   const [usergroupvote, setUsergroupvote] = useState(false);
   const [array, setArray] = useState([]);
   const [objarray, setObjArray] = useState([]);
-  const [winner, setWinner] = useState(false);
+  const [winner, setWinner] = useState();
   const [checkvote, setCheckVote] = useState(0);
 
   // const platformList = props.platform.map((element, index)=> {
@@ -141,8 +141,8 @@ function Gamecard(props) {
         <img src={props.img} className="card-img-top" alt="Game Art" />
         <div className="card-body d-flex flex-column justify-content-between align-items-center">
           <h5 className="card-title">{props.name}</h5>
-          <p className="card-text">Available On</p>
-          <ul className="list-group"></ul>
+          <p className="card-text">Available On:</p>
+          <ul className="list-group">{props.platforms}</ul>
           <p className="card-text">Overall Rating: {props.rating}</p>
           {usergamevote ? (
             <button
