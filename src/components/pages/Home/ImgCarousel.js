@@ -16,7 +16,7 @@ const styleCard2 = {
   border: "5px groove #f48fb1",
   margin: "10px",
   borderRadius: "10px",
-  justifyContent: "center"
+  // justifyContent: "center"
 
 }
  
