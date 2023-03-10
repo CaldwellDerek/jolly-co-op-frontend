@@ -1,13 +1,32 @@
-.Search{
-    
+.search-page{
+    height: 100%;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-
 /* Title */
+.group-title{
+   text-align: center;
+}
+/* search */
 .Search-Title{
     margin: 15px;
 }
+
+.Search{
+    align-items: center;
+    margin: 15px;
+    padding: 10px;
+    width: 60%;
+    height: 100%;
+    background-color: blueviolet;
+}
+/* aside shown card */
 .Group-Card{
     height: 80vh;
     width: 30%;
-    float: right
+    float: right;
+    background-color: aquamarine;
+    margin: 15px;
+    
 }
