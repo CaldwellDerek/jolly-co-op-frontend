@@ -8,16 +8,20 @@ import Carousel from 'react-bootstrap/Carousel'
 // import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const styleCard = {
-  height: "15rem",
-  margin: "10px"
+  height: "20rem",
+  // margin: "10px"
+ 
 }
 const styleCard2 = {
   border: "5px groove #f48fb1",
-  margin: "10px"
+  margin: "10px",
+  borderRadius: "10px",
+  justifyContent: "center"
+
 }
  
   const styleCard3 = {
-
+    maxWidth: '500px'
   }
                  
 
@@ -47,15 +51,15 @@ const styleCard2 = {
   // );
 
   //-----------bootstrap carousel-------------
-  <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2} >
+  <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2} className="justify-content-center" >
 
   {props.games.map((game, index)=>{
     console.log(game)
     console.log(index)
     return (
-      <Carousel.Item >
+      <Carousel.Item style={styleCard3} className="justify-content-center">
 
-      <img className="d-block w-100 rounded" style={styleCard}src={game.imgURL} alt="Game Gallery"/>
+      <img className="justify-content-center w-100 rounded" style={styleCard}src={game.imgURL} alt="Game Gallery"/>
       <Carousel.Caption>
       <p>{game.name}</p>
     </Carousel.Caption>
