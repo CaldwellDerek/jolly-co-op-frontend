@@ -4,7 +4,7 @@ import API from "../../../utils/API"
 import { useParams } from "react-router-dom"
 
 import GroupCards from "./GroupCards.js"
-import ImgCarousel from "./ImgCarousel.js"
+import  ImgCarousel  from "./ImgCarousel.js"
 
 function Home(props){
     const params = useParams()
@@ -56,8 +56,8 @@ useEffect(() => {
 {/* {userGroups.map(group=><GroupCards title={group.title}/>)} */}
 
 </div>
-<div>
-  <ImgCarousel/>
+<div className="carousel-box"> 
+  <ImgCarousel image={games.imgURL}/>
 </div>
 </div>
     )}

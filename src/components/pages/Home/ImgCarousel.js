@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import API from "../../../utils/API";
-import { Carousel } from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
+// import { Link } from "react-router-dom";
+// import API from "../../../utils/API";
+// import { Carousel } from "react-responsive-carousel";
+import "./carousel.css";
+// import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-function GenerateImgCarousel(props) {
+const images = [
+  
+  "https://placehold.co/300x300",
+  "https://placehold.co/300x300",
+  "https://placehold.co/300x300",
+];
 
+ function ImgCarousel() {
   return (
     <div className="carousel-wrapper">
-
-    <Carousel infiniteLoop useKeyboardArrows autoPlay>
-<div>
-<img src="https://placehold.co/100x100" />
-<p className="legend">Legend 1</p>
-</div>
-<div>
-<img src="https://placehold.co/200x200" />
-<p className="legend">Legend 2</p>
-</div>
-<div>
-<img src="https://placehold.co/300x300" />
-<p className="legend">Legend 3</p>
-</div>
-</Carousel>
+      <div className="carousel-btn left-btn"/>
+      <div className="carousel-btn right-btn"/>
+      <div className="carousel">
+        {images.map((URL, index) => (
+          <div className="carousel-item">
+            <img alt="game image" src={URL} key={index} />
+            <p> Image</p> 
+          </div>
+      ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default GenerateImgCarousel;
+export default ImgCarousel;

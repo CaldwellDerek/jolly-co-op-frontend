@@ -10,7 +10,7 @@ import MyGroups from "./components/pages/My-Group";
 import FindFriend from "./components/pages/Find-Friend";
 import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
-import MyGroups from "./components/pages/My-Group"
+
 
 
 function App() {
