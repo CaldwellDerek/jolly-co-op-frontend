@@ -37,14 +37,15 @@ const fetchGames = () => {
         setGames(data)
     })
 }
+console.log(games);
+console.log(games.imgURl);
+games.forEach
+
 useEffect(() => {
     fetchGames();
 }, []);
 
-    const gameData = fetch(`https://api.rawg.io/api/games?page_size=5&dates=2023-02-01,2023-02-20&key=7d95d52e79314e3e86649fa211b6be93`);
-    const response = JSON.stringify(gameData);
-    console.log("API Results:")
-        console.log(response.results);
+   
 
      
     return (
@@ -57,7 +58,7 @@ useEffect(() => {
 
 </div>
 <div className="carousel-box"> 
-  <ImgCarousel image={games.imgURL}/>
+  <ImgCarousel image={games.imgURL} imgName={games.name}/>
 </div>
 </div>
     )}

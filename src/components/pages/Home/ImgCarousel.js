@@ -5,25 +5,19 @@ import React, { useState } from "react";
 import "./carousel.css";
 // import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-const images = [
-  
-  "https://placehold.co/300x300",
-  "https://placehold.co/300x300",
-  "https://placehold.co/300x300",
-];
 
- function ImgCarousel() {
+
+ function ImgCarousel(props) {
+  // const images = props.image.
   return (
     <div className="carousel-wrapper">
       <div className="carousel-btn left-btn"/>
       <div className="carousel-btn right-btn"/>
       <div className="carousel">
-        {images.map((URL, index) => (
           <div className="carousel-item">
-            <img alt="game image" src={URL} key={index} />
+            <img alt="game image" src={props.image} key={props.imgName} />
             <p> Image</p> 
           </div>
-      ))}
       </div>
     </div>
   );
