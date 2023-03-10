@@ -33,7 +33,6 @@ function Gamecard(props) {
     });
     setArray(voteArray);
     setObjArray(voteObjArray);
-    // console.log("here is object array: ")
     // console.log(voteObjArray)
     //* find the highest vote number
     const MaxVote = Math.max(...array);
@@ -153,6 +152,7 @@ function Gamecard(props) {
               👆🏼 Vote
             </button>
           ) : (
+            //call fakevote
             <Button onClick={() => deleteVote()} variant="danger">
               👇🏼 Cancle
             </Button>

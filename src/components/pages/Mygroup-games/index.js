@@ -18,6 +18,18 @@ const Allgamesingroup = (props) => {
       setGroup(data);
     });
   };
+  //Start a function that changes state of winning object:fakevote
+  // object={winner}
+  //set the state of an object default 
+
+  // const [first, setfirst] = useState({})
+  // function fakevote(){
+  //   setfirst({
+  //     ...first,
+  //     whatwechanged
+  //   })
+  // }\
+  //useEffect on first to rerender cards.
 
   useEffect(() => {
     fetchGames();
@@ -42,13 +54,13 @@ const Allgamesingroup = (props) => {
               token={props.token}
               userId={props.userId}
               games={games}
+              // fakevote={fakevote}
             />
           </div>
         ))}
       </div>
       <br/>
       <p>Let your friends know about these games and vote for your favorite one!</p>
-      <Sendemail />
     </div>
     </div>
   );
