@@ -16,29 +16,40 @@ const API = {
     }).then((res) => res.json());
     },
     getAllUsers: () => {
-        return fetch(`${URL_PREFIX}/api/users`).then(res=>res.json())
+        return fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
 
-    }, 
+    },
     login: (userObj) => {
         return fetch(`${URL_PREFIX}/api/users/login`, {
             method: "POST",
             body: JSON.stringify(userObj),
             headers: {
-            "Content-Type": "application/json",
-        },
-    }).then((res) => res.json());
+                "Content-Type": "application/json",
+            },
+        }).then((res) => res.json());
     },
     signup: (userObj) => {
         return fetch(`${URL_PREFIX}/api/users/signup`, {
             method: "POST",
             body: JSON.stringify(userObj),
             headers: {
-            "Content-Type": "application/json",
-        },
-    }).then((res) => res.json());
+                "Content-Type": "application/json",
+            },
+        }).then((res) => res.json());
     },
     getAllGroups: () => {
         return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
+    },
+    createGroup: (groupObj,token) => {
+        return fetch(`${URL_PREFIX}/api/groups`, {
+            method: "POST",
+            body: JSON.stringify(groupObj),
+            headers: {
+                // "Content-Type": "application/json",
+                authorization: `Bearer ${token}`,
+            },
+        }).then((res) => res.json());
+
     },
     saveGame: (gameObj, token) => {
         return fetch(`${URL_PREFIX}/api/games`, {
@@ -55,17 +66,17 @@ const API = {
             headers: {
             "Authorization": `Bearer ${token}`,
             },
-    }).then((res) => res.json());
+        }).then((res) => res.json());
     },
     getVotesInaGroup: (groupid, token) => {
         return fetch(`${URL_PREFIX}/api/votes/group/${groupid} `, {
             headers: {
             "Authorization": `Bearer ${token}`,
             },
-    }).then((res) => res.json());
+        }).then((res) => res.json());
     },
-    createVoteInaGroup:(groupid,voteObj,token)=>{
-        return fetch(`${URL_PREFIX}/api/votes/group/${groupid}`,{
+    createVoteInaGroup: (groupid, voteObj, token) => {
+        return fetch(`${URL_PREFIX}/api/votes/group/${groupid}`, {
             method: "PUT",
             body: JSON.stringify(voteObj),
             headers: {
