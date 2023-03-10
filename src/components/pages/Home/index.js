@@ -62,6 +62,7 @@ useEffect(() => {
 
 </div>
 <div className="carousel-box"> 
+<h3 className="popularGames">Polular games at Jolly-Co op</h3>
   <ImgCarousel games={games}/>
 </div>
 </div>
