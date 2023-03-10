@@ -2,40 +2,52 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
-const members = [];
+const groupMembers = [];
 
-const showMembers = [];
+
+
+
 // create function for group name
-// fetch post to Groups to create group id and include group owners token
+// fetch post to Groups to create group 
 // hide the enter Group name, show search users.
-
-
-
-
-const FindFriend = () => {
+const StartGroup = () => {
     const [data, setData] = useState([]);
-    const [query, setQuery] = useState("");
-
+    const [input, setInput] = useState();
+    const [name, setName] =useState('')
+    
+    const getGroupName = (e)=>{
+        setInput(e.target.value)
+    };
+    const addGroupName = (e) => {
+        const copyName = [...name];
+        copyName.push(input);
+        // console.log(copyName)
+        setName([...name, input]);
+        setInput("")
+        
+        const group = {
+            name: (copyName)
+        }
+        // console.log(group)
+        // API.createGroup(group)
+    }
+    
+    
     const addMember = (e) => {
         e.preventDefault();
-        // console.log(e.target.getAttribute('data-user'))
-        // console.log(e.target.getAttribute('data-username'))
-        members.push(e.target.getAttribute('data-user'));
-        showMembers.push(e.target.getAttribute('data-username'))
-        console.log(members)
-        console.log(showMembers)
-
-
-
-
-        return
+        const member = {
+            id: e.target.getAttribute("data-id"),
+            username: e.target.getAttribute("data-username")
+        }
+        groupMembers.push(member)
+        console.log(groupMembers)
+        
         // pull the users info from on click button
         // push the group id & group token to the user
         // fetch request group members in members area
 
     }
-
-
+    
     const fetchFriends = (e) => {
         // setQuery(e.target.value)
         const fetchUsers = async () => {
@@ -59,8 +71,30 @@ const FindFriend = () => {
 
         <div className="search-page">
             <div className="group-title">
-                <h3>group name:<input className="GroupName" id="group-name" placeholder="enter name of group"></input> </h3>
-                <button className="start-group">Start Group</button>
+                <h3>group name:</h3>
+                <input 
+                    className="GroupName" 
+                    type="text"
+                    value={input}
+                    onChange={getGroupName} 
+                    placeholder="enter name of group"
+                    // group-name={value.toString()}
+                /> 
+                <button onClick={addGroupName}className="start-group">Start Group</button>
+            </div>
+            <div className="Group-Card">
+                <div>
+                    <h1>{}</h1>
+                    <h3>added members</h3>
+                    <ul>
+                    {groupMembers.map((groupMember)=>{
+                        return (
+                           <li>{groupMember.username}</li>
+                        )
+                    })} 
+                    </ul>
+                </div>
+                <button>add games</button>
             </div>
 
             <div className="Search">
@@ -74,7 +108,7 @@ const FindFriend = () => {
                             </tr>
                             {data.map((users) => (
                                 <tr>
-                                    <th >{users.username}<button data-user={[users.id]} data-username={[users.username]} className='userInfo' id="add-member" onClick={addMember} >+</button>
+                                    <th >{users.username}<button data-id={users.id} data-username={users.username} className='userInfo' id="add-member" onClick={addMember} >+</button>
                                     </th>
                                 </tr>
                             )
@@ -83,23 +117,8 @@ const FindFriend = () => {
                     </table>
             </div>
 
-            <div className="Group-Card">
-                <div>
-                    <h3>added members</h3>
-                    <table>
-                        <tbody>
-                            {showMembers.map((value) => {
-                                <tr>
-                                    <th><button className="delete-member">-</button></th>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-                <button>add games</button>
-            </div>
         </div>
 
     )
 }
-export default FindFriend
+export default StartGroup

@@ -1,12 +1,15 @@
 .search-page{
     height: 100%;
     align-items: start;
+    margin:15px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:space-around;
 }
 /* Title */
 .group-title{
    text-align: center;
+   margin:15px;
+
 }
 /* search */
 .Search-Title{
@@ -15,18 +18,18 @@
 
 .Search{
     align-items: center;
-    margin: 15px;
+    margin-left: 15px;
     padding: 10px;
-    width: 60%;
-    height: 100%;
+    width: 60vw;
+    height: 80vh;
     background-color: blueviolet;
 }
 /* aside shown card */
 .Group-Card{
     height: 80vh;
-    width: 30%;
+    width: 30vw;
     float: right;
     background-color: aquamarine;
-    margin: 15px;
+    margin-right: 15px;
     
 }
