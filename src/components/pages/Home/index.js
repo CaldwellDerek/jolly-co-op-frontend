@@ -13,7 +13,7 @@ function Home(props){
     const fetchUser = () => {
         API.getUserData(params.id, props.token).then((data) => {
             setUser(data);
-            console.log(user.Groups)
+            
 
         })
     }
@@ -37,9 +37,8 @@ const fetchGames = () => {
         setGames(data)
     })
 }
-console.log(games);
-console.log(games.imgURl);
-games.forEach
+
+console.log(user)
 
 useEffect(() => {
     fetchGames();
@@ -54,11 +53,16 @@ useEffect(() => {
     <h1>Welcome {user.username},</h1>
 <div className="activeGroups">
 <h2>Groups</h2>
-{/* {userGroups.map(group=><GroupCards title={group.title}/>)} */}
+{user.Groups ? (
+<GroupCards user={user}/>
+
+) : (
+    <h4>You currently have no groups</h4>
+)}
 
 </div>
 <div className="carousel-box"> 
-  <ImgCarousel image={games.imgURL} imgName={games.name}/>
+  <ImgCarousel games={games}/>
 </div>
 </div>
     )}
