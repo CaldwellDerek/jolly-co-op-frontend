@@ -52,8 +52,8 @@ const StartGroup = () => {
         members.push(member)
         setGroupMembers([...groupMembers, member])
         console.log(member.username)
-        console.log("groupMembers:", groupMembers)
-        setFriendInput("")
+        // console.log("groupMembers:", groupMembers)
+        // setFriendInput("")
        
         
         

@@ -9,19 +9,25 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const styleCard = {
   height: "20rem",
+  marginLeft:"auto",
+  marginRight:"auto"
+  
   // margin: "10px"
- 
+  
+
 }
 const styleCard2 = {
   border: "5px groove #f48fb1",
   margin: "10px",
   borderRadius: "10px",
   // justifyContent: "center"
-
+ 
 }
  
   const styleCard3 = {
-    maxWidth: '500px'
+    maxWidth: '500px',
+    
+  
   }
                  
 
@@ -51,20 +57,22 @@ const styleCard2 = {
   // );
 
   //-----------bootstrap carousel-------------
-  <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2} className="justify-content-center" >
+  <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2}  >
+
 
   {props.games.map((game, index)=>{
    
     return (
-      <Carousel.Item style={styleCard3} className="justify-content-center">
-       
+      <Carousel.Item style={styleCard3} className="  mx-auto">
 
-      <img className="justify-content-center w-100 rounded" style={styleCard}src={game.imgURL} alt="Game Gallery"/>
+
+      <img className=" w-100   rounded" style={styleCard}src={game.imgURL} key={index} alt="Game Gallery"/>
       <Carousel.Caption>
-      <p>{game.name}</p>
+      <p key={index}>{game.name}</p>
     </Carousel.Caption>
       </Carousel.Item>
   )})}
+
   
   </Carousel>
   );

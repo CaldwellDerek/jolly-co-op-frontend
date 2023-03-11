@@ -18,6 +18,7 @@ console.log(userGroups)
         <div>
 
 {userGroups.Groups.map((group, index)=>{
+if(index<2) {
 
     return(
         <div className="card" style={styleCard}>
@@ -37,6 +38,7 @@ console.log(userGroups)
       </div>
       </div>
       )
+    }else return null
     })}
 
     </div>
