@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
+import { clear } from "@testing-library/user-event/dist/clear";
 const members = [];
 // const group= ('')
 
@@ -16,6 +17,7 @@ const StartGroup = () => {
     const [name, setName] =useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
+    
     const getGroupName = (e)=>{
         setInput(e.target.value)
     };
@@ -36,7 +38,9 @@ const StartGroup = () => {
         // API.createGroup()
     }
     
-    
+    function clearFields(){
+        document.getElementById("search").value = ""
+    }
     const addMember = (e) => {
         // e.preventDefault();
         const member = {
@@ -46,12 +50,16 @@ const StartGroup = () => {
         members.push(member)
         setGroupMembers(members)
         console.log(groupMembers)
+        setInput('')
+       
+        
         
         // pull the users info from on click button
         // push the group id & group token to the user
         // fetch request group members in members area
 
     }
+  
     
     const fetchFriends = (e) => {
         // setQuery(e.target.value)
@@ -67,7 +75,7 @@ const StartGroup = () => {
             setData(newUsers);
         }
         fetchUsers()
-        addMember()
+        // addMember()
         return
 
 
@@ -106,6 +114,7 @@ const StartGroup = () => {
                 <h1 className="Search-Title">Search for friends</h1>  
                     <br />
                     <input className="search" onChange={fetchFriends} placeholder="Search by name" />
+                    
                     <table>
                         <tbody>
                             <tr>
@@ -113,7 +122,12 @@ const StartGroup = () => {
                             </tr>
                             {data.map((users, index) => (
                                 <tr key={index}>
-                                    <th >{users.username}<button data-id={users.id} data-username={users.username} className='userInfo' id="add-member" onClick={addMember} >+</button>
+                                    <th >{users.username}
+                                    <button 
+                                    data-id={users.id} 
+                                    data-username={users.username} 
+                                    className='userInfo' id="add-member" 
+                                    onClick={addMember} >+</button>
                                     </th>
                                 </tr>
                             )
