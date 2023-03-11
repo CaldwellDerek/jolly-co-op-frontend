@@ -54,7 +54,11 @@ const StartGroup = () => {
     }
     
     const fetchFriends = (e) => {
-        // setQuery(e.target.value)
+        if (e.target.value==""){
+            setData([]) 
+            return
+        }
+
         const fetchUsers = async () => {
             const users = await API.getAllUsers();
             var newUsers = users.filter(function (user) {
@@ -67,10 +71,17 @@ const StartGroup = () => {
             setData(newUsers);
         }
         fetchUsers()
-        addMember()
+        // addMember()
         return
 
 
+    }
+    const createNew = async() => {
+        const groupObj = {
+            name: nameGroup[0],
+            users: groupMembers
+        }
+        const newGroup = await API.createGroup(groupObj,localStorage.getItem("token"));
     }
     return (
 
@@ -92,14 +103,14 @@ const StartGroup = () => {
                     <h1>{nameGroup}</h1>
                     <h3>added members</h3>
                     <ul>
-                    {members.map((groupMember)=>{
+                    {members.map((groupMember, index)=>{
                         return (
-                           <li>{groupMember.username}</li>
+                           <li key= {index}>{groupMember.username}</li>
                         )
                     })} 
                     </ul>
                 </div>
-                <button>add games</button>
+                <button onClick={createNew}>add games</button>
             </div>
 
             <div className="Search">
@@ -111,12 +122,13 @@ const StartGroup = () => {
                             <tr>
                                 <th> Results</th>
                             </tr>
-                            {data.map((users, index) => (
-                                <tr key={index}>
+                            {data.map((users, index) => {
+                                if (index<5){
+                                return <tr key={index}>
                                     <th >{users.username}<button data-id={users.id} data-username={users.username} className='userInfo' id="add-member" onClick={addMember} >+</button>
                                     </th>
-                                </tr>
-                            )
+                                </tr> }else return null
+} 
                             )}
                         </tbody>
                     </table>
