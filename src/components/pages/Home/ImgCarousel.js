@@ -54,10 +54,10 @@ const styleCard2 = {
   <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2} className="justify-content-center" >
 
   {props.games.map((game, index)=>{
-    console.log(game)
-    console.log(index)
+   
     return (
       <Carousel.Item style={styleCard3} className="justify-content-center">
+       
 
       <img className="justify-content-center w-100 rounded" style={styleCard}src={game.imgURL} alt="Game Gallery"/>
       <Carousel.Caption>
