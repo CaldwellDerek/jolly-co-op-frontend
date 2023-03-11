@@ -14,15 +14,15 @@ const members = [];
 const StartGroup = () => {
     const [data, setData] = useState([]);
     const [input, setInput] = useState('');
-    const [name, setName] =useState('');
+    const [name, setName] = useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
     const [friendInput, setFriendInput] = useState('')
-    
-    const getGroupName = (e)=>{
+
+    const getGroupName = (e) => {
         setInput(e.target.value)
     };
-    const getNewFriend = (e)=> {
+    const getNewFriend = (e) => {
         setFriendInput(e.target.value)
     }
     const addGroupName = () => {
@@ -31,7 +31,7 @@ const StartGroup = () => {
         // console.log(copyName)
         setName([...name, input]);
         setInput("")
-        
+
         const groupTitle = {
             name: (copyName)
         }
@@ -41,8 +41,8 @@ const StartGroup = () => {
         // console.log(group)
         // API.createGroup()
     }
-    
-    
+
+
     const addMember = (e) => {
         // e.preventDefault();
         const member = {
@@ -62,10 +62,14 @@ const StartGroup = () => {
         // fetch request group members in members area
 
     }
-  
-    
+
+
     const fetchFriends = (e) => {
-        // setQuery(e.target.value)
+        if (e.target.value == "") {
+            setData([])
+            return
+        }
+
         const fetchUsers = async () => {
             const users = await API.getAllUsers();
             var newUsers = users.filter(function (user) {
@@ -76,83 +80,93 @@ const StartGroup = () => {
             })
             console.log(newUsers)
             setData(newUsers);
-            
+
         }
         fetchUsers()
         // addMember()
-
         return
 
 
     }
+    const createNew = async () => {
+        const groupObj = {
+            name: nameGroup[0],
+            users: groupMembers
+        }
+        const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+    }
     useEffect(() => {
-       console.log("groups")
-      });
+        console.log("groups")
+    });
 
     return (
 
         <div className="search-page">
             <div className="group-title">
                 <h3>group name:</h3>
-                <input 
-                    className="GroupName" 
+                <input
+                    className="GroupName"
                     type="text"
                     value={input}
-                    onChange={getGroupName} 
+                    onChange={getGroupName}
                     placeholder="enter name of group"
-                    // group-name={value.toString()}
-                /> 
-                <button onClick={addGroupName}className="start-group">Start Group</button>
+                // group-name={value.toString()}
+                />
+                <button onClick={addGroupName} className="start-group">Start Group</button>
             </div>
             <div className="Group-Card">
                 <div>
                     <h1>{nameGroup}</h1>
                     <h3>added members</h3>
                     <ul>
-                    {groupMembers.map((groupMember, index)=>{
-                        console.log(groupMember)
-                        return (
-                           <li key={index}>{groupMember.username}</li>
-                        )
-                    })} 
+                        {groupMembers.map((groupMember, index) => {
+                            console.log(groupMember)
+                            return (
+                                <li key={index}>{groupMember.username}</li>
+                            )
+                        })}
                     </ul>
                 </div>
-                <button>add games</button>
+                <button onClick={createNew}>add games</button>
             </div>
 
             <div className="Search">
-                <h1 className="Search-Title">Search for friends</h1>  
-                    <br />
-                    <input 
-                    className="search" 
-                    
-                    onChange={fetchFriends} 
+                <h1 className="Search-Title">Search for friends</h1>
+                <br />
+                <input
+                    className="search"
+
+                    onChange={fetchFriends}
                     placeholder="Search by name"
-                    
-                  
-                    />
-                    
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th> Results</th>
-                            </tr>
-                            {data.map((users, index) => (
+
+
+                />
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th> Results</th>
+                        </tr>
+                        {data.map((users, index) => {
+                            if (index < 5) {
+                                return(
                                 <tr key={index}>
                                     <th >{users.username}
-                                    <button 
-                                    data-id={users.id} 
-                                    data-username={users.username} 
-                                    className='userInfo' id="add-member" 
-                                    // value={friendInput}
-                                    // onChange={getNewFriend}
-                                    onClick={addMember} >+</button>
+                                        <button
+                                            data-id={users.id}
+                                            data-username={users.username}
+                                            className='userInfo' id="add-member"
+                                            // value={friendInput}
+                                            // onChange={getNewFriend}
+                                            onClick={addMember} >+</button>
                                     </th>
                                 </tr>
-                            )
-                            )}
-                        </tbody>
-                    </table>
+                                )
+                            } else return null
+                        }
+                        )}
+                    </tbody>
+                </table>
             </div>
 
         </div>
