@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
+import { clear } from "@testing-library/user-event/dist/clear";
 const members = [];
 // const group= ('')
 
@@ -16,9 +17,14 @@ const StartGroup = () => {
     const [name, setName] =useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
+    const [friendInput, setFriendInput] = useState('')
+    
     const getGroupName = (e)=>{
         setInput(e.target.value)
     };
+    const getNewFriend = (e)=> {
+        setFriendInput(e.target.value)
+    }
     const addGroupName = () => {
         const copyName = [...name];
         copyName.push(input);
@@ -44,14 +50,19 @@ const StartGroup = () => {
             username: e.target.getAttribute("data-username")
         }
         members.push(member)
-        setGroupMembers(members)
-        console.log(groupMembers)
+        setGroupMembers([...groupMembers, member])
+        console.log(member.username)
+        console.log("groupMembers:", groupMembers)
+        setFriendInput("")
+       
+        
         
         // pull the users info from on click button
         // push the group id & group token to the user
         // fetch request group members in members area
 
     }
+  
     
     const fetchFriends = (e) => {
         // setQuery(e.target.value)
@@ -65,13 +76,19 @@ const StartGroup = () => {
             })
             console.log(newUsers)
             setData(newUsers);
+            
         }
         fetchUsers()
-        addMember()
+        // addMember()
+
         return
 
 
     }
+    useEffect(() => {
+       console.log("groups")
+      });
+
     return (
 
         <div className="search-page">
@@ -92,9 +109,10 @@ const StartGroup = () => {
                     <h1>{nameGroup}</h1>
                     <h3>added members</h3>
                     <ul>
-                    {members.map((groupMember)=>{
+                    {groupMembers.map((groupMember, index)=>{
+                        console.log(groupMember)
                         return (
-                           <li>{groupMember.username}</li>
+                           <li key={index}>{groupMember.username}</li>
                         )
                     })} 
                     </ul>
@@ -105,7 +123,15 @@ const StartGroup = () => {
             <div className="Search">
                 <h1 className="Search-Title">Search for friends</h1>  
                     <br />
-                    <input className="search" onChange={fetchFriends} placeholder="Search by name" />
+                    <input 
+                    className="search" 
+                    
+                    onChange={fetchFriends} 
+                    placeholder="Search by name"
+                    
+                  
+                    />
+                    
                     <table>
                         <tbody>
                             <tr>
@@ -113,7 +139,14 @@ const StartGroup = () => {
                             </tr>
                             {data.map((users, index) => (
                                 <tr key={index}>
-                                    <th >{users.username}<button data-id={users.id} data-username={users.username} className='userInfo' id="add-member" onClick={addMember} >+</button>
+                                    <th >{users.username}
+                                    <button 
+                                    data-id={users.id} 
+                                    data-username={users.username} 
+                                    className='userInfo' id="add-member" 
+                                    // value={friendInput}
+                                    // onChange={getNewFriend}
+                                    onClick={addMember} >+</button>
                                     </th>
                                 </tr>
                             )

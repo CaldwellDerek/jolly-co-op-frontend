@@ -1,6 +1,8 @@
 .carousel-box{
-    margin: 10px;
-    border-top: 10px double #f9a825
+    margin-top: 10px;
+    border-top: 10px double #f9a825;
+    background: #000b0c;
+    padding-bottom: 10px;
     
    
 /* justify-content: center; */
@@ -11,7 +13,7 @@
     text-align: center;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: #070606;
+    color: #f4efef;
     text-shadow: -1px 2px #ef3550,
     -2px 4px #f48fb1;
     /* -12px 12px #7e57c2; */
