@@ -56,11 +56,11 @@ function App() {
         <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
-        <Route path="/findfriend" element={<FindFriend/>}/>
+        <Route path="/findfriend" element={<FindFriend token={token} userId={userId} userName={userName}/>}/>
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId} userName={userName}/>}/>
         <Route path="/mylist" element={<MyList />}/>
-        <Route path="/mygroup" element={<MyGroups/>}/>
+        <Route path="/mygroup" element={<MyGroups token={token} userId={userId} userName={userName}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       <Footer/>

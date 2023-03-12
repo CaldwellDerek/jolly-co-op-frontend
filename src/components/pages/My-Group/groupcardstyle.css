@@ -1,0 +1,162 @@
+.groupName {
+  font-family: sans-serif;
+  background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.panel {
+  height: 270px;
+  width: 190px;
+  position: relative;
+
+  &:hover {
+    .card {
+      filter: blur(1.5px);
+    }
+    .card1 {
+      background-size: 215% 135%;
+    }
+    .card2 {
+      background-size: 115% 115%;
+    }
+    .card3 {
+      background-size: 155% 115%;
+    }
+    .title {
+      opacity: 0%;
+    }
+    .border {
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+    .slide {
+      bottom: 0px;
+    }
+    .ring:before,
+    .ring:after {
+      transform: translateX(-50%) translateY(-50%) rotate(310deg);
+    }
+  }
+}
+.ring,
+.card,
+.border,
+.slide,
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring {
+  color: #fffbf1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 170px;
+}
+
+.groupcard {
+  background: #f0ead6;
+  position: relative;
+  transition: all 1s;
+  height: 270px;
+  width: 190px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.card1 {
+  background-image: url("https://i.pinimg.com/564x/6a/10/76/6a1076ae8d91e2b4f6a07382a872982b.jpg");
+  background-repeat: no-repeat;
+  background-size: 200% 120%;
+  background-position: center;
+  opacity: 70%;
+}
+
+.card2 {
+  background-image: url("https://assets.codepen.io/489403/belize.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card3 {
+  background-image: url("https://assets.codepen.io/489403/egypt.jpg");
+  background-repeat: no-repeat;
+  background-size: 140% 100%;
+}
+
+.ring:before,
+.ring:after {
+  content: "";
+  padding: 0.7em 0.4em;
+  position: absolute;
+  left: 50%;
+  width: 115%;
+  top: 50%;
+  display: block;
+  border: 5px solid #50c9c3;
+  border-radius: 50%;
+  transition: transform 1s;
+  transform: translateX(-50%) translateY(-50%) rotate(50deg);
+}
+
+.ring:before {
+  border-color: rgb(235, 235, 235) rgb(235, 235, 235) rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+.ring:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(235, 235, 235)
+    rgb(235, 235, 235);
+}
+
+p {
+  position: relative;
+  font-family: sans-serif;
+  text-align: right;
+  z-index: 10;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 1s;
+  top: 0;
+  text-align: center;
+  color:#d62828;
+}
+
+.para {
+  bottom: 0;
+  font-size: 16px;
+  font-family: "Raleway";
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.border {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 260px;
+  width: 180px;
+  transition: border 1s;
+  overflow: hidden;
+}
+
+.slide {
+  height: 260px;
+  width: 180px;
+  position: absolute;
+  border: 1px solid black;
+  bottom: -270px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: bottom 1s;
+  flex-direction: column;
+}
+
+.fa-plane {
+  font-size: 16px;
+}

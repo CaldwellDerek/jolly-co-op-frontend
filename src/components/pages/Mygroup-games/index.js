@@ -5,7 +5,7 @@ import API from "../../../utils/API";
 import Gamecard from "./Gamecard";
 import { Link } from "react-router-dom";
 import Sendemail from "../../email/email";
-
+import Groupcard from "../My-Group/Groupcard";
 const Allgamesingroup = (props) => {
   const params = useParams();
   const [games, setGame] = useState([]);
@@ -79,7 +79,6 @@ const Allgamesingroup = (props) => {
       <div className="body">
       <h3> {group.name}</h3>
       <h4>{props.userName}</h4>
-      {/* <h3>These games are in competition:</h3> */}
       <div>
       <div className="container">
         {games?.map((game) => (
@@ -99,6 +98,7 @@ const Allgamesingroup = (props) => {
             />
           </div>
         ))}
+
       </div>
       </div>
       <br/>

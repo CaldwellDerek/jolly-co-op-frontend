@@ -1,4 +1,4 @@
-const URL_PREFIX = "http://localhost:3001";
+const URL_PREFIX = "";
 
 const API = {
   getUserData: (id, token) => {
@@ -39,13 +39,20 @@ const API = {
   getAllGroups: () => {
     return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
   },
+  getOneGroup: (groupid, token) => {
+    return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
   createGroup: (groupObj, token) => {
     return fetch(`${URL_PREFIX}/api/groups`, {
       method: "POST",
       body: JSON.stringify(groupObj),
       headers: {
         // "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     }).then((res) => res.json());
   },
