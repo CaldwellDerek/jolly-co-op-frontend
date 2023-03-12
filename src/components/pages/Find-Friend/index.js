@@ -4,6 +4,7 @@ import './style.css'
 import API from "../../../utils/API"
 import { clear } from "@testing-library/user-event/dist/clear";
 const members = [];
+const memberIds = []
 // const group= ('')
 
 
@@ -52,7 +53,9 @@ const StartGroup = () => {
         members.push(member)
         setGroupMembers([...groupMembers, member])
         console.log(member.username)
-        console.log("groupMembers:", groupMembers)
+        console.log(member.id)
+        memberIds.push(member.id)
+        // console.log("groupMembers:", groupMembers)
         setFriendInput("")
 
 
@@ -91,13 +94,10 @@ const StartGroup = () => {
     const createNew = async () => {
         const groupObj = {
             name: nameGroup[0],
-            users: groupMembers
+            users: memberIds
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
     }
-    useEffect(() => {
-        console.log("groups")
-    });
 
     return (
 
