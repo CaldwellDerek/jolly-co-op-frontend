@@ -9,8 +9,8 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const styleCard = {
   height: "20rem",
-  marginLeft:"auto",
-  marginRight:"auto"
+  // marginLeft:"auto",
+  // marginRight:"auto"
   
   // margin: "10px"
   

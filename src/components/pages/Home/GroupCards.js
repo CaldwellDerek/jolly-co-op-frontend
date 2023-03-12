@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import API from "../../../utils/API"
 
 const styleCard = {
-    width: "40rem",
-    margin:"3px"
+    width: "70%",
+    margin:"auto",
+    borderWidth: "5px",
+    borderStyle: "double",
+    borderColor: "#26c6da"
+
 }
 // const styleCard2 = {
 //     object-fit: "cover"
@@ -21,9 +25,9 @@ console.log(userGroups)
 if(index<2) {
 
     return(
-        <div className="card" style={styleCard}>
+        <div className="card"style={styleCard} >
             <div className="row no gutters">
-<div className="col-sm-7">
+<div className="col-sm-7 col-xs-3" >
             <div className="card-body ">
 
         <h3 className="card-title" key={index}>Group {group.name}</h3>
@@ -32,7 +36,7 @@ if(index<2) {
           
 </div>
       </div>
-<div className="col-sm-5">
+<div className="col-sm-5 col-xs-3">
  <img className="card-img img-thumbnail" src="https://media.rawg.io/media/screenshots/1d7/1d75b9d60cb5884a0b19d21df8557c0c.jpg"/>
 </div>
       </div>

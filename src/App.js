@@ -11,6 +11,7 @@ import FindFriend from "./components/pages/Find-Friend";
 import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
 import Footer from "./components/Footer";
+import HomeLogout from "./components/pages/HomeLogout"
 
 function App() {
   const [token, setToken] = useState("");
@@ -53,7 +54,7 @@ function App() {
       <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
       <br/>
       <Routes>
-        <Route path="/" element={<h1>Logout Page</h1>}/>
+        <Route path="/" element={<HomeLogout/>}/>
         <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>

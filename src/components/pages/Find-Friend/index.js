@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
 import { clear } from "@testing-library/user-event/dist/clear";
+import { useNavigate } from "react-router-dom";
 const members = [];
 
 // const group= ('')
@@ -23,6 +24,7 @@ const StartGroup = () => {
     const [groupMembers, setGroupMembers] = useState([])
     const [friendInput, setFriendInput] = useState('')
     const [memberIDs, setMemberIDs] = useState('')
+    let navigate = useNavigate();
 
     const getGroupName = (e) => {
         setInput(e.target.value)
@@ -113,6 +115,9 @@ const StartGroup = () => {
             users: NewIDs
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+
+        let path = `/mylist`;
+        navigate(path);
     }
    
 
