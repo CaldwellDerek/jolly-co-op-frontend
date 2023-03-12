@@ -10,10 +10,12 @@ function MyList() {
     const [gameName, setGameName] = useState("");
     const [modalText, setModalText] = useState("");
     const [groups, setGroups] = useState([]);
+    const [style, setStyle] = useState({});
 
 
     const closeModal = () => {
         setShow(false);
+        setStyle({});
     }
 
     const openModal = async (e) => {
@@ -27,23 +29,38 @@ function MyList() {
                 </div>
             );
         })
+
+        setShow(true);
+
         if (allGroups.length){
             setModalText("Which Group would you like to add this game to?")
             setGroups(allGroups);
         } else {
-            setModalText('You cannot add a game to a group if you are not the group owner. You can create a group under the "My Group" tab.');
+            setModalText('You do not own any Groups to add this game to, you can create a group under the "My Group" tab.');
+            setStyle({
+                visibility: 'hidden'
+            });
         }
-        setShow(true);
+        
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (document.querySelector('input:checked')) {
-            const groupId= document.querySelector('input:checked').value;
+            const groupId = document.querySelector('input:checked').value;
+            const groupName = document.querySelector('input:checked').getAttribute("name");
             const gameId = document.querySelector('input:checked').getAttribute("data-game-id");
+
             const addGame = await API.addGametoGroup(gameId, groupId, localStorage.getItem("token"));
+            document.querySelector(".submit-button").innerHTML = "Submitted!";
+            document.querySelector(".submit-results").style.color = "green";
+            document.querySelector(".submit-results").innerHTML =`Successfully added ${gameName} to ${groupName}!`
+
+            setTimeout(closeModal, 2000);
+        } else {
+            document.querySelector(".submit-results").style.color = "red";
+            document.querySelector(".submit-results").innerHTML =`Please select a Group to add your Game to!`
         }
-        closeModal();
     } 
 
     useEffect(()=> {
@@ -81,7 +98,10 @@ function MyList() {
                                 <br />
                                 <br />
                                 <button type="button" className='btn btn-primary me-3' onClick={closeModal}>Close</button>
-                                <button type="submit" className='btn btn-primary' onClick={handleSubmit}>Submit</button>
+                                <button type="submit" className='btn btn-primary submit-button' style={style} onClick={handleSubmit}>Submit</button>
+                                <div>
+                                    <p className="submit-results" style={{textAlign: 'center', marginTop: "20px"}}></p>
+                                </div>
                             </form>
                         </Modal.Body>
                     </Modal>
