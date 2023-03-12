@@ -5,6 +5,9 @@ import API from "../../../utils/API"
 import { clear } from "@testing-library/user-event/dist/clear";
 const members = [];
 // const group= ('')
+const memberIds = []
+console.log("memberIds", memberIds)
+
 
 
 
@@ -18,6 +21,7 @@ const StartGroup = () => {
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
     const [friendInput, setFriendInput] = useState('')
+    const [memberIDs, setMemberIDs] = useState('')
 
     const getGroupName = (e) => {
         setInput(e.target.value)
@@ -41,7 +45,8 @@ const StartGroup = () => {
         // console.log(group)
         // API.createGroup()
     }
-
+    const newMemberId = JSON.stringify(memberIds)
+    console.log(newMemberId)
 
     const addMember = (e) => {
         // e.preventDefault();
@@ -52,6 +57,8 @@ const StartGroup = () => {
         members.push(member)
         setGroupMembers([...groupMembers, member])
         console.log(member.username)
+        console.log(member.id)
+        memberIds.push(member.id)
         // console.log("groupMembers:", groupMembers)
         // setFriendInput("")
        
@@ -62,6 +69,7 @@ const StartGroup = () => {
         // fetch request group members in members area
 
     }
+    
 
 
     const fetchFriends = (e) => {
@@ -78,7 +86,7 @@ const StartGroup = () => {
                     return user
                 }
             })
-            console.log(newUsers)
+            // console.log(newUsers)
             setData(newUsers);
 
         }
@@ -88,16 +96,24 @@ const StartGroup = () => {
 
 
     }
-    const createNew = async () => {
+    const createNew = async (e) => {
+        e.preventDefault();
+        const NewIDs = memberIds.map((newMemberID) => {
+            return parseInt(newMemberID)
+            
+        })
+        const newMemberId = JSON.stringify(memberIds)
+        const newNameGroup = nameGroup[0]
+        console.log("newnamegroup", newNameGroup)
+        setMemberIDs( newMemberId)
+        
         const groupObj = {
-            name: nameGroup[0],
-            users: groupMembers
+            name: newNameGroup,
+            users: NewIDs
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
     }
-    useEffect(() => {
-        console.log("groups")
-    });
+   
 
     return (
 
@@ -120,7 +136,7 @@ const StartGroup = () => {
                     <h3>added members</h3>
                     <ul>
                         {groupMembers.map((groupMember, index) => {
-                            console.log(groupMember)
+                            // console.log(groupMember)
                             return (
                                 <li key={index}>{groupMember.username}</li>
                             )

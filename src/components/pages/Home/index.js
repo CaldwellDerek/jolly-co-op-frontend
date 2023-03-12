@@ -60,7 +60,7 @@ useEffect(() => {
     <h4>You currently have no groups</h4>
 )}
 
-</div>
+</div>=
 <div className="carousel-box"> 
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
   <ImgCarousel games={games}/>
