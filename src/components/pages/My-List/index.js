@@ -9,15 +9,32 @@ function MyList() {
     const [cards, setCards] = useState([]);
     const [show, setShow] = useState(false);
     const [gameName, setGameName] = useState("");
+    const [modalText, setModalText] = useState("");
+    const [groups, setGroups] = useState([]);
 
 
     const closeModal = () => {
         setShow(false);
     }
 
-    const openModal = (e) => {
+    const openModal = async (e) => {
         setGameName(e.target.getAttribute("data-game-name"));
-        
+        const groupsByOwner = await API.getGroupsByOwner(localStorage.getItem("token"));
+        console.log(groupsByOwner);
+        let allGroups = groupsByOwner.map((group, index) => {
+            return (
+                <div key={index}>
+                    <input type="radio" id={group.name} name={group.name} value={group.id}></input>
+                    <label htmlFor={group.name}>{group.name}</label>
+                </div>
+            );
+        })
+        if (allGroups.length){
+            setModalText("Which Group would you like to add this game to?")
+            setGroups(allGroups);
+        } else {
+            setModalText('You cannot add a game to a group if you are not the group owner. You can create a group under the "My Group" tab.');
+        }
         setShow(true);
     }
 
@@ -48,18 +65,11 @@ function MyList() {
                         </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            Which Group would you like to add this game to?
+                            {modalText}
                             <br />
                             <br />
                             <form>
-                            <input type="radio" id="html" name="fav_language" value="HTML"></input>
-                            <label htmlFor="html">HTML</label>
-                            <br />
-                            <input type="radio" id="css" name="fav_language" value="CSS"></input>
-                            <label htmlFor="css">CSS</label>
-                            <br />
-                            <input type="radio" id="javascript" name="fav_language" value="JavaScript"></input>
-                            <label htmlFor="javascript">JavaScript</label>
+                                {groups}
                             </form>
                         </Modal.Body>
                         <Modal.Footer>
