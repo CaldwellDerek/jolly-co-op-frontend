@@ -4,7 +4,7 @@ import API from "../../../utils/API"
 import { useParams } from "react-router-dom"
 
 import GroupCards from "./GroupCards.js"
-import  ImgCarousel  from "./ImgCarousel.js"
+// import  ImgCarousel  from "./ImgCarousel.js"
 
 function Home(props){
     const params = useParams()
@@ -63,7 +63,7 @@ useEffect(() => {
 </div>
 <div className="carousel-box"> 
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
-  <ImgCarousel games={games}/>
+  {/* <ImgCarousel games={games}/> */}
 </div>
 </div>
     )}

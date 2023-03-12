@@ -24,7 +24,6 @@ function App() {
     if(savedToken){
       API.isValidToken(savedToken).then(tokenData=>{
         if(tokenData.isValid){
-          console.log(tokenData)
           setToken(savedToken);
           setUserId(tokenData.user.id)
           setUserName(tokenData.user.username)

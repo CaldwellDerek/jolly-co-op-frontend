@@ -3,6 +3,7 @@
 
     justify-content: space-around;
     align-items: end;
+    flex-wrap: wrap;
 }
 .cardbtn{
     display: flex;
@@ -25,11 +26,11 @@
 .winner{
     background-color: #e63946;
     text-align: center;
-    height:6vh;
+    height:8vh;
 }
 
 .loser{
     background-color: #457b9d;
     text-align: center;
-    height:6vh;
+    height:5vh;
 }
