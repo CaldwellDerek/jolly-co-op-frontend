@@ -1,0 +1,74 @@
+/* .carousel-wrapper {
+   
+    width:90%;
+    max-width: 500px;
+    height:50%;
+    margin-top:20%;
+    background-color: black;
+    display: flex;
+    position: relative;
+   
+    
+}
+.carousel {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow-x:scroll;
+    scroll-snap-align: start;
+    scroll-snap-type: x mandatory;
+   
+    scroll-behavior: smooth;
+    
+} 
+.carousel-item {
+    display:flex;
+    position: relative;
+    flex-direction: column;
+    flex: 1 0 100%;
+} 
+
+
+
+.carousel-item-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover ;
+   
+}
+.carousel-item-p {
+    position:absolute;
+  inset: auto 0 0 0;
+    text-align: center;
+    padding-block: 1rem;
+    color:white;
+
+}
+
+.carousel-btn{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+ 
+    top:50%;
+    z-index: 2;
+    cursor:pointer;
+
+}
+.left-btn {
+    border-bottom: 4px solid red;
+    border-left: 4px solid red;
+    left: 20px;
+    transform: rotate(45deg);
+}
+.right-btn {
+    border-bottom: 4px solid red;
+    border-right: 4px solid red;
+    right: 20px;
+    transform: rotate(-45deg);
+} 
+::-webkit-scrollbar{
+    height: 0;
+    width:0;
+} */

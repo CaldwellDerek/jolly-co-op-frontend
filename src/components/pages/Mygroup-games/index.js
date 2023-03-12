@@ -2,58 +2,49 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import API from "../../../utils/API";
-import Gamecard from "../../Gamecard/Gamecard";
+import Gamecard from "./Gamecard";
 import { Link } from "react-router-dom";
+import Sendemail from "../../email/email";
 
 const Allgamesingroup = (props) => {
   const params = useParams();
   const [games, setGame] = useState([]);
   const [group, setGroup] = useState([]);
-  const [user, setUser] = useState({});
-  const [votes, setVote] = useState("");
-//     const [token, setToken]= useState("");
-//     const [userId, setUserId] = useState("")
+  const [style, setStyle] = useState("regularcard");
 
-//     setToken(props.token)
-//   setUserId(props.userId)
-
-  //   const fetchUser = () => {
-  //     API.getUserData(params.id, props.token).then((data) => {
-  //       setUser(data);
-  //       console.log(props.token);
-  //     });
-  //   }
   const fetchGames = () => {
     API.getGamesInaGroup(params.id, props.userId).then((data) => {
       setGame(data.Games);
       setGroup(data);
     });
   };
-  const fetchGroupVote = () => {
-    API.getVotesInaGroup(params.id, props.userId).then((data) => {
-      setVote(data.length);
-    });
-  };
+  //Start a function that changes state of winning object:fakevote
+  // object={winner}
+  //set the state of an object default 
+
+  // const [first, setfirst] = useState({})
+  // function fakevote(){
+  //   setfirst({
+  //     ...first,
+  //     whatwechanged
+  //   })
+  // }\
+  //useEffect on first to rerender cards.
 
   useEffect(() => {
     fetchGames();
   }, []);
 
-//   useEffect(() => {
-//     fetchGroupVote();
-//   }, []);
-
-  //TODO: GET VOTES OF THIS GROUP
-  //TODO:GAME WITH HIGHEST VOTES WILL HAVE A DIFFERNET STYLE
-
   return (
-    <div>
+<div>
       <Link to={"/mygroup"}>⬅️ back to my group</Link>
-      <h2>Welcome to Group: {group.name}</h2>
-      <h2>These games are in competition:</h2>
+      <div className="body">
+      <h3> {group.name}</h3>
+      <h4>{props.userName}</h4>
+      {/* <h3>These games are in competition:</h3> */}
       <div className="container">
         {games?.map((game) => (
-          <div className="cardbtn">
+          <div className="regularcard">
             <Gamecard
               name={game.name}
               img={game.imgURL}
@@ -62,10 +53,15 @@ const Allgamesingroup = (props) => {
               id={game.id}
               token={props.token}
               userId={props.userId}
+              games={games}
+              // fakevote={fakevote}
             />
           </div>
         ))}
       </div>
+      <br/>
+      <p>Let your friends know about these games and vote for your favorite one!</p>
+    </div>
     </div>
   );
 };
