@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import API from "../../../utils/API";
 import GenerateCard from "./GenerateCard";
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
@@ -20,11 +19,10 @@ function MyList() {
     const openModal = async (e) => {
         setGameName(e.target.getAttribute("data-game-name"));
         const groupsByOwner = await API.getGroupsByOwner(localStorage.getItem("token"));
-        console.log(groupsByOwner);
         let allGroups = groupsByOwner.map((group, index) => {
             return (
                 <div key={index}>
-                    <input type="radio" id={group.name} name={group.name} value={group.id}></input>
+                    <input type="radio" data-game-id={e.target.getAttribute("data-game-id")} id={group.name} name={group.name} value={group.id}></input>
                     <label htmlFor={group.name}>{group.name}</label>
                 </div>
             );
@@ -37,6 +35,16 @@ function MyList() {
         }
         setShow(true);
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (document.querySelector('input:checked')) {
+            const groupId= document.querySelector('input:checked').value;
+            const gameId = document.querySelector('input:checked').getAttribute("data-game-id");
+            const addGame = await API.addGametoGroup(gameId, groupId, localStorage.getItem("token"));
+        }
+        closeModal();
+    } 
 
     useEffect(()=> {
             try {
@@ -68,18 +76,14 @@ function MyList() {
                             {modalText}
                             <br />
                             <br />
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 {groups}
+                                <br />
+                                <br />
+                                <button type="button" className='btn btn-primary me-3' onClick={closeModal}>Close</button>
+                                <button type="submit" className='btn btn-primary' onClick={handleSubmit}>Submit</button>
                             </form>
                         </Modal.Body>
-                        <Modal.Footer>
-                        <Button variant="secondary" onClick={closeModal}>
-                            Cancel
-                        </Button>
-                        <Button variant="primary" onClick={closeModal}>
-                            Add to Group
-                        </Button>
-                        </Modal.Footer>
                     </Modal>
                 </div>
             </div>

@@ -48,6 +48,14 @@ const API = {
         },
     }).then((res) => res.json());
     },
+    addGametoGroup: (gameId, groupId, token) => {
+        return fetch(`${URL_PREFIX}/api/games/${gameId}/${groupId}`, {
+            method: "PUT",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
+    },
     saveGame: (gameObj, token) => {
         return fetch(`${URL_PREFIX}/api/games`, {
             method: "PUT",
