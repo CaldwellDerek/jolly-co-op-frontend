@@ -24,8 +24,17 @@ const StartGroup = () => {
     const [groupMembers, setGroupMembers] = useState([])
     const [friendInput, setFriendInput] = useState('')
     const [memberIDs, setMemberIDs] = useState('')
+    const [showButton, setShowButton] = useState(true)
     let navigate = useNavigate();
 
+    const clickFriend = id => {
+        setShowButton(prev => ({
+            ...prev,
+            [id]: !prev[id]
+        })) 
+
+    } 
+    
     const getGroupName = (e) => {
         setInput(e.target.value)
     };
@@ -64,6 +73,7 @@ const StartGroup = () => {
         memberIds.push(member.id)
         // console.log("groupMembers:", groupMembers)
         // setFriendInput("")
+        clickFriend(e.target.getAttribute("data-id"));
        
         
         
@@ -116,8 +126,8 @@ const StartGroup = () => {
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
 
-        let path = `/mylist`;
-        navigate(path);
+        // let path = `/mylist`;
+        // navigate(path);
     }
    
 
@@ -172,15 +182,20 @@ const StartGroup = () => {
                         {data.map((users, index) => {
                             if (index < 5) {
                                 return(
-                                <tr key={index}>
+                                <tr key={[index, users.id]}>
                                     <th >{users.username}
-                                        <button
-                                            data-id={users.id}
-                                            data-username={users.username}
-                                            className='userInfo' id="add-member"
-                                            // value={friendInput}
-                                            // onChange={getNewFriend}
-                                            onClick={addMember} >+</button>
+                                       {showButton && (
+
+                                           <button
+                                           data-id={users.id}
+                                           data-username={users.username}
+                                           className='userInfo' id="add-member"
+                                           // value={friendInput}
+                                           // onChange={getNewFriend}
+                                           onClick={addMember} >
+                                                +
+                                            </button>
+                                                )}
                                     </th>
                                 </tr>
                                 )

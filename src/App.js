@@ -55,7 +55,9 @@ function App() {
       <br/>
       <Routes>
         <Route path="/" element={<HomeLogout/>}/>
-        <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
+
+         <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
+        
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<FindFriend token={token} userId={userId} userName={userName}/>}/>

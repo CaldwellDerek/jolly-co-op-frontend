@@ -20,7 +20,9 @@ const fetchGames = () => {
     })
 }
 
-
+useEffect(() => {
+    fetchGames();
+}, []);
 
 
 
