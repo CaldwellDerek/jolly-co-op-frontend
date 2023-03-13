@@ -12,6 +12,7 @@ const Sendemail = (props) => {
   const [emailAlert,setemailAlert] = useState("")
   const [emailContent, setemailContent] = useState("");
   const [recipientEmailAddress, setrecipientEmailAddress] = useState("");
+
   const handleFormChange = (e) => {
     console.log(e.target.value);
     const { name, value,  } = e.target;
@@ -22,7 +23,6 @@ const Sendemail = (props) => {
       case "recipientEmailAddress":
         setrecipientEmailAddress(value);
         break;
-    
       default:
         break;
     }
@@ -31,7 +31,7 @@ const Sendemail = (props) => {
     e.preventDefault();
     const emailObj = {
       recipient:recipientEmailAddress.split(":")[0],
-      email: recipientEmailAddress.split(":")[1],
+      email:recipientEmailAddress.split(":")[1],
       sender:props.username,
       groupname:props.group.name,
       text:emailContent
@@ -42,11 +42,11 @@ const Sendemail = (props) => {
       setemailAlert("Your message has been sent!")
     })
   };
+
   const emailText =  `${props.username} from ${props.group.name} in JOLLY-COOP is inviting you to vote!`
 
   useEffect(() => {
-    setemailContent(emailText)
-    
+    setemailContent(emailText);
   }, []);
 
   return (

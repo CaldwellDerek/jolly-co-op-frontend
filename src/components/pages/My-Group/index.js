@@ -20,8 +20,7 @@ const MyGroups = (props) => {
 
   useEffect(() => {
     findGroup();
-    console.log(props.userName)
-  }, []);
+  });
 
   return (
     <div>
