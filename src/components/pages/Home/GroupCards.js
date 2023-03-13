@@ -3,19 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../../../utils/API"
 import groupCard from "./groupCard.css";
 
-const styleCard = {
-    width: "70%",
-    margin:"auto",
-    borderWidth: "10px",
-    borderStyle: "double",
-    borderColor: "#26c6da",
-    outlineWidth: "5px",
-    shadowColor: "red",
-    shadowOffset: {width: -2, height: 4},
-    shadowOpacity: "0.2",
-    shadowRadius: "3"
 
-}
 // const styleCard2 = {
 //     object-fit: "cover"
 // }

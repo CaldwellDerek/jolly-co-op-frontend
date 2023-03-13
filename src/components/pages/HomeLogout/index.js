@@ -8,7 +8,7 @@ const styleCard = {
     width: "70%",
     margin:"auto",
     borderWidth: "5px",
-    borderStyle: "ridge",
+    borderStyle: "double",
     borderColor: "#26c6da"
 }
 
