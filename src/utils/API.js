@@ -99,7 +99,7 @@ const API = {
       method: "POST",
       body: JSON.stringify(groupObj),
       headers: {
-        // "Content-Type": "application/json",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     }).then((res) => res.json());

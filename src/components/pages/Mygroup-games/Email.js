@@ -43,9 +43,10 @@ const Sendemail = (props) => {
     })
   };
 
-  const emailText =  `${props.username} from ${props.group.name} in JOLLY-COOP is inviting you to vote!`
+  const emailText =  `${props.username} in JOLLY-COOP is inviting you to vote!`
 
   useEffect(() => {
+    console.log(props.group)
     setemailContent(emailText);
   }, []);
 
