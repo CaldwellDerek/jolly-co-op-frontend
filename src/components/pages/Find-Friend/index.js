@@ -72,14 +72,15 @@ const StartGroup = () => {
     }
 
 
-
+    // useEffect(() => {
     const removeUser = (id) => {
-        const removed = groupMembers.filter((groupMember) => groupMember.id != id)
-        setGroupMembers(removed);
-        memberIds.push(groupMembers.id)
-        console.log(groupMembers)
-        // setGroupMembers(groupMembers.length-1)
-    }
+            const removed = groupMembers.filter((groupMember) => groupMember.id != id)
+            setGroupMembers(removed);
+            memberIds.push(groupMembers.id)
+            console.log(groupMembers)
+            // setGroupMembers(groupMembers.length-1)
+        };
+    // });
 
 
     const fetchFriends = (e) => {
