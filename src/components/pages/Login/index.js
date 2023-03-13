@@ -47,6 +47,7 @@ if(data.token){
     props.setToken(data.token)
     props.setIsLoggedIn(true);
     props.setUserId(data.user.id)
+    props.setUserName(data.user.username)
 }
 localStorage.setItem("token", data.token)
 
