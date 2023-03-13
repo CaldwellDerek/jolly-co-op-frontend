@@ -121,6 +121,9 @@ const StartGroup = () => {
 
         // let path = `/mylist`;
         // navigate(path);
+        return (
+            window.location.href = "/mylist"
+        )
     }
    
 
