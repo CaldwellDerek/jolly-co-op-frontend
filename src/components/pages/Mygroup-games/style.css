@@ -32,6 +32,10 @@
   padding:10px;
 }
 
+.emailContent{
+  width:15vw;
+  height:50vh;
+}
 
 .team{
     margin-bottom: 20vh;

@@ -18,7 +18,7 @@ const Allgamesingroup = (props) => {
   const [click, setClick] =useState(0)
 
   const fetchGames = () => {
-    API.getGamesInaGroup(params.id, props.userId).then((data) => {
+    API.getGamesInaGroup(params.id, props.token).then((data) => {
       setGame(data.Games);
       setGroup(data);
     });

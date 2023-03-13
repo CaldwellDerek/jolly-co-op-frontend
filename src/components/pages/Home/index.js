@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import "./style.css"
 import API from "../../../utils/API"
 import { useParams } from "react-router-dom"
-
+import ImgCarousel from "./ImgCarousel"
 import GroupCards from "./GroupCards.js"
 // import  ImgCarousel  from "./ImgCarousel.js"
 
