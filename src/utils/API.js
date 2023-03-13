@@ -65,28 +65,7 @@ const API = {
       },
     });
   },
-  saveGame: (gameObj, token) => {
-    return fetch(`${URL_PREFIX}/api/games`, {
-      method: "PUT",
-      body: JSON.stringify(gameObj),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => res.json());
-  },
-  signup: (userObj) => {
-    return fetch(`${URL_PREFIX}/api/users/signup`, {
-      method: "POST",
-      body: JSON.stringify(userObj),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
-  },
-  getAllGroups: () => {
-    return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
-  },
+ 
   getOneGroup: (groupid, token) => {
     return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
       headers: {
@@ -94,16 +73,7 @@ const API = {
       },
     }).then((res) => res.json());
   },
-  createGroup: (groupObj, token) => {
-    return fetch(`${URL_PREFIX}/api/groups`, {
-      method: "POST",
-      body: JSON.stringify(groupObj),
-      headers: {
-        // "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => res.json());
-  },
+ 
   leaveGroup: (groupid, token) => {
     return fetch(`${URL_PREFIX}/api/groups/leave/${groupid} `, {
       method: "DELETE",
@@ -163,9 +133,7 @@ const API = {
     }).then((res) => res.json());
   },
 
-  getAllGroups: () => {
-    return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
-  },
+
 
   getAllGames: () => {
     return fetch(`${URL_PREFIX}/api/games`).then((res) => res.json());

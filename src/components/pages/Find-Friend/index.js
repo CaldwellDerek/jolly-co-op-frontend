@@ -114,7 +114,7 @@ const StartGroup = () => {
 
 
     }
-    const createNewMyList = async () => {
+    const createNewMyGroups = async () => {
             
         const groupObj = {
             name: nameGroup[0],
@@ -125,7 +125,7 @@ const StartGroup = () => {
         // let path = `/mylist`;
         // navigate(path);
         return (
-            window.location.href = "/mylist"
+            window.location.href = "/mygroup"
         )
     }
     const createNewAddGames = async () => {
@@ -139,7 +139,7 @@ const StartGroup = () => {
         // let path = `/mylist`;
         // navigate(path);
         return (
-            window.location.href = "/findgames"
+            window.location.href = "/mylist"
         )
     }
    
@@ -160,7 +160,7 @@ const StartGroup = () => {
                 <br />
                 <button onClick={addGroupName} className="start-group" >Start Group</button>
             </div>
-            <div className="">
+            <div className="main">
 
                 <div className="Group-Card">
                     <div className="add-list">
@@ -178,7 +178,7 @@ const StartGroup = () => {
                     <div className="options">
                         <p>You may add games now, or add them from your list later!</p>
                         <button className="add-games-btn" onClick={createNewAddGames}>add games</button>
-                        <button className="see-all-groups" onClick={createNewMyList}>See all groups</button>
+                        <button className="see-all-groups" onClick={createNewMyGroups}>See all groups</button>
                     </div>
                 </div>
 
