@@ -111,20 +111,11 @@ const StartGroup = () => {
 
 
     }
-    const createNew = async (e) => {
-        e.preventDefault();
-        const NewIDs = memberIds.map((newMemberID) => {
-            return parseInt(newMemberID)
+    const createNew = async () => {
             
-        })
-        const newMemberId = JSON.stringify(memberIds)
-        const newNameGroup = nameGroup[0]
-        console.log("newnamegroup", newNameGroup)
-        setMemberIDs( newMemberId)
-        
         const groupObj = {
-            name: newNameGroup,
-            users: NewIDs
+            name: nameGroup[0],
+            users: memberIds
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
 

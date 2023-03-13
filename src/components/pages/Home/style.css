@@ -9,6 +9,8 @@
 }
 .titleBack {
     background: #000b0c;
+    /* display: flex;
+  justify-content: end; */
 }
 .popularGames{
     display: flex;
@@ -18,5 +20,7 @@
     color: #f4efef;
     text-shadow: -1px 2px #ef3550,
     -2px 4px #f48fb1;
+    /* padding-bottom: 20px; */
+   
     
 }

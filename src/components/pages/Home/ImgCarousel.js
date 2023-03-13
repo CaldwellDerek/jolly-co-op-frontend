@@ -9,12 +9,6 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const styleCard = {
   height: "20rem",
-  // marginLeft:"auto",
-  // marginRight:"auto"
- 
-  // margin: "10px"
-  
-
 }
 const styleCard2 = {
   border: "5px groove #f48fb1",
@@ -23,17 +17,11 @@ const styleCard2 = {
   maxWidth:"80%",
   display:"flex",
   justifyContent: "center"
-  // justifyContent: "center"
- 
 }
   const styleCard3 = {
     maxWidth: '100%',
   }
-  const styleCard4 = {
-marginTop: "10%",
-textSize: "100px"
-  }
-                 
+             
 
  function ImgCarousel(props) {
   const [index, setIndex] = useState(0);
@@ -43,22 +31,6 @@ textSize: "100px"
     setIndex(selectedIndex)
   }
   return (
-
-    //-------carousel that is not working------------------
-  //   <div className="carousel-wrapper">
-  //     <div className="carousel-btn left-btn"/>
-  //     <div className="carousel-btn right-btn"/>
-  //     <div className="carousel">
-  //           {props.games.map((game, index)=>{
-  //             return (
-  //               <div className="carousel-item">
-  //             <img className="carousel-item-img" alt="game image" src={game.imgURL} key={index} />
-  //             <p className="carousel-item-p">{game.name} </p> 
-  //             </div>
-  //           )})}
-  //         </div>
-  //     </div>
-  // );
 
   //-----------bootstrap carousel-------------
   <Carousel slide={false} activeIndex={index} onSelect={handleSelect} style={styleCard2}  >
