@@ -3,9 +3,13 @@ import { Link } from "react-router-dom"
 import './style.css'
 import API from "../../../utils/API"
 import { clear } from "@testing-library/user-event/dist/clear";
+import { useNavigate } from "react-router-dom";
 const members = [];
-const memberIds = []
+
 // const group= ('')
+const memberIds = []
+console.log("memberIds", memberIds)
+
 
 
 
@@ -97,7 +101,7 @@ const StartGroup = () => {
                     return user
                 }
             })
-            console.log(newUsers)
+            // console.log(newUsers)
             setData(newUsers);
 
         }
@@ -108,12 +112,20 @@ const StartGroup = () => {
 
     }
     const createNew = async () => {
+            
         const groupObj = {
             name: nameGroup[0],
             users: memberIds
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+
+        // let path = `/mylist`;
+        // navigate(path);
+        return (
+            window.location.href = "/mylist"
+        )
     }
+   
 
     return (
 

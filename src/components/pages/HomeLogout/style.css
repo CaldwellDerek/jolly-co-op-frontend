@@ -1,26 +1,21 @@
-
 .carousel-box{
-   margin-top: 0%;
+    margin-top: 10%;
     border-top: 10px double #f9a825;
     background: #000b0c;
     padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
-}
-.titleBack {
-    background: #000b0c;
-    /* display: flex;
-  justify-content: end; */
+   
+    
+   
+/* justify-content: center; */
+
+/* display:flex; */
 }
 .popularGames{
-    display: flex;
-    justify-content: center;
+    text-align: center;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
     color: #f4efef;
     text-shadow: -1px 2px #ef3550,
     -2px 4px #f48fb1;
-    /* padding-bottom: 20px; */
-   
-    
+    /* -12px 12px #7e57c2; */
 }
