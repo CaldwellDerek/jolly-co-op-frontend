@@ -88,7 +88,7 @@ localStorage.setItem("token", data.token)
 //   }
 
   return (
-    <div>
+    <div className="loginBody">
       <div>
         <h1>Login Here! </h1>
         <div  className="Login">

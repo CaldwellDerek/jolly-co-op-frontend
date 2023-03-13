@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dancing+Script&display=swap");
+.titlecontainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
 
 .Navbar {
     display: flex;
+    flex-direction: column;
     background-color: #f1faee;
     border-bottom: 5px solid rgb(212, 100, 100);
     align-items: center;
@@ -30,6 +36,7 @@ flex-wrap: wrap;
 }
 
 .titlename{
+    position: relative;
     font-family: 'Climate Crisis', cursive;
     margin-top: 0px;
     margin-bottom: 50px;
@@ -37,7 +44,7 @@ flex-wrap: wrap;
     font-size: 4rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: #fff;
+    color: #ff5722;;
     text-shadow: -4px 4px #ef3550,
                  -8px 8px #f48fb1,
                  -12px 12px #7e57c2,
@@ -46,6 +53,11 @@ flex-wrap: wrap;
                  -24px 24px #43a047,
                  -28px 28px #eeff41,
                  -32px 32px #f9a825,
-                 -36px 36px #ff5722;
-    padding:1vw 1vw 1vw 5vw;
+                 -36px 36px #ffff;
+    padding:1vw 1vw 5vw;
+    transition:1s;
   }
+
+.titlename:hover{
+    top:20px
+}
