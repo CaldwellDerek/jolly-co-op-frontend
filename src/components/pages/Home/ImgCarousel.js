@@ -44,7 +44,7 @@ const styleCard2 = {
 
       <img className=" w-100 rounded carouselImg" style={styleCard}src={game.imgURL} key={index} alt="Game Gallery"/>
       <Carousel.Caption bg-dark mb-4 className="carousel-caption" >
-      <p key={index}>{game.name}</p>
+      <p className="captionName" key={index}>{game.name}</p>
     </Carousel.Caption>
       </Carousel.Item >
   )})}

@@ -33,8 +33,8 @@ useEffect(() => {
     <div className="card"style={styleCard}>
     <h2>Login to create a group and start voting!</h2>
     </div>
-        <div className="carousel-box"> 
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
+        <div className="carousel-box"> 
   <ImgCarousel games={games}/>
 </div>
 </div>
