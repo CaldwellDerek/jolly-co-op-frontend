@@ -12,7 +12,7 @@ function GenerateCard(props) {
         return <li className="list-group-item" key={index}>{element}</li>
     });
 
-    const handleClick = (e) => {
+    const handleDelete = (e) => {
         const gameID = e.target.getAttribute("data-game-id");
         API.deleteGame(gameID, localStorage.getItem("token")).then(data => console.log(data));
     }
@@ -28,10 +28,13 @@ function GenerateCard(props) {
                     {platformList}
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
-                <button type="button" className="btn btn-primary" data-game-id={props.id} onClick={handleClick}>Delete</button>
+                <div className='d-flex flex-row'>
+                    <button type="button" className="btn btn-primary me-3" data-game-id={props.id} onClick={handleDelete}>Delete</button>
+                    <button type="button" className="btn btn-primary center" data-game-id={props.id} data-game-name={props.name} onClick={props.open}>Add to Group</button>
+                </div>
             </div>
         </div>
     );
   }
   
-  export default GenerateCard;
+export default GenerateCard;

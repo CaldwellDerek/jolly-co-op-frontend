@@ -14,17 +14,67 @@ const API = {
         Authorization: `Bearer ${token}`,
       },
     }).then((res) => res.json());
-  },
-  getAllUsers: () => {
-    return fetch(`${URL_PREFIX}/api/users`).then((res) => res.json());
-  },
-  login: (userObj) => {
-    return fetch(`${URL_PREFIX}/api/users/login`, {
-      method: "POST",
-      body: JSON.stringify(userObj),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    },
+    getAllUsers: () => {
+        return fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
+
+    },
+    login: (userObj) => {
+        return fetch(`${URL_PREFIX}/api/users/login`, {
+            method: "POST",
+            body: JSON.stringify(userObj),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((res) => res.json());
+    },
+    signup: (userObj) => {
+        return fetch(`${URL_PREFIX}/api/users/signup`, {
+            method: "POST",
+            body: JSON.stringify(userObj),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((res) => res.json());
+    },
+    getAllGroups: () => {
+        return fetch(`${URL_PREFIX}/api/groups`).then((res) => res.json());
+    },
+    createGroup: (groupObj,token) => {
+        return fetch(`${URL_PREFIX}/api/groups`, {
+            method: "POST",
+            body: JSON.stringify(groupObj),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+        }).then((res) => res.json());
+
+    },
+    getGroupsByOwner: (token) => {
+        return fetch(`${URL_PREFIX}/api/groups/owner`, {
+            method: "GET",
+            headers: {
+            authorization: `Bearer ${token}`
+        },
+    }).then((res) => res.json());
+    },
+    addGametoGroup: (gameId, groupId, token) => {
+        return fetch(`${URL_PREFIX}/api/games/${gameId}/${groupId}`, {
+            method: "PUT",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
+    },
+    saveGame: (gameObj, token) => {
+        return fetch(`${URL_PREFIX}/api/games`, {
+            method: "PUT",
+            body: JSON.stringify(gameObj),
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
     }).then((res) => res.json());
   },
   signup: (userObj) => {
