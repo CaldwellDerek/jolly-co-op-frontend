@@ -2,12 +2,17 @@
     width: 70%;
     margin:auto;
     border-width: 15px;
-    border-style: ridge;
+    border-style: double;
     border-color: #26c6da;
     outline-width: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     margin-bottom: 5%;
+    cursor: pointer;
 
 
 }
+/* .boxStyle :hover {
+    opacity: 0.8;
+    border-color: aqua;
+} */
 

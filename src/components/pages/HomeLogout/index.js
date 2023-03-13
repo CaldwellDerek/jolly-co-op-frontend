@@ -30,7 +30,7 @@ useEffect(() => {
         <div>
 
     <h1>Welcome Stranger,</h1>
-    <div className="card"style={styleCard}>
+    <div className="card logoutStyle">
     <h2>Login to create a group and start voting!</h2>
     </div>
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
