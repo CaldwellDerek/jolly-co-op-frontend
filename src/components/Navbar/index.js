@@ -5,7 +5,18 @@ import "./style.css";
 const Navbar = (props) => {
   return (
     <div className="Navbar">
-      <h1 className="title">JOLLY-COOP</h1>
+      <div className="titlecontainer">
+      <h1 className="titlename godown">J </h1>
+      <h1 className="titlename">0</h1>
+      <h1 className="titlename">L</h1>
+      <h1 className="titlename">L</h1>
+      <h1 className="titlename">Y</h1>
+      <h1 className="titlename">--</h1>
+      <h1 className="titlename">C</h1>
+      <h1 className="titlename">0</h1>
+      <h1 className="titlename">0</h1>
+      <h1 className="titlename">P</h1>
+      </div>
       <div className="NavbarBtnContainer">
         <Link className="NavbarBtn" to="/findgames">
           Find Game
