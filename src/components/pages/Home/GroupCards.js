@@ -1,15 +1,9 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom";
 import API from "../../../utils/API"
+import groupCard from "./groupCard.css";
 
-const styleCard = {
-    width: "70%",
-    margin:"auto",
-    borderWidth: "5px",
-    borderStyle: "double",
-    borderColor: "#26c6da"
 
-}
 // const styleCard2 = {
 //     object-fit: "cover"
 // }
@@ -25,7 +19,7 @@ console.log(userGroups)
 if(index<2) {
 
     return(
-        <div className="card"style={styleCard} >
+        <div className="card boxStyle" >
             <div className="row no gutters">
 <div className="col-sm-7 col-xs-3" >
             <div className="card-body ">

@@ -112,18 +112,19 @@ const StartGroup = () => {
 
     }
     const createNew = async () => {
-            
+            console.log(nameGroup[0])
+            const memGroup = nameGroup[0]
         const groupObj = {
-            name: nameGroup[0],
+            name: memGroup,
             users: memberIds
         }
         const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
 
         // let path = `/mylist`;
         // navigate(path);
-        return (
-            window.location.href = "/mylist"
-        )
+        // return (
+        //     window.location.href = "/mylist"
+        // )
     }
    
 
