@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const members = [];
 
 // const group= ('')
-const memberIds = []
+let memberIds = []
 console.log("memberIds", memberIds)
 
 
@@ -22,7 +22,7 @@ const StartGroup = () => {
     const [name, setName] = useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
-
+    console.log(groupMembers)
 
     const getGroupName = (e) => {
         setInput(e.target.value)
@@ -67,7 +67,7 @@ const StartGroup = () => {
         console.log(containsObject(member,groupMembers))
         if (!containsObject(member,groupMembers)) {
         members.push(member)
-        console.log(members)
+        // console.log(members)
         setGroupMembers([...groupMembers, member])
         memberIds.push(member.id)
         }
@@ -76,15 +76,18 @@ const StartGroup = () => {
     }
 
 
-    // useEffect(() => {
+    
     const removeUser = (id) => {
-            const removed = groupMembers.filter((groupMember) => groupMember.id != id)
+            const removed = groupMembers.filter((groupMember) => groupMember.id !== id)
             setGroupMembers(removed);
-            memberIds.push(groupMembers.id)
+            const removedIds = memberIds.filter((groupMember) => groupMember !== id)
+            memberIds=removedIds
+            console.log(removedIds)
             console.log(groupMembers)
-            // setGroupMembers(groupMembers.length-1)
+            console.log(memberIds)
+            
         };
-    // });
+  
 
 
     const fetchFriends = (e) => {
@@ -111,7 +114,7 @@ const StartGroup = () => {
 
 
     }
-    const createNew = async () => {
+    const createNewMyList = async () => {
             
         const groupObj = {
             name: nameGroup[0],
@@ -123,6 +126,20 @@ const StartGroup = () => {
         // navigate(path);
         return (
             window.location.href = "/mylist"
+        )
+    }
+    const createNewAddGames = async () => {
+            
+        const groupObj = {
+            name: nameGroup[0],
+            users: memberIds
+        }
+        const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+
+        // let path = `/mylist`;
+        // navigate(path);
+        return (
+            window.location.href = "/findgames"
         )
     }
    
@@ -160,8 +177,8 @@ const StartGroup = () => {
                     </div>
                     <div className="options">
                         <p>You may add games now, or add them from your list later!</p>
-                        <button className="add-games-btn" onClick={createNew}>add games</button>
-                        <button className="see-all-groups" onClick={createNew}>See all groups</button>
+                        <button className="add-games-btn" onClick={createNewAddGames}>add games</button>
+                        <button className="see-all-groups" onClick={createNewMyList}>See all groups</button>
                     </div>
                 </div>
 
