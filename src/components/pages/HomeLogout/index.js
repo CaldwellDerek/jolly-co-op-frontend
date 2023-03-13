@@ -8,7 +8,7 @@ const styleCard = {
     width: "70%",
     margin:"auto",
     borderWidth: "5px",
-    borderStyle: "double",
+    borderStyle: "ridge",
     borderColor: "#26c6da"
 }
 
@@ -33,11 +33,14 @@ useEffect(() => {
     <div className="card logoutStyle">
     <h2>Login to create a group and start voting!</h2>
     </div>
+    <div className="gameDiv">
+
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
         <div className="carousel-box"> 
   <ImgCarousel games={games}/>
 </div>
 </div>
+    </div>
     
     )
 }

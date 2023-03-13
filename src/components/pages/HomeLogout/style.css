@@ -10,6 +10,9 @@
 
 /* display:flex; */
 }
+.gameDiv {
+    background: #000b0c;
+}
 .popularGames{
     text-align: center;
     letter-spacing: 0.15rem;
