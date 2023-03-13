@@ -24,7 +24,7 @@ function MyList() {
         let allGroups = groupsByOwner.map((group, index) => {
             return (
                 <div key={index}>
-                    <input type="radio" data-game-id={e.target.getAttribute("data-game-id")} id={group.name} name={group.name} value={group.id}></input>
+                    <input type="radio" data-game-id={e.target.getAttribute("data-game-id")} id={group.name} name="radio" value={group.id}></input>
                     <label htmlFor={group.name}>{group.name}</label>
                 </div>
             );
@@ -48,7 +48,7 @@ function MyList() {
         e.preventDefault();
         if (document.querySelector('input:checked')) {
             const groupId = document.querySelector('input:checked').value;
-            const groupName = document.querySelector('input:checked').getAttribute("name");
+            const groupName = document.querySelector('input:checked').getAttribute("id");
             const gameId = document.querySelector('input:checked').getAttribute("data-game-id");
 
             const addGame = await API.addGametoGroup(gameId, groupId, localStorage.getItem("token"));
