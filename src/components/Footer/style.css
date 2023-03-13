@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-around;
     width: 70vw;
+    flex-wrap: wrap;
 }
 
 .footer h1{

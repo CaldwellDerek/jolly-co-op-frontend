@@ -25,7 +25,6 @@ function App() {
     if(savedToken){
       API.isValidToken(savedToken).then(tokenData=>{
         if(tokenData.isValid){
-          console.log(tokenData)
           setToken(savedToken);
           setUserId(tokenData.user.id)
           setUserName(tokenData.user.username)
@@ -64,7 +63,7 @@ function App() {
         <Route path="/findgames" element={<FindGame/>}/>
         <Route path="/mygroup/:id/games" element={<Allgamesingroup token={token} userId={userId} userName={userName}/>}/>
         <Route path="/mylist" element={<MyList />}/>
-        <Route path="/mygroup" element={<MyGroups/>}/>
+        <Route path="/mygroup" element={<MyGroups token={token} userId={userId} userName={userName}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       <Footer/>

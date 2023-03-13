@@ -17,3 +17,7 @@
 .login form * {
     width:50% 
 }
+
+.loginBody{
+    height:90vh;
+}
