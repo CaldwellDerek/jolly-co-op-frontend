@@ -3,12 +3,11 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import Groupcard from "./Groupcard";
 import API from "../../../utils/API";
-
-
-// import JollyGroup from './components/Group'
+import { useParams } from "react-router-dom"
 
 const MyGroups = (props) => {
   const [groups, setGroups] = useState([]);
+  const [num, setNum] = useState(0);
 
   //get all groups under this user
 
@@ -21,7 +20,7 @@ const MyGroups = (props) => {
 
   useEffect(() => {
     findGroup();
-
+    console.log(props.userName)
   }, []);
 
   return (
@@ -33,11 +32,11 @@ const MyGroups = (props) => {
         </div>
       <div className="mygroupscontainer">
       {groups.map((group)=>(
-           <Groupcard name={group.name} id={group.id} key={group.id} token={props.token} userId={props.userId}/>
+           <Groupcard name={group.name} id={group.id} key={group.id} token={props.token} userId={props.userId} />
         ))} 
-        {/* {groups.map(group=><JollyGroup name={group.name} owner={group.OwnerId.user} members={group.Users} games={group.games}/>)} */}
         {/* ?? on how to map within a map for users and for games */}
         {/* how to show the map result */}
+        
       </div>
       <br></br>
       <div className="NewGroup">

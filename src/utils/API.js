@@ -56,6 +56,14 @@ const API = {
       },
     }).then((res) => res.json());
   },
+  leaveGroup:(groupid, token) =>{
+    return fetch(`${URL_PREFIX}/api/groups/leave/${groupid} `, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
   saveGame: (gameObj, token) => {
     return fetch(`${URL_PREFIX}/api/games`, {
       method: "PUT",

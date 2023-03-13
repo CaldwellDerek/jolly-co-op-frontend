@@ -97,7 +97,7 @@ function Gamecard(props) {
   // }, [checkvote]);
 
   return (
-    <div className="regularcard">
+    <div className="box">
       <div className="card">
         <img src={props.img} className="card-img-top" alt="Game Art" />
         <div className="card-body d-flex flex-column justify-content-between align-items-center">
@@ -123,7 +123,6 @@ function Gamecard(props) {
           <p>⛳️ Current: {vote}</p>
         </div>
       </div>
-      {props.win? (<p className="winner">👑</p>) : (<p className="loser">🤺</p>)}
     </div>
   );
 }

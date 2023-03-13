@@ -4,8 +4,10 @@ import "./style.css";
 import API from "../../../utils/API";
 import Gamecard from "./Gamecard";
 import { Link } from "react-router-dom";
-import Sendemail from "../../email/email";
 import Groupcard from "../My-Group/Groupcard";
+import Teamcard from "./Team";
+
+
 const Allgamesingroup = (props) => {
   const params = useParams();
   const [games, setGame] = useState([]);
@@ -33,7 +35,7 @@ const Allgamesingroup = (props) => {
         voteObjArray.push(gameObj);
       });
     });
-    console.log(games)
+    // console.log(games)
     setArray(voteArray);
     setObjArray(voteObjArray);
     //* find the highest vote number
@@ -42,11 +44,11 @@ const Allgamesingroup = (props) => {
     const winingGame = objarray.filter((obj) => obj.VoteNum === MaxVote);
     winingGame.forEach((wininggame)=>{
       const winnergame = games.filter((game)=>game.id == wininggame.GameId)
-      console.log(winnergame)
+      // console.log(winnergame)
       winnergame.forEach(winnergame=>{winnergame.win = true})
       const losergame = games.filter((game)=>game.id !== wininggame.GameId)
       losergame.forEach(losergame=>{losergame.win = false})
-      console.log(losergame)
+      // console.log(losergame)
     })
 
     //!winnerIdArray is an array with just game id
@@ -75,10 +77,9 @@ const Allgamesingroup = (props) => {
 
   return (
 <div>
-      <Link to={"/mygroup"}>⬅️ back to my group</Link>
+      <Link to={"/mygroup"} className="backtogroups">⬅️ back to {props.userName}'s group</Link>
       <div className="body">
       <h3> {group.name}</h3>
-      <h4>{props.userName}</h4>
       <div>
       <div className="container">
         {games?.map((game) => (
@@ -98,11 +99,11 @@ const Allgamesingroup = (props) => {
             />
           </div>
         ))}
-
       </div>
       </div>
       <br/>
-      <p>Let your friends know about these games and vote for your favorite one!</p>
+      <Teamcard token={props.token} userId={props.userId} groupId={params.id} username={props.userName}/>
+
     </div>
     </div>
   );
