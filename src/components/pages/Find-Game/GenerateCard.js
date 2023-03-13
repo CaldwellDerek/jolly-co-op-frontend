@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import API from "../../../utils/API";
 import nintendo from "../../../images/nintendo-logo.png"
 import pc from "../../../images/pc-logo.png"
@@ -18,21 +18,29 @@ const styleImg = {
     margin: "5px"
 }
 
+const styleSaveButton = {
+    backgroundColor: "green",
+    borderColor: "green"
+}
+
 function GenerateCard(props) {
+    const [saveButtonText, setSaveButtonText] = useState("Save");
+    const [saveButtonColor, setSaveButtonColor] = useState({});
+
     const platformList = props.platform.map((element, index)=> {
         switch (element){
             case "Xbox":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={xbox} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 );
             case "PlayStation":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={ps} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
@@ -40,24 +48,24 @@ function GenerateCard(props) {
                 ); 
             case "PC":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={pc}  style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 );
             case "Nintendo":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={nintendo} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 )
             default:
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item"></li>
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item"></li>
                     </div>
                 )
         }
@@ -70,11 +78,14 @@ function GenerateCard(props) {
             name: e.target.getAttribute("data-name"),
             platforms: e.target.getAttribute("data-platforms"),
             rating: e.target.getAttribute("data-rating"),
-            genres: e.target.getAttribute("data-genres")
+            genres: e.target.getAttribute("data-genres"),
+            imgURL: e.target.getAttribute("data-imgurl")
         }
 
         API.saveGame(game, localStorage.getItem('token')).then(data => console.log(data));
 
+        setSaveButtonText("Saved!")
+        setSaveButtonColor(styleSaveButton);
     }
 
     return (
@@ -87,8 +98,8 @@ function GenerateCard(props) {
                     {platformList}
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
-                <button type="button" className="btn btn-primary save-button" data-name={props.name} data-platforms={props.platform} data-rating={props.rating} 
-                data-genres={props.genres} onClick={handleClick}>Save</button>
+                <button type="button" style={saveButtonColor} className="btn btn-primary save-button" data-name={props.name} data-platforms={props.platform} data-rating={props.rating} 
+                data-genres={props.genres} data-imgurl={props.img}  onClick={handleClick}>{saveButtonText}</button>
             </div>
         </div>
     );

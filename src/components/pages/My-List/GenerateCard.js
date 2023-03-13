@@ -22,16 +22,16 @@ function GenerateCard(props) {
         switch (element){
             case "Xbox":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={xbox} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 );
             case "PlayStation":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={ps} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
@@ -39,24 +39,24 @@ function GenerateCard(props) {
                 ); 
             case "PC":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={pc}  style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 );
             case "Nintendo":
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item">
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item">
                             <img src={nintendo} style={styleImg} alt="game art"></img>
                         </li>
                     </div>
                 )
             default:
                 return(
-                    <div className='d-inline'>
-                        <li key={index} className="list-inline-item"></li>
+                    <div key={index} className='d-inline'>
+                        <li className="list-inline-item"></li>
                     </div>
                 )
         }
