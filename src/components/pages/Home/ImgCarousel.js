@@ -2,28 +2,26 @@ import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 // import API from "../../../utils/API";
 // import { Carousel } from "react-responsive-carousel";
-// import "./carousel.css";
+import "./carousel.css";
 import Carousel from 'react-bootstrap/Carousel'
 
 // import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const styleCard = {
   height: "20rem",
-  // margin: "10px"
- 
 }
 const styleCard2 = {
   border: "5px groove #f48fb1",
   margin: "10px",
   borderRadius: "10px",
-  // justifyContent: "center"
-
+  maxWidth:"80%",
+  display:"flex",
+  justifyContent: "center"
 }
- 
   const styleCard3 = {
-    maxWidth: '500px'
+    maxWidth: '100%',
   }
-                 
+             
 
  function ImgCarousel(props) {
   const [index, setIndex] = useState(0);
@@ -34,37 +32,23 @@ const styleCard2 = {
   }
   return (
 
-    //-------carousel that is not working------------------
-  //   <div className="carousel-wrapper">
-  //     <div className="carousel-btn left-btn"/>
-  //     <div className="carousel-btn right-btn"/>
-  //     <div className="carousel">
-  //           {props.games.map((game, index)=>{
-  //             return (
-  //               <div className="carousel-item">
-  //             <img className="carousel-item-img" alt="game image" src={game.imgURL} key={index} />
-  //             <p className="carousel-item-p">{game.name} </p> 
-  //             </div>
-  //           )})}
-  //         </div>
-  //     </div>
-  // );
-
   //-----------bootstrap carousel-------------
-  <Carousel activeIndex={index} onSelect={handleSelect} style={styleCard2} className="justify-content-center" >
+  <Carousel slide={false} activeIndex={index} onSelect={handleSelect} style={styleCard2}  >
+
 
   {props.games.map((game, index)=>{
    
     return (
-      <Carousel.Item style={styleCard3} className="justify-content-center">
-       
+      <Carousel.Item style={styleCard3} className="  mx-auto">
 
-      <img className="justify-content-center w-100 rounded" style={styleCard}src={game.imgURL} alt="Game Gallery"/>
-      <Carousel.Caption>
-      <p>{game.name}</p>
+
+      <img className=" w-100 rounded carouselImg" style={styleCard}src={game.imgURL} key={index} alt="Game Gallery"/>
+      <Carousel.Caption bg-dark mb-4 className="carousel-caption" >
+      <p key={index}>{game.name}</p>
     </Carousel.Caption>
-      </Carousel.Item>
+      </Carousel.Item >
   )})}
+
   
   </Carousel>
   );

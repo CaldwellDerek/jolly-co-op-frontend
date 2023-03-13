@@ -57,15 +57,17 @@ useEffect(() => {
 <GroupCards user={user}/>
 
 ) : (
-    <h4>You currently have no groups</h4>
+    <h4>Login to see your groups</h4>
 )}
 
 </div>
-<div className="carousel-box"> 
+<div className="titleBack">
 <h3 className="popularGames">Polular games at Jolly-Co op</h3>
+<div className="carousel-box"> 
   <ImgCarousel games={games}/>
 </div>
 </div>
+// </div>
     )}
     
     
