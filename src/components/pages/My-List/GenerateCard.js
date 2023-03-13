@@ -1,15 +1,65 @@
 import React from 'react';
 import API from "../../../utils/API";
+import nintendo from "../../../images/nintendo-logo.png"
+import pc from "../../../images/pc-logo.png"
+import xbox from "../../../images/xbox-logo.png"
+import ps from "../../../images/ps-logo.png"
 
 const styleCard = {
     width: "18rem",
     margin: "10px"
 }
 
+const styleImg = {
+    width: "25px",
+    height: "25px",
+    margin: "5px"
+}
+
 function GenerateCard(props) {
     const platformArray = props.platform.split(',');
     const platformList = platformArray.map((element, index)=> {
-        return <li className="list-group-item" key={index}>{element}</li>
+        switch (element){
+            case "Xbox":
+                return(
+                    <div className='d-inline'>
+                        <li key={index} className="list-inline-item">
+                            <img src={xbox} style={styleImg} alt="game art"></img>
+                        </li>
+                    </div>
+                );
+            case "PlayStation":
+                return(
+                    <div className='d-inline'>
+                        <li key={index} className="list-inline-item">
+                            <img src={ps} style={styleImg} alt="game art"></img>
+                        </li>
+                    </div>
+                    
+                ); 
+            case "PC":
+                return(
+                    <div className='d-inline'>
+                        <li key={index} className="list-inline-item">
+                            <img src={pc}  style={styleImg} alt="game art"></img>
+                        </li>
+                    </div>
+                );
+            case "Nintendo":
+                return(
+                    <div className='d-inline'>
+                        <li key={index} className="list-inline-item">
+                            <img src={nintendo} style={styleImg} alt="game art"></img>
+                        </li>
+                    </div>
+                )
+            default:
+                return(
+                    <div className='d-inline'>
+                        <li key={index} className="list-inline-item"></li>
+                    </div>
+                )
+        }
     });
 
     const handleDelete = (e) => {
@@ -24,7 +74,7 @@ function GenerateCard(props) {
             <div className="card-body d-flex flex-column justify-content-between align-items-center">
                 <h5 className="card-title">{props.name}</h5>
                 <p className="card-text">Available On</p>
-                <ul className="list-group">
+                <ul className="list-inline">
                     {platformList}
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
