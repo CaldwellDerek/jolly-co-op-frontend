@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom";
 import API from "../../../utils/API"
-import groupCard from "./groupCard.css";
+import "./groupCard.css";
 
 
 // const styleCard2 = {

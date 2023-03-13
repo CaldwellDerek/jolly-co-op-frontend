@@ -35,6 +35,7 @@ const Teamcard = (props) => {
     <section className="team">
       <h4 className="section-heading">Our Team</h4>
       <div className="section-container">
+        <div className="addfriend"><h1>✚</h1></div>
         {users.map((user) => (
           <div className="profile">
             <img
