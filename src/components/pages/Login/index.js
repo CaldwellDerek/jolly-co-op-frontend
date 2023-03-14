@@ -47,12 +47,14 @@ if(data.token){
     props.setToken(data.token)
     props.setIsLoggedIn(true);
     props.setUserId(data.user.id)
+    
     props.setUserName(data.user.username)
 }
 localStorage.setItem("token", data.token)
 
         setloginEmail("")
         setloginPassword("")
+        console.log(data.user.id)
         let path = `/home/${data.user.id}`;
         navigate(path);
     })
