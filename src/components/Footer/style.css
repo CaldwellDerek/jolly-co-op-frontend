@@ -14,7 +14,6 @@
     flex-wrap: wrap;
 }
 
-.jollycoop
 .footer h1{
     font-family: 'Climate Crisis', cursive;
     margin-top: 0px;
@@ -23,7 +22,7 @@
     font-size: 2rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: #fff;
+    color: #ff5722;
     text-shadow: -4px 4px #ef3550,
                  -8px 8px #f48fb1,
                  -12px 12px #7e57c2,
@@ -32,6 +31,6 @@
                  -24px 24px #43a047,
                  -28px 28px #eeff41,
                  -32px 32px #f9a825,
-                 -36px 36px #ff5722;
+                 -36px 36px #fff;
     padding:1vw 1vw 1vw 5vw;
   }

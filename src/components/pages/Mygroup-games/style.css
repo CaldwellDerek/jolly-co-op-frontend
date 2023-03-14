@@ -1,3 +1,20 @@
+.winnerBanner,
+.losingBanner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px 10px 0 0;
+  font-size: 150%;
+}
+
+.winnerBanner{
+  background-color: #d62828
+}
+
+.losingBanner{
+  background-color: #2196f3
+}
 
 .bottomBanner {
   display: flex;

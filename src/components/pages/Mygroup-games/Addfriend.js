@@ -35,7 +35,6 @@ const Addfriend = (props) => {
       setOwnerId(data.OwnerId)
       if (data.OwnerId === props.userId) {
         setisOwner(true);
-        console.log(isOwner)
       }
     });
   };

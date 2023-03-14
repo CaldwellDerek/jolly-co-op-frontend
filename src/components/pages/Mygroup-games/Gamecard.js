@@ -7,26 +7,11 @@ function Gamecard(props) {
   const params = useParams();
   //Vote of a game
   const [vote, setVote] = useState(0);
+  const [alert, setAlert] = useState(0);
   const [usergamevote, setUsergamevote] = useState(false);
   const [usergroupvote, setUsergroupvote] = useState(false);
-  const [winner, setWinner] = useState();
+  const [current, setCuurentGame]=useState([])
 
-  // const platformList = props.platform.map((element, index)=> {
-  //     return <li className="list-group-item" key={index}>{element}</li>
-  // });
-
-  //find how many votes has this user voted for this game, Maxiam 1
-
-  const findWinner = () => {
-    const winnerIdArray = props.countVote()
-    if (winnerIdArray.includes(props.id)) {
-      setWinner(true);
-      // console.log("game:" + props.id);
-      // console.log(winner);
-    }else{
-      setWinner(false)
-    }
-  };
 
   const fetchGameVoteofaUser = () => {
     API.countVotesofaUserofaGame(
@@ -64,9 +49,15 @@ function Gamecard(props) {
       // console.log(data);
       if (!data.msg) {
         setVote(vote + 1);
+      }})
+      if (alert ===0){
+        setAlert(1)
+      }else{
+        setAlert(0)
       }
-    });
-  };
+    }
+;
+  
   const deleteVote = () => {
     const voteObj = { GameId: props.id };
     API.deteleaGroup(params.id, voteObj, props.token).then((data) => {
@@ -74,6 +65,11 @@ function Gamecard(props) {
         setVote(vote - 1);
       }
     });
+    if (alert ===0){
+      setAlert(1)
+    }else{
+      setAlert(0)
+    }
   };
 
   const fetchGameVote = () => {
@@ -84,19 +80,28 @@ function Gamecard(props) {
 
   useEffect(() => {
     fetchGameVote();
+
   }, []);
 
   useEffect(() => {
     fetchGameVoteofaUserinGroup();
     fetchGameVoteofaUser();
+
   }, [vote]);
 
-  // useEffect(() => {
-  //   winnerMachine();
-  // }, [checkvote]);
+useEffect(()=>{
+  if (props.click ===0){
+    props.setClick(1)
+  }else{
+    props.setClick(0)
+  }
+},[alert])
+
+
 
   return (
     <div className="box">
+      {/* {props.iswining?<div className="winnerBanner"><p>👑</p></div>:<div className="losingBanner"><p>👏</p></div>} */}
       <div className="card">
         <img src={props.img} className="card-img-top" alt="Game Art" />
         <div className="card-body d-flex flex-column justify-content-between align-items-center">

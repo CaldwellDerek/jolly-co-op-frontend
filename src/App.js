@@ -12,6 +12,7 @@ import Allgamesingroup from "./components/pages/Mygroup-games";
 import Home from "./components/pages/Home"
 import Footer from "./components/Footer";
 import HomeLogout from "./components/pages/HomeLogout"
+import Signup from "./components/pages/Sign up"
 
 function App() {
   const [token, setToken] = useState("");
@@ -54,11 +55,10 @@ function App() {
       <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
       <br/>
       <Routes>
+      <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
+      <Route path="/signup" element={<Signup setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/" element={<HomeLogout/>}/>
-
          <Route path="/home/:id" element={<Home token={token} userId={userId}/>}/>
-        
-        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
         <Route path="/signup" element={<h1>Signup</h1>}/>
         <Route path="/findfriend" element={<FindFriend token={token} userId={userId} userName={userName}/>}/>
         <Route path="/findgames" element={<FindGame/>}/>
