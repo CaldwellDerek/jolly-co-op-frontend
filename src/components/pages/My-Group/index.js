@@ -14,13 +14,14 @@ const MyGroups = (props) => {
   const findGroup = () => {
     API.getUserData(props.userId, props.token).then((data) => {
       //save all groups infor under this user
+      console.log("user:", props.userId)
       setGroups(data.Groups);
     });
   };
 
   useEffect(() => {
     findGroup();
-  });
+  },[]);
 
   return (
     <div>

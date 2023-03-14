@@ -4,6 +4,7 @@ import API from "../../../utils/API"
 import "./groupCard.css";
 
 
+
 // const styleCard2 = {
 //     object-fit: "cover"
 // }
@@ -11,7 +12,10 @@ import "./groupCard.css";
 
 const GroupCards = (props) => {
 const userGroups = props.user
-console.log(userGroups)
+console.log("user:",userGroups)
+// routeGroup = () =>{
+// this.context.router.push(`/mygroup/${group.id}`)
+// }
     return (
         <div>
 
@@ -19,13 +23,14 @@ console.log(userGroups)
 if(index<2) {
 
     return(
-        <div className="card boxStyle" >
+        <a className="groupCardText" href={`/mygroup/${group.id}/games`}>
+        <div className="card boxStyle"  >
             <div className="row no gutters">
 <div className="col-sm-7 col-xs-3" >
             <div className="card-body ">
 
         <h3 className="card-title" id={group.id} key={index}>Group {group.name}</h3>
-            <h4 className="card-text">is playing {group.game}</h4>
+            <h4 className="card-text ">Current winner:  {group.game}</h4>
             <h4 className="card-text">{group.user}</h4>
           
 </div>
@@ -35,6 +40,7 @@ if(index<2) {
 </div>
       </div>
       </div>
+      </a>
       )
     }else return null
     })}

@@ -19,7 +19,7 @@ function Home(props){
     }
     useEffect(() => {
         fetchUser();
-    }, [params.id])
+    }, [params])
 
     const [groups, setGroups] = useState([]);
     const fetchGroups = () => {
@@ -44,7 +44,6 @@ useEffect(() => {
     fetchGames();
 }, []);
 
-   
 
      
     return (

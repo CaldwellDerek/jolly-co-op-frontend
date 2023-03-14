@@ -42,7 +42,7 @@ export const Login = (props) => {
         password: loginPassword
     }
     API.login(userObj).then(data=>{
-        console.log(data)
+        console.log("data:", data)
 if(data.token){
     props.setToken(data.token)
     props.setIsLoggedIn(true);
@@ -68,7 +68,7 @@ localStorage.setItem("token", data.token)
         username: signupUsername
     }
     API.signup(userObj).then(data=>{
-        console.log(data)
+        console.log(data.token)
         if(data.token){
             props.setToken(data.token);
             props.setIsLoggedIn(true);

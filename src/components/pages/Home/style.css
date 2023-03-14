@@ -13,6 +13,7 @@
   justify-content: end; */
 }
 .popularGames{
+  border-top: 10px double #f9a825;
     display: flex;
     justify-content: center;
     letter-spacing: 0.15rem;
