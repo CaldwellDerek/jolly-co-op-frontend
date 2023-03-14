@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
-import Sendemail from "./Email"
-import Addfriend from "./Addfriend"
-import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import Sendemail from "./Email";
+import Addfriend from "./Addfriend";
+import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import "./style.css";
 
 const Teamcard = (props) => {
   const [users, setUsers] = useState([]);
   const [group, setGroup] = useState();
   const [show, setShow] = useState(false);
-  const [isOwner, setisOwner]=useState(false)
+  const [isOwner, setisOwner] = useState(false);
+  const [change, setChange] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,28 +37,40 @@ const Teamcard = (props) => {
   const fetchGroupMembers = () => {
     API.getOneGroup(props.groupId, props.token).then((data) => {
       setUsers(data.Users);
-      setGroup(data)
-      if (data.OwnerId === props.userId){
-        setisOwner(true)
+      setGroup(data);
+      if (data.OwnerId === props.userId) {
+        setisOwner(true);
       }
     });
   };
   useEffect(() => {
     fetchGroupMembers();
-  }, []);
+  }, [change]);
 
   return (
     <section className="team">
-          <OverlayTrigger
-      placement="right"
-      delay={{ show: 250, hide: 400 }}
-      overlay={renderTooltip}
-    >
-      {isOwner?<h4 className="section-heading">Your Team Members:</h4>:<h4 className="section-heading">Team Members</h4>}
-    </OverlayTrigger>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 250, hide: 400 }}
+        overlay={renderTooltip}
+      >
+        {isOwner ? (
+          <h4 className="section-heading">Your Team Members:</h4>
+        ) : (
+          <h4 className="section-heading">Team Members</h4>
+        )}
+      </OverlayTrigger>
 
       <div className="section-container">
-      <Addfriend users={users} groupId={props.groupId} token={props.token} />
+        <Addfriend
+          users={users}
+          groupId={props.groupId}
+          token={props.token}
+          change={change}
+          setChange={setChange}
+          userId={props.userId}
+          username={props.username}
+        />
         {/* <div className="addfriend" onClick={handleShow}><h1>✚</h1></div> */}
         {users.map((user) => (
           <div className="profile">
@@ -75,7 +88,7 @@ const Teamcard = (props) => {
       <br></br>
       <br></br>
       <br></br>
-            <Sendemail users={users} group={group} username={props.username}/>
+      <Sendemail users={users} group={group} username={props.username} />
     </section>
   );
 };
