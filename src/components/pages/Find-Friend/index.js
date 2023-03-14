@@ -120,27 +120,46 @@ const StartGroup = () => {
             name: nameGroup[0],
             users: memberIds
         }
-        const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+        if (nameGroup.length===0){
+            alert("you need a name!")
+        } 
+        else if (groupObj.users.length===0){
+            alert("you havent added anyone in the group! Please search for friends")
+        }
+        else { 
+            const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+            return (
+            window.location.href = "/mygroup"
+        )
+        }
 
         // let path = `/mylist`;
         // navigate(path);
-        return (
-            window.location.href = "/mygroup"
-        )
+        
     }
     const createNewAddGames = async () => {
             
         const groupObj = {
             name: nameGroup[0],
             users: memberIds
+        }  
+        if (nameGroup.length===0){
+            alert("you need a name!")
+        } 
+        else if (groupObj.users.length===0){
+            alert("you havent added anyone in the group! Please search for friends")
+        } 
+        else { 
+            const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+            return (
+                window.location.href = "/mylist"
+            )
         }
-        const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+        // const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
 
         // let path = `/mylist`;
         // navigate(path);
-        return (
-            window.location.href = "/mylist"
-        )
+    
     }
    
 

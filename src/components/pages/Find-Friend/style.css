@@ -207,8 +207,9 @@
 
 @media screen and (max-width:920px) {
     .main {
-        display:flex;
-        vertical-align: auto;
+        
+        display: flex;
+        vertical-align: top;
 
     }
 }
