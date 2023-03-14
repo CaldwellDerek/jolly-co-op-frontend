@@ -64,7 +64,7 @@
 
 }
 .start-group{
-    height: 40px;
+    height: fit-content;
     width: 140px;
     margin: 15px;
     text-decoration: none;
@@ -208,8 +208,8 @@
 @media screen and (max-width:920px) {
     .main {
         
-        display: flex;
-        vertical-align: top;
+        display: inline-flex;
+        
 
     }
 }

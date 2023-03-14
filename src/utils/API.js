@@ -1,4 +1,5 @@
-const URL_PREFIX = "https://vast-brushlands-39205.herokuapp.com";
+// const URL_PREFIX = "https://vast-brushlands-39205.herokuapp.com";
+const URL_PREFIX = "";
 
 const API = {
   getUserData: (id, token) => {

@@ -18,10 +18,12 @@ const Allgamesingroup = (props) => {
   const [click, setClick] =useState(0)
 
   const fetchGames = () => {
-    API.getGamesInaGroup(params.id, props.token).then((data) => {
-      setGame(data.Games);
-      setGroup(data);
-    });
+    
+      API.getGamesInaGroup(params.id, props.token).then((data) => {
+        setGame(data.Games);
+        setGroup(data);
+      });
+
   };
 
   const winnerMachine = () => {
@@ -71,8 +73,10 @@ const Allgamesingroup = (props) => {
   //useEffect on first to rerender cards.
 
   useEffect(() => {
+    
     fetchGames();
     winnerMachine();
+    
   }, []);
 
   return (
