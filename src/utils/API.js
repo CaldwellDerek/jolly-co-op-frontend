@@ -1,4 +1,4 @@
-const URL_PREFIX = "";
+const URL_PREFIX = "https://vast-brushlands-39205.herokuapp.com";
 
 const API = {
   getUserData: (id, token) => {
@@ -65,6 +65,17 @@ const API = {
       },
     });
   },
+  saveGame: (gameObj, token) => {
+    return fetch(`${URL_PREFIX}/api/games`, {
+      method: "PUT",
+      body: JSON.stringify(gameObj),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  
  
   getOneGroup: (groupid, token) => {
     return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
@@ -82,16 +93,7 @@ const API = {
       },
     }).then((res) => res.json());
   },
-  saveGame: (gameObj, token) => {
-    return fetch(`${URL_PREFIX}/api/games`, {
-      method: "PUT",
-      body: JSON.stringify(gameObj),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => res.json());
-  },
+
   getGamesInaGroup: (groupid, token) => {
     return fetch(`${URL_PREFIX}/api/groups/${groupid} `, {
       headers: {
@@ -132,8 +134,6 @@ const API = {
       },
     }).then((res) => res.json());
   },
-
-
 
   getAllGames: () => {
     return fetch(`${URL_PREFIX}/api/games`).then((res) => res.json());
