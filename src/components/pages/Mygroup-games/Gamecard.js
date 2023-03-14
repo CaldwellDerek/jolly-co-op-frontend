@@ -78,7 +78,6 @@ function Gamecard(props) {
 
   const fetchGameVote = () => {
     API.countVotesofaGame(params.id,props.id,  props.token).then((data) => {
-      console.log(data)
       setVote(data.length)
     });
   };
