@@ -24,7 +24,7 @@ if(index<2) {
 <div className="col-sm-7 col-xs-3" >
             <div className="card-body ">
 
-        <h3 className="card-title" key={index}>Group {group.name}</h3>
+        <h3 className="card-title" id={group.id} key={index}>Group {group.name}</h3>
             <h4 className="card-text">is playing {group.game}</h4>
             <h4 className="card-text">{group.user}</h4>
           

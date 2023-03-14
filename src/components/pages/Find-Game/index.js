@@ -3,7 +3,7 @@ import GenerateCard from './GenerateCard'
 
 function FindGame() {
     const [cards, setCards] = useState([]);
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
