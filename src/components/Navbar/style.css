@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dancing+Script&display=swap");
+.titlecontainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.Navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1faee;
+    border-bottom: 5px solid rgb(212, 100, 100);
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.NavbarBtn {
+    font-size: 1rem;
+    padding:2px;
+    margin: 10px;
+    /* margin-bottom: -5px; */
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    background-color:rgb(212, 100, 100) ;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+}
+.NavbarBtnContainer{
+padding-right: 1px;
+display: flex;
+flex-wrap: wrap;
+}
+
+.titlename{
+    position: relative;
+    font-family: 'Climate Crisis', cursive;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 4rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #ff5722;;
+    text-shadow: -4px 4px #ef3550,
+                 -8px 8px #f48fb1,
+                 -12px 12px #7e57c2,
+                 -16px 16px #2196f3,
+                 -20px 20px #26c6da,
+                 -24px 24px #43a047,
+                 -28px 28px #eeff41,
+                 -32px 32px #f9a825,
+                 -36px 36px #ffff;
+    padding:1vw 1vw 5vw;
+    transition:1s;
+  }
+
+.titlename:hover{
+    top:20px
+}

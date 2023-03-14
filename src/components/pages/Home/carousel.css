@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Slab&family=Rubik+Bubbles&display=swap');
+
+.carouselImg {
+    margin: 0;
+}
+.carousel-caption {
+    position: relative;
+    right: 0;
+    top: 0;
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
+font-family: 'Roboto Slab', serif;
+font-family: 'Rubik Bubbles', cursive;
+}
+
+.captionName {
+    position: relative;
+    right: 15%;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 50;
+    font-family: 'Pacifico', cursive;
+font-family: 'Roboto Slab', serif;
+font-family: 'Rubik Bubbles', cursive;
+}

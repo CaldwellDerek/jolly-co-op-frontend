@@ -1,0 +1,199 @@
+.search-page{
+    height: 100%;
+    align-items: start;
+    margin:15px;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+/* Title */
+.group-title{
+   text-align: center;
+   margin:15px;
+
+}
+/* search */
+.Search-Title{
+    margin: 15px;
+}
+.hide{
+    display: none;
+}
+.Search{
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    padding: 20px;
+    width: 600px;
+    height: 500px;
+    background-color: blueviolet;
+
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+}
+.main{
+    justify-content: center;
+}
+/* aside shown card */
+.Group-Card{
+    height: 500px;
+    width: 30vw;
+    padding: 20px;
+    float: right;
+    background-color: aquamarine;
+    margin-right: 15px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+    position: relative;
+    
+}
+.options{
+    position: absolute;
+    bottom:0;
+    padding-bottom: 10px;
+    align-content: center;
+    margin: auto;
+    
+    
+    
+}
+.start-group{
+    height: 40px;
+    width: 140px;
+    margin: 15px;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    transition: all 0.5s ease;
+    background-color:rgb(212, 100, 100) ;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+}
+.start-group:hover{
+    height: 40px;
+    width: 20vw;
+    margin: 15px;
+    text-decoration: none;
+    border: 5px solid #43a047;
+    background-color:#43a047 ;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    box-shadow: 5px 5px 10px rgb(186, 119, 119);
+}
+.add-users{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    transition: all 0.5s ease;
+    background-color:rgb(212, 100, 100) ;
+    border-radius: 50%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    
+}
+.add-users:hover{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    text-decoration: none;
+    border: 2px solid #43a047;
+    transition: all 0.5s ease;
+    background-color: #43a047;
+    border-radius: 50%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    
+}
+.delete-users{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    text-decoration: none;
+    border: 5px solid #43a047;
+    transition: all 0.5s ease;
+    background-color:#43a047 ;
+    border-radius: 50%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    
+
+}
+.delete-users:hover{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    text-decoration: none;
+    border: 2px solid rgb(212, 100, 100);
+    transition: all 0.5s ease;
+    background-color: rgb(212, 100, 100);
+    border-radius: 50%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+}
+
+.add-games-btn{
+    margin: 15px;
+    height: 40px;
+    width: fit-content;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    transition: all 0.5s ease;
+    background-color: rgb(212, 100, 100) ;
+    border-radius: 5%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+}
+.add-games-btn:hover{
+    margin: 15px;
+    height: 40px;
+    width: fit-content;
+    text-decoration: none;
+    border: 5px solid #43a047;
+    background-color:#43a047 ;
+    border-radius: 5%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+}
+.see-all-groups{
+    margin: 20px;
+    height: 40px;
+    width: fit-content;
+    text-decoration: none;
+    border: 5px solid rgb(212, 100, 100);
+    transition: all 0.5s ease;
+    background-color: rgb(212, 100, 100);
+    border-radius: 5%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+    
+}
+.see-all-groups:hover{
+    margin: 20px;
+    height: 40px;
+    width: fit-content;
+    text-decoration: none;
+    border: 5px solid #f9a825;
+    transition: all 0.5s ease;
+    background-color:#f9a825 ;
+    border-radius: 5%;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    color:white;
+}
+.add-list{
+  height: 300px;
+  width: auto;
+  overflow-y:auto;
+}

@@ -1,0 +1,23 @@
+.Login {
+    display:flex;
+    justify-content: space-between;
+    margin:5px;
+}
+
+.Login form {
+    width:48%;
+    display:flex;
+    flex-direction: column ;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid rgb(35, 175, 131);
+    border-radius: 2%;
+}
+
+.login form * {
+    width:50% 
+}
+
+.loginBody{
+    height:90vh;
+}
