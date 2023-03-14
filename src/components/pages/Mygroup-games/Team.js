@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
-import Sendemail from "./Email"
+import Sendemail from "./Email";
+import Addfriend from "./Addfriend";
+import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import "./style.css";
 
 const Teamcard = (props) => {
   const [users, setUsers] = useState([]);
-  const [show, setShow] = useState(false);
   const [group, setGroup] = useState();
+  const [show, setShow] = useState(false);
+  const [isOwner, setisOwner] = useState(false);
+  const [change, setChange] = useState(0);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Click + button below to invite more friends in the group
+    </Tooltip>
+  );
 
   const profileImg = [
     "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg",
@@ -22,25 +36,47 @@ const Teamcard = (props) => {
 
   const fetchGroupMembers = () => {
     API.getOneGroup(props.groupId, props.token).then((data) => {
-      console.log(data);
       setUsers(data.Users);
-      setGroup(data)
+      setGroup(data);
+      if (data.OwnerId === props.userId) {
+        setisOwner(true);
+      }
     });
   };
   useEffect(() => {
     fetchGroupMembers();
-  }, []);
+  }, [change]);
 
   return (
     <section className="team">
-      <h4 className="section-heading">Our Team</h4>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 250, hide: 400 }}
+        overlay={renderTooltip}
+      >
+        {isOwner ? (
+          <h4 className="section-heading">Your Team Members:</h4>
+        ) : (
+          <h4 className="section-heading">Team Members</h4>
+        )}
+      </OverlayTrigger>
+
       <div className="section-container">
+        <Addfriend
+          users={users}
+          groupId={props.groupId}
+          token={props.token}
+          change={change}
+          setChange={setChange}
+          userId={props.userId}
+          username={props.username}
+        />
+        {/* <div className="addfriend" onClick={handleShow}><h1>✚</h1></div> */}
         {users.map((user) => (
           <div className="profile">
             <img
               src={profileImg[Math.floor(Math.random() * 6 + 1)]}
               alt="cat-profile-pic"
-
             />
             <span className="name">{user.username}</span>
           </div>
@@ -52,7 +88,7 @@ const Teamcard = (props) => {
       <br></br>
       <br></br>
       <br></br>
-            <Sendemail users={users} group={group} username={props.username}/>
+      <Sendemail users={users} group={group} username={props.username} />
     </section>
   );
 };

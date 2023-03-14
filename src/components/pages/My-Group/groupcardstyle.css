@@ -3,10 +3,19 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  margin:2vw;
+  flex:1 1 400px
 }
 
+
 .identity{
-  font-size: 200%;
+  width: max-content;
+  font-size: 250%;
+  text-decoration: none;
+  rotate: 45deg;
+  position: relative;
+  left:170px;
+  bottom:25px
 }
 
 .groupName {
