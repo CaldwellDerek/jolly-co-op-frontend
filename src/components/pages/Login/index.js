@@ -84,7 +84,7 @@ export const Login = (props) => {
                 value={loginPassword}
                 onChange={handleFormChange}
               />
-              <Button variant="danger">Login</Button>
+              <Button variant="danger" onClick={handleFormSubmit}>Login</Button>
               <br></br>
               <p>
                 Don't have an account? <a href="/signup">Signup</a> here

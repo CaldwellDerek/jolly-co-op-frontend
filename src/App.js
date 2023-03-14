@@ -37,7 +37,7 @@ function App() {
         }
       })
     }
-
+console.log(window.location.href!=="/signup")
   },[])
 
   const logout = ()=>{
@@ -54,7 +54,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {window.location.href!=="/login"||window.location.href!=="/signup" && <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>}
+      {/* {(window.location.href !="/login"||window.location.href !="/signup") &&} */}
+      <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
       <br/>
       <Routes>
       <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
@@ -69,7 +70,8 @@ function App() {
         <Route path="/mygroup" element={<MyGroups token={token} userId={userId} userName={userName}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
-      {window.location.href!=="/login"||window.location.href!=="/signup" &&<Footer/>}
+      {/* {window.location.href=="/signup" &&} */}
+      <Footer/>
       </BrowserRouter>
     </div>
   );

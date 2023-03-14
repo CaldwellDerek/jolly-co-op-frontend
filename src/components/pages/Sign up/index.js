@@ -102,7 +102,9 @@ export const Signup = (props) => {
                 onChange={handleFormChange}
               />
               <br></br>
-              <Button variant="danger">Signup</Button>
+              <Button variant="danger" onClick={handleSignupSubmit}>Signup</Button>
+              <br></br>
+              <p>* Password has to be at least 8 digits</p>
             </form>
           </div>
         </div>
