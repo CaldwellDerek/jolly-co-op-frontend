@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./style.css";
 import API from "../../../utils/API";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export const Signup = (props) => {
-  const [loginEmail, setloginEmail] = useState("");
-  const [loginPassword, setloginPassword] = useState("");
   const [signupUsername, setsignupUsername] = useState("");
   const [signupEmail, setsignupEmail] = useState("");
   const [signupPassword, setsignupPassword] = useState("");
@@ -15,12 +14,6 @@ export const Signup = (props) => {
     console.log(e.target.value);
     const { name, value } = e.target;
     switch (name) {
-      case "loginEmail":
-        setloginEmail(value);
-        break;
-      case "loginPassword":
-        setloginPassword(value);
-        break;
       case "signupUsername":
         setsignupUsername(value);
         break;
@@ -34,28 +27,6 @@ export const Signup = (props) => {
       default:
         break;
     }
-  };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const userObj = {
-      email: loginEmail,
-      password: loginPassword,
-    };
-    API.login(userObj).then((data) => {
-      console.log(data);
-      if (data.token) {
-        props.setToken(data.token);
-        props.setIsLoggedIn(true);
-        props.setUserId(data.user.id);
-        props.setUserName(data.user.username);
-      }
-      localStorage.setItem("token", data.token);
-
-      setloginEmail("");
-      setloginPassword("");
-      let path = `/home/${data.user.id}`;
-      navigate(path);
-    });
   };
   const handleSignupSubmit = (e) => {
     e.preventDefault();
@@ -89,31 +60,52 @@ export const Signup = (props) => {
 
   return (
     <div className="signupBody">
-      <div className="Signup">
-        <form onSubmit={handleSignupSubmit}>
-          <label htmlFor="signupUsername">Username:</label>
-          <input
-            type="text"
-            name="signupUsername"
-            value={signupUsername}
-            onChange={handleFormChange}
-          />{" "}
-          <label htmlFor="signupEmail">Email:</label>
-          <input
-            type="text"
-            name="signupEmail"
-            value={signupEmail}
-            onChange={handleFormChange}
-          />{" "}
-          <label htmlFor="signupPassword">Password:</label>
-          <input
-            type="password"
-            name="signupPassword"
-            value={signupPassword}
-            onChange={handleFormChange}
-          />
-          <button>Signup</button>
-        </form>
+      <div className="loginContainer">
+        <div className="signupBox">
+          <div class="signupTitle">
+            <h1 className="jollycoop2 jollyanimation1">J</h1>
+            <h1 className="jollycoop2 jollyanimation2">O</h1>
+            <h1 className="jollycoop2 jollyanimation3">L</h1>
+            <h1 className="jollycoop2 jollyanimation1">L</h1>
+            <h1 className="jollycoop2 jollyanimation2">Y</h1>
+          </div>
+          <h1 className="jollycoop2 jollyanimation3">-</h1>
+          <div class="signupTitle">
+            <h1 className="jollycoop2 jollyanimation1">C</h1>
+            <h1 className="jollycoop2 jollyanimation2">O</h1>
+            <h1 className="jollycoop2 jollyanimation3">O</h1>
+            <h1 className="jollycoop2 jollyanimation1">P</h1>
+          </div>
+        </div>
+        <div className="signupForm">
+          <div className="Signup">
+            <form onSubmit={handleSignupSubmit}>
+              <label htmlFor="signupUsername">Username:</label>
+              <input
+                type="text"
+                name="signupUsername"
+                value={signupUsername}
+                onChange={handleFormChange}
+              />{" "}
+              <label htmlFor="signupEmail">Email:</label>
+              <input
+                type="text"
+                name="signupEmail"
+                value={signupEmail}
+                onChange={handleFormChange}
+              />{" "}
+              <label htmlFor="signupPassword">Password:</label>
+              <input
+                type="password"
+                name="signupPassword"
+                value={signupPassword}
+                onChange={handleFormChange}
+              />
+              <br></br>
+              <Button variant="danger">Signup</Button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

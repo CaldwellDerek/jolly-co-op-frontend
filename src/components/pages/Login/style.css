@@ -1,8 +1,17 @@
+*{
+  padding:0;
+  margin:0
+}
 .Login {
     display:flex;
-    justify-content: space-between;
     margin:5px;
+    /* flex-direction: column; */
+    align-items: center;
+    margin-bottom: 5vh;
+    flex-wrap: wrap;
+    margin-left:1vw;
 }
+
 
 .Login form {
     width:48%;
@@ -10,8 +19,35 @@
     flex-direction: column ;
     justify-content: space-between;
     align-items: center;
-    border: 3px solid rgb(35, 175, 131);
-    border-radius: 2%;
+    width: 20vw;
+    line-height: 4vh;
+    /* padding:10px */
+}
+
+
+.Login button{
+margin-top:4vh;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #8ecae6;
+    border-radius: 30px;
+    min-height:63vh;
+    padding:2vw;
+    /* justify-content: space-between; */
+    margin:2vh;
+    min-width:25vw;
+
+}
+
+.loginFormh1{
+    font-family: 'Climate Crisis', cursive;
+    color:#ffff;
+    padding-top:10%;
+    padding-bottom:10%
 }
 
 .login form * {
@@ -19,5 +55,99 @@
 }
 
 .loginBody{
-    height:90vh;
+    min-height:100vh;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1faee;
 }
+
+.loginContainer{
+    display: flex;
+    align-items: center;
+    
+}
+
+.loginBox{
+    display:flex;
+    flex-direction:column;
+    background-color: #ffd166;
+    min-width:25vw; 
+    border-radius: 30px;
+    min-height:60vh;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+.loginTitle{
+    display:flex;
+    /* padding: 50px 50px 50px 90px; */
+    margin-right:1vw;
+
+    margin-bottom: 5vh;
+    margin-left:1vw;
+}
+
+.jollycoop2{
+    position: relative;
+    font-family: 'Climate Crisis', cursive;
+    margin-top: 0px;
+    /* margin-bottom: 50px; */
+    text-align: center;
+    font-size: 7rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #ff5722;;
+    animation: color-animation 5s linear infinite;
+  }
+
+  @media screen and (max-width: 800px) {
+    .loginContainer{
+    flex-direction: column;
+    }
+}
+
+.jollyanimation1{
+    --color-1: #ff5722;
+    --color-2: #f9a825;
+     --color-3:#eeff41;
+   }
+   
+   .jollyanimation2{
+     --color-1: #43a047;
+     --color-2: #26c6da;
+      --color-3:#ef3550;
+    }
+   
+    .jollyanimation3{
+     --color-1: #7e57c2;
+     --color-2: #f48fb1;
+      --color-3:#2196f3
+    }
+   
+   @keyframes color-animation {
+     0% {
+       color: var(--color-1)
+     }
+     32% {
+       color: var(--color-2);
+     }
+     33% {
+       color: var(--color-3)
+     }
+     50% {
+       color: var(--color-1)  }
+     60% {
+       color: var(--color-2);
+     }
+     70% {
+       color: var(--color-3)
+     }
+     80% {
+       color: var(--color-1)
+     }
+     90% {
+       color: var(--color-2);
+     }
+     100%{
+       color: var(--color-3)
+     }
+   }
