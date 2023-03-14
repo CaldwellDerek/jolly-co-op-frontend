@@ -9,29 +9,36 @@ const Footer = (props) => {
       <div className="footerul">
         <div>
           <h5>
-            <strong>Support</strong>
+            <strong>Claire Eberle
+</strong>
           </h5>
           <ul>
-            <li>Help</li>
-            <li>Contact</li>
+            <li><a href="https://github.com/ClaireEberle">Gihub</a></li>
           </ul>
         </div>
         <div>
           <h5>
-            <strong>Group</strong>
+            <strong>Connor McLaughlin
+ </strong>
           </h5>
           <ul>
-            <li>About</li>
-            <li>Repo</li>
+            <li><a href="https://github.com/ConnorMcLaughlin2022">Gihub</a></li>
           </ul>
         </div>
         <div>
           <h5>
-            <strong>Terms & Policies</strong>
+            <strong>Derek Caldwell</strong>
           </h5>
           <ul>
-            <li>Terms of User</li>
-            <li>Privacy</li>
+            <l><a href="https://github.com/CaldwellDerek" target="_blank">Github</a></l>
+          </ul>
+        </div>
+        <div>
+          <h5>
+            <strong>Yanqing Lou</strong>
+          </h5>
+          <ul>
+            <li><a href="https://github.com/yanqinglou">Github</a></li>
           </ul>
         </div>
       </div>

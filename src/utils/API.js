@@ -172,6 +172,26 @@ const API = {
       }
     }).then((res) => res.json());
   },
+  addUsersinaGroup:(groupid, usersObj, token)=>{
+    return fetch(`${URL_PREFIX}/api/groups/add/${groupid}`, {
+      method: "POST",
+      body:JSON.stringify(usersObj),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+    }).then((res) => res.json());
+  },
+  removeUsersinaGroup:(groupid, usersObj, token)=>{
+    return fetch(`${URL_PREFIX}/api/groups/remove/${groupid}`, {
+      method: "POST",
+      body:JSON.stringify(usersObj),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+    }).then((res) => res.json());
+  }
 };
 
 export default API;
