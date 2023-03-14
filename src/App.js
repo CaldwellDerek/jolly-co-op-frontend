@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from "./components/pages/Login"
 import  Navbar  from "./components/Navbar"
@@ -20,6 +20,7 @@ function App() {
   const [userId, setUserId] = useState(0);
   const [userName, setUserName] = useState("");
 
+
   useEffect(()=>{
     const savedToken = localStorage.getItem("token");
     // console.log(savedToken)
@@ -36,6 +37,7 @@ function App() {
         }
       })
     }
+
   },[])
 
   const logout = ()=>{
@@ -46,13 +48,13 @@ function App() {
     return(
       window.location.href = "/"
     )
-
   }
+
 
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
+      {window.location.href!=="/login"||window.location.href!=="/signup" && <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>}
       <br/>
       <Routes>
       <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
@@ -67,7 +69,7 @@ function App() {
         <Route path="/mygroup" element={<MyGroups token={token} userId={userId} userName={userName}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
-      <Footer/>
+      {window.location.href!=="/login"||window.location.href!=="/signup" &&<Footer/>}
       </BrowserRouter>
     </div>
   );
