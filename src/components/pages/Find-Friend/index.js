@@ -206,7 +206,6 @@ const StartGroup = () => {
                     <br />
                     <input
                         className="search-input"
-
                         onChange={fetchFriends}
                         placeholder="Search by name"
 

@@ -53,10 +53,10 @@
 .options{
     position: absolute;
     bottom:0;
-    padding-bottom: 10px;
     padding-right: 15px;
     align-content: center;
     margin: auto;
+    height: 120px;
     text-align: center;
 }
 .options p{
@@ -139,7 +139,7 @@
     margin: 5px;
     text-decoration: none;
     border: 2px solid rgb(212, 100, 100);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     background-color: rgb(212, 100, 100);
     border-radius: 50%;
     /* border-bottom-left-radius: 0;
@@ -148,7 +148,7 @@
 }
 
 .add-games-btn{
-    margin: 15px;
+    margin-right: 1px;
     height: 40px;
     width: fit-content;
     text-decoration: none;
@@ -159,21 +159,23 @@
     /* border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; */
     color:white;
+    
 }
 .add-games-btn:hover{
-    margin: 15px;
+    margin-right: 10px;
     height: 40px;
     width: fit-content;
     text-decoration: none;
-    border: 5px solid #43a047;
+    border: 5px solid #43a048ba;
     background-color:#43a047 ;
     border-radius: 5%;
     /* border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; */
     color:white;
+    box-shadow: 5px 5px 20px #143016a4;
 }
 .see-all-groups{
-    margin: 20px;
+    margin-left: 1px;
     height: 40px;
     width: fit-content;
     text-decoration: none;
@@ -187,20 +189,20 @@
     
 }
 .see-all-groups:hover{
-    margin: 20px;
+    margin-left: 10px;
     height: 40px;
     width: fit-content;
     text-decoration: none;
     border: 5px solid #f9a825;
-    transition: all 0.5s ease;
     background-color:#f9a825 ;
     border-radius: 5%;
     /* border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; */
     color:white;
+    box-shadow: 5px 5px 20px #143016a4;
 }
 .add-list{
-  height: 200px;
+  height: 240px;
   width: auto;
   overflow-y:auto;
   scroll-snap-align:unset;
