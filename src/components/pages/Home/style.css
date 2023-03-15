@@ -52,7 +52,7 @@
 }
 .welcomePage{
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
   background-color: #ffd166;
   min-width:28vw; 
   border-radius: 30px;
@@ -79,4 +79,16 @@
   margin:5vh;
   min-width:5vw;
   max-width: max-content;
+}
+
+@media screen and (max-width: 900px){
+  .welcomePage{
+  
+    
+    background-color: #ffd166;
+    min-width:28vw; 
+    border-radius: 30px;
+    min-height:15vh;
+    margin:1vh;
+  }
 }
