@@ -13,6 +13,8 @@ img {
 
 .search-button {
     margin-top: 20px;
+    background: var(--buttonCol);
+    border: var(--buttonCol)
 }
 
 .find-game-container {

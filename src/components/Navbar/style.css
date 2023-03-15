@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dancing+Script&display=swap");
+
+
+:root {--buttonCol: #ec5e5e;
+}
+/* body {
+    background-image: url("../../images/rainbow.jpg");
+} */
+
 .titlecontainer{
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +17,7 @@
     display: flex;
     flex-direction: column;
     background-color: #f1faee;
-    border-bottom: 5px solid rgb(212, 100, 100);
+    border-bottom: 5px solid #ff6666;
     align-items: center;
     justify-content: space-between;
     
@@ -21,8 +29,8 @@
     margin: 10px;
     /* margin-bottom: -5px; */
     text-decoration: none;
-    border: 5px solid rgb(212, 100, 100);
-    background-color:rgb(212, 100, 100) ;
+    border: 5px solid var(--buttonCol);
+    background-color: var(--buttonCol);
     border-radius: 10px;
     /* border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; */
