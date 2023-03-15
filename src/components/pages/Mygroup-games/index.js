@@ -60,32 +60,20 @@ const Allgamesingroup = (props) => {
   });
 }
 
-  
-  //Start a function that changes state of winning object:fakevote
-  // object={winner}
-  //set the state of an object default 
-  // function fakevote(){
-  //   setfirst({
-  //     ...first,
-  //     whatwechanged
-  //   })
-  // }\
-  //useEffect on first to rerender cards.
-
   useEffect(() => {
     fetchGames();
-    winnerMachine();
-    console.log(games)
+
   }, []);
 
-  useEffect(() => {
-    winnerMachine();
-  }, [click]);
+  // useEffect(() => {
+  //   winnerMachine();
+  // }, [click]);
 
   return (
 <div >
       <Link to={"/mygroup"} className="backtogroups">⬅️ back to {props.userName}'s group</Link>
       <div className="body">
+        <div  className="yourGroup">
       <h3> {group.name}</h3>
       <div>
         {/* <button onClick={winnerMachine}>testing</button> */}
@@ -111,6 +99,7 @@ const Allgamesingroup = (props) => {
       </div>
       </div>
       <br/>
+      </div>
       <Teamcard token={props.token} userId={props.userId} groupId={params.id} username={props.userName}/>
 
     </div>

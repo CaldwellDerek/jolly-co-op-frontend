@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import "./index.css"
 import { Login } from "./components/pages/Login"
 import  Navbar  from "./components/Navbar"
 import API from "./utils/API"
@@ -13,6 +14,7 @@ import Home from "./components/pages/Home"
 import Footer from "./components/Footer";
 import HomeLogout from "./components/pages/HomeLogout"
 import Signup from "./components/pages/Sign up"
+import { toBeRequired } from "@testing-library/jest-dom/dist/matchers";
 
 function App() {
   const [token, setToken] = useState("");
@@ -37,7 +39,6 @@ function App() {
         }
       })
     }
-console.log(window.location.href!=="/signup")
   },[])
 
   const logout = ()=>{
@@ -50,12 +51,11 @@ console.log(window.location.href!=="/signup")
     )
   }
 
-
+console.log(window.location.pathname!=="/login" || window.location.pathname!=="/signup")
   return (
     <div className="App">
       <BrowserRouter>
-      {/* {(window.location.href !="/login"||window.location.href !="/signup") &&} */}
-      <Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
+     {window.location.pathname!=="/login"&&<Navbar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>}
       <br/>
       <Routes>
       <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} userId={userId}/>}/>
@@ -71,7 +71,7 @@ console.log(window.location.href!=="/signup")
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
       {/* {window.location.href=="/signup" &&} */}
-      <Footer/>
+      {window.location.pathname!=="/login" &&<Footer/>}
       </BrowserRouter>
     </div>
   );

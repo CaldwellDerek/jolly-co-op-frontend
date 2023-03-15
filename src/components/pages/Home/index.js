@@ -67,7 +67,7 @@ useEffect(() => {
   <ImgCarousel games={games}/>
 </div>
 </div>
-// </div>
+ </div>
     )}
     
     
