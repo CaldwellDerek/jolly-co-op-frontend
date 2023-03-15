@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Slab&family=Rubik+Bubbles&family=Tilt+Warp&display=swap');
 
+.body{
+  background-image: url("/src/images/rainbow.jpg");
+}
 
 .carousel-box{
    margin-top: 0%;
@@ -43,6 +46,9 @@
 .page-container{
   display: block;
   justify-content: center;
+    
+  
+
 }
 .welcomePage{
   display:flex;
@@ -52,10 +58,9 @@
   border-radius: 30px;
   min-height:15vh;
   margin:1vh;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .welcomePageh1{
-  font-family: 'Tilt Warp', cursive;
+ font-family: 'Tilt Warp', cursive;
   
     color:#240404;
     padding-top:2%;

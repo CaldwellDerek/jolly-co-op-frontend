@@ -60,12 +60,12 @@ function Home(props) {
         </div>
       </div>
       <div className="titleBack">
-        <h3 className="popularGames">Polular games at Jolly-Co op</h3>
+        <h3 className="popularGames">Popular games at Jolly-Co op</h3>
         <div className="carousel-box">
           <ImgCarousel games={games} />
         </div>
       </div>
-      //{" "}
+  
     </div>
   );
 }
