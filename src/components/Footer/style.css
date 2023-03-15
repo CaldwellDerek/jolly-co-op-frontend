@@ -2,8 +2,8 @@
 
 .footer {
     display: flex;
-    background-color: #f1faee;
-    border-top: 5px solid rgb(212, 100, 100);
+
+    /* border-top: 5px solid rgb(212, 100, 100); */
     align-items: center;
     bottom:0vh
 }

@@ -60,17 +60,8 @@ const Teamcard = (props) => {
           <h4 className="section-heading">Team Members</h4>
         )}
       </OverlayTrigger>
-
       <div className="section-container">
-        <Addfriend
-          users={users}
-          groupId={props.groupId}
-          token={props.token}
-          change={change}
-          setChange={setChange}
-          userId={props.userId}
-          username={props.username}
-        />
+        <Sendemail users={users} group={group} username={props.username} />
         {/* <div className="addfriend" onClick={handleShow}><h1>✚</h1></div> */}
         {users.map((user) => (
           <div className="profile">
@@ -81,6 +72,15 @@ const Teamcard = (props) => {
             <span className="name">{user.username}</span>
           </div>
         ))}
+        <Addfriend
+          users={users}
+          groupId={props.groupId}
+          token={props.token}
+          change={change}
+          setChange={setChange}
+          userId={props.userId}
+          username={props.username}
+        />
       </div>
       <br></br>
       <br></br>
@@ -88,7 +88,6 @@ const Teamcard = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      <Sendemail users={users} group={group} username={props.username} />
     </section>
   );
 };

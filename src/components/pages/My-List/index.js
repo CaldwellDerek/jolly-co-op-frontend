@@ -81,7 +81,7 @@ function MyList() {
                     })
                 });
             } catch (error) { console.log(error) };
-    })
+    },[])
 
     return (
         <div className='find-game-container'>
