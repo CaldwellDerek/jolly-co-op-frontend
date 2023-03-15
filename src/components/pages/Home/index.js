@@ -27,6 +27,7 @@ function Home(props) {
   };
   useEffect(() => {
     fetchGroups();
+    fetchGames();
   }, []);
 
   const [games, setGames] = useState([]);
@@ -38,15 +39,13 @@ function Home(props) {
 
   console.log(user);
 
-  useEffect(() => {
-    fetchGames();
-  }, []);
-
   return (
     <div>
       <div className="page-container">
         <div className="welcomePage">
-          <h1 className="welcomePageh1">{user.username}'s top groups:</h1>
+          {user ? (
+            <h1 className="welcomePageh1">{user.username}'s top groups:</h1>
+            ): <h3>Loading...</h3>}
         </div>
         <div className="home-group-container">
           {/* <h2 className="text-center top-groups">Your top groups</h2> */}
@@ -54,7 +53,7 @@ function Home(props) {
             {user.Groups ? (
               <GroupCards user={user} />
             ) : (
-              <h4>Login to see your groups</h4>
+              <h4 >Login to see your groups</h4>
             )}
           </div>
         </div>

@@ -13,7 +13,7 @@ const Footer = (props) => {
 </strong>
           </h5>
           <ul>
-            <li><a href="https://github.com/ClaireEberle" target="_blank">Gihub</a></li>
+            <li><a href="https://github.com/ClaireEberle" target="_blank">Github</a></li>
           </ul>
         </div>
         <div>
@@ -22,7 +22,7 @@ const Footer = (props) => {
  </strong>
           </h5>
           <ul>
-            <li><a href="https://github.com/ConnorMcLaughlin2022" target="_blank">Gihub</a></li>
+            <li><a href="https://github.com/ConnorMcLaughlin2022" target="_blank">Github</a></li>
           </ul>
         </div>
         <div>
@@ -30,7 +30,7 @@ const Footer = (props) => {
             <strong>Derek Caldwell</strong>
           </h5>
           <ul>
-            <l><a href="https://github.com/CaldwellDerek" target="_blank">Github</a></l>
+            <li><a href="https://github.com/CaldwellDerek" target="_blank">Github</a></li>
           </ul>
         </div>
         <div>
