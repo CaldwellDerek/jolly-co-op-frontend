@@ -37,7 +37,7 @@ useEffect(() => {
         <div>
             
         <div className="card logoutStyle ">
-    <h2>Login to create a group and start voting!</h2>
+    <h2 id="loggedout-text">Login to create a group and start voting!</h2>
         </div>
     </div>
 </div>
