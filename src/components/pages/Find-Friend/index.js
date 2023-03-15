@@ -177,7 +177,8 @@ const StartGroup = () => {
                 // group-name={value.toString()}
                 />
                 <br />
-                <button onClick={addGroupName} className="start-group" >Start Group</button>
+                <br/>
+                <button onClick={addGroupName} className="button-74" >Start Group</button>
             </div>
             <div className="main">
 
@@ -196,8 +197,10 @@ const StartGroup = () => {
                     </div>
                     <div className="options">
                         <p>You may add games now, or add them from your list later!</p>
-                        <button className="add-games-btn" onClick={createNewAddGames}>add games</button>
-                        <button className="see-all-groups" onClick={createNewMyGroups}>See all groups</button>
+                        <button className="button-74" onClick={createNewAddGames}>add games</button>
+                        <br></br>
+                        <br></br>
+                        <button className="button-74" onClick={createNewMyGroups}>See all groups</button>
                     </div>
                 </div>
 
@@ -223,6 +226,7 @@ const StartGroup = () => {
                                     return (
                                         <tr key={index}>
                                             <th >{users.username}
+                                        
                                                 <button
                                                     data-id={users.id}
                                                     data-username={users.username}

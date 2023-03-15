@@ -1,3 +1,28 @@
+.yourGroup{
+  background-color: #ffd166;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+  width:50vw
+}
+
+.delete{
+  font-size: 180%;
+  width: min-content;
+  position: relative;
+  left:120px;
+  opacity: 20%;
+  transition: 1.5s;
+  z-index: 20;
+  top:35px;
+}
+
+.delete:hover{
+  opacity: 100%;
+}
+
 .winnerBanner,
 .losingBanner{
   display: flex;
@@ -42,9 +67,22 @@
   align-items: start;
 }
 
+.searchEmail {
+  padding: 10px;
+  background-color: #ffd166;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.searchEmail p{
+  text-align: left;
+}
+
 .currentTeam {
   padding: 10px;
-  background-color: #8ecae6;
+  background-color: #2196f3;
   border-radius: 10px;
 }
 
@@ -62,6 +100,7 @@
 
 .backtogroups {
   margin-left: 3vw;
+
 }
 
 .container {
@@ -81,6 +120,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .regularcard {
@@ -88,18 +128,21 @@
   margin: 10px;
 }
 
-.emailbtn {
-  display: flex;
-  padding: 10px;
-}
-
 .emailContent {
   width: 15vw;
-  height: 50vh;
+  min-height: 40vh;
 }
 
 .team {
-  margin-bottom: 20vh;
+  padding:20px 10px 10px 10px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background-color: #8ecae6;
+  border-radius: 20px;
+}
+
+.deletebox {
+opacity:30%
 }
 
 .box {
@@ -147,6 +190,7 @@
   border: 5px solid #f7f7f7;
   filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
   cursor: pointer;
+
 }
 
 .profile:not(:first-child) img {
@@ -155,7 +199,7 @@
 
 .profile .name {
   position: absolute;
-  background-color: #8ecae6;
+  background-color: #ffd166;
   color: #fff;
   /* font-family: "Bebas Neue", cursive; */
   padding: 15px 30px;
@@ -175,7 +219,7 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: #8ecae6;
+  background-color: #ffd166;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
