@@ -22,7 +22,7 @@ const StartGroup = () => {
     const [name, setName] = useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
-    console.log(groupMembers)
+    // console.log(groupMembers)
 
     const getGroupName = (e) => {
         setInput(e.target.value)
@@ -47,7 +47,7 @@ const StartGroup = () => {
 
 
     function containsObject(obj, list) {
-        console.log(obj,list)
+        // console.log(obj,list)
         
         for  (let i = 0; i < list.length; i++) {
             if (list[i].username === obj.username) {
@@ -82,9 +82,9 @@ const StartGroup = () => {
             setGroupMembers(removed);
             const removedIds = memberIds.filter((groupMember) => groupMember !== id)
             memberIds=removedIds
-            console.log(removedIds)
-            console.log(groupMembers)
-            console.log(memberIds)
+            // console.log(removedIds)
+            // console.log(groupMembers)
+            // console.log(memberIds)
             
         };
   
@@ -143,6 +143,7 @@ const StartGroup = () => {
             name: nameGroup[0],
             users: memberIds
         }  
+        console.log(groupObj)
         if (nameGroup.length===0){
             alert("you need a name!")
         } 
@@ -151,9 +152,10 @@ const StartGroup = () => {
         } 
         else { 
             const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
-            return (
-                window.location.href = "/mylist"
-            )
+            console.log(newGroup)
+            // return (
+            //     window.location.href = "/mylist"
+            // )
         }
         // const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
 
