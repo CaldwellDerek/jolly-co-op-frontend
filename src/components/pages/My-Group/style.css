@@ -1,38 +1,39 @@
+.classBody{
+	/* width:100vw; */
+	display: flex;
+	/* flex-direction: column; */
+	align-items: center;
+	min-height:60vh
+}
+
 .mygroups {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:30%;
+}
+
+.mygroup h5{
+	text-align: center;
+	width: 80%;
 }
 
 .mygroupscontainer {
-	margin-top: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: end;
   flex-wrap: wrap;
+  padding:20px
 }
 
 
 .NewGroup {
   margin-top: 25px;
-  margin-bottom: 70px;
   text-align: center;
   margin-top:10vh;
+  margin-bottom: 6vh;
 }
 
-
-/* .start-new {
-  height: 60px;
-  width: 10vw;
-  text-decoration: none;
-  border: 5px solid rgb(212, 100, 100);
-  background-color: rgb(212, 100, 100);
-  border-radius: 10px;
-  color: white;
-  box-shadow: 5px 5px 10px rgb(186, 119, 119);
-} */
-  
-/* relevant portion */
 .groupbtn {
 	--border-radius: 24px;
 	--border-width: 8px;
@@ -47,6 +48,8 @@
 	font-weight: 400;
 	color:  rgb(186, 119, 119);
   text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
 
 }
 
@@ -104,4 +107,11 @@
 
 /* group rendering */
 
-  
+@media screen and (max-width: 800px) {
+.classBody{
+flex-direction: column;
+}
+.mygroup{
+	width:100%
+}
+}

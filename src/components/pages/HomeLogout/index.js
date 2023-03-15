@@ -28,20 +28,28 @@ useEffect(() => {
 
     return (
         <div>
+<div className="welcomeLPage">
+<div className="page-container">
 
-    <h1>Welcome Stranger,</h1>
-    <div className="card logoutStyle">
+    <h1 className="welcomeLPageh1" >Welcome Stranger,</h1>
+    <div className="card-container ">
+</div>
+        <div>
+            
+        <div className="card logoutStyle ">
     <h2>Login to create a group and start voting!</h2>
+        </div>
     </div>
+</div>
     <div className="gameDiv">
 
-<h3 className="popularGames">Polular games at Jolly-Co op</h3>
+<h3 className="popularGames">Popular games at Jolly-Co op</h3>
         <div className="carousel-box"> 
   <ImgCarousel games={games}/>
 </div>
 </div>
     </div>
-    
+    </div>
     )
 }
 

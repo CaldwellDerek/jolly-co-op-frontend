@@ -4,13 +4,13 @@ import "./style.css";
 import API from "../../../utils/API";
 import Gamecard from "./Gamecard";
 import { Link } from "react-router-dom";
-import Groupcard from "../My-Group/Groupcard";
 import Teamcard from "./Team";
 
 
 const Allgamesingroup = (props) => {
   const params = useParams();
   const [games, setGame] = useState([]);
+  const [newGames, setNewGame] = useState([]);
   const [group, setGroup] = useState([]);
   const [winner, setWinner] = useState(0);
   const [array, setArray] = useState([]);
@@ -22,6 +22,7 @@ const Allgamesingroup = (props) => {
       setGame(data.Games);
       setGroup(data);
     });
+    // winnerMachine()
   };
 
   const winnerMachine = () => {
@@ -29,35 +30,36 @@ const Allgamesingroup = (props) => {
     let voteObjArray = [];
     //* fetch votes of each game in this group
     games.forEach((game) => {
-      API.countVotesofaGame(game.id, params.id, props.token).then((data) => {
+      API.countVotesofaGame(params.id, game.id,  localStorage.getItem("token")).then((data) => {
         const gameObj = { GameId: game.id, VoteNum: data.length };
         voteArray.push(data.length);
         voteObjArray.push(gameObj);
       });
     });
-    // console.log(games)
     setArray(voteArray);
     setObjArray(voteObjArray);
     //* find the highest vote number
     const MaxVote = Math.max(...array);
     //* find the games with the highest vote
     const winingGame = objarray.filter((obj) => obj.VoteNum === MaxVote);
-    winingGame.forEach((wininggame)=>{
-      const winnergame = games.filter((game)=>game.id == wininggame.GameId)
-      // console.log(winnergame)
-      winnergame.forEach(winnergame=>{winnergame.win = true})
-      const losergame = games.filter((game)=>game.id !== wininggame.GameId)
-      losergame.forEach(losergame=>{losergame.win = false})
-      // console.log(losergame)
-    })
-
-    //!winnerIdArray is an array with just game id
+  //   //!winnerIdArray is an array with just game id
     const winnerIdArray = winingGame.map((winner) => {
+
       return winner.GameId;
     });
-    //write down the winning games id
-    setWinner(winnerIdArray)
-  };
+  //   //write down the winning games id
+    // setWinner(winnerIdArray)
+    winnerIdArray.forEach((winner)=>{
+      for (let i=0;i<games.length;i++){
+        if(games[i].id === winner){
+          games[i].iswining = true
+      }else{
+        games[i].iswining = false
+      }
+    }
+  });
+}
+
   
   //Start a function that changes state of winning object:fakevote
   // object={winner}
@@ -71,16 +73,23 @@ const Allgamesingroup = (props) => {
   //useEffect on first to rerender cards.
 
   useEffect(() => {
+    
     fetchGames();
     winnerMachine();
+    console.log(games)
   }, []);
 
+  useEffect(() => {
+    winnerMachine();
+  }, [click]);
+
   return (
-<div>
+<div >
       <Link to={"/mygroup"} className="backtogroups">⬅️ back to {props.userName}'s group</Link>
       <div className="body">
       <h3> {group.name}</h3>
       <div>
+        {/* <button onClick={winnerMachine}>testing</button> */}
       <div className="container">
         {games?.map((game) => (
           <div className="regularcard">
@@ -93,9 +102,10 @@ const Allgamesingroup = (props) => {
               token={props.token}
               userId={props.userId}
               games={games}
-              win={games.win}
-              // winnerIdArray={winner}
+              iswining={game.iswining}
               key={game.id}
+              setClick={setClick}
+              click={click}
             />
           </div>
         ))}

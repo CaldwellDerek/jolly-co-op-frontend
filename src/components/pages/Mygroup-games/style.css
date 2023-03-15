@@ -1,123 +1,248 @@
-.backtogroups{
-    margin-left: 3vw;
-}
-
-.container{
-    display:flex;
-    justify-content: space-around;
-    align-items: end;
-    flex-wrap: wrap;
-}
-.cardbtn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.regularcard{
-    width: 18rem;
-    margin: 10px;
-
-}
-
-.emailbtn{
+.winnerBanner,
+.losingBanner{
   display: flex;
-  padding:10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px 10px 0 0;
+  font-size: 150%;
 }
 
-.emailContent{
-  width:15vw;
-  height:50vh;
+.winnerBanner{
+  background-color: #d62828
 }
 
-.team{
-    margin-bottom: 20vh;
+.losingBanner{
+  background-color: #2196f3
+}
+
+.bottomBanner {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  margin-bottom: 5vh;
+  flex-wrap: wrap;
+  margin-left:1vw;
+}
+
+.addfriendbtn {
+  margin-right: 50px;
+}
+
+.addfriend {
+  background-color: #f1faee;
+}
+
+.searchFriends {
+  padding: 10px;
+  background-color: #ffd166;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.currentTeam {
+  padding: 10px;
+  background-color: #8ecae6;
+  border-radius: 10px;
+}
+
+.currentTeam img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.currentUsers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.backtogroups {
+  margin-left: 3vw;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.cardbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.regularcard {
+  width: 18rem;
+  margin: 10px;
+}
+
+.emailbtn {
+  display: flex;
+  padding: 10px;
+}
+
+.emailContent {
+  width: 15vw;
+  height: 50vh;
+}
+
+.team {
+  margin-bottom: 20vh;
 }
 
 .box {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  }
-  
-  .box:hover {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    animation-name: example;
-    animation-duration: 0.25s;
-    border-left: 8px solid #d62828;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
-  
-  .section-heading {
-    /* font-family: "Dancing Script", cursive; */
-    text-align: center;
-    /* font-size: 64px; */
-    margin: 0 0 70px;
-  }
-  
-  .section-container {
-    display: flex;
-    justify-content: center;
-    width: 90%;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-  
-  .profile {
-    position: relative;
-    transition: all 0.3s;
-  }
-  
-  .profile:hover {
-    transform: translateY(25px);
-  }
-  
-  .profile img {
-    max-width: 100%;
-    border-radius: 50%;
-    border: 5px solid #f7f7f7;
-    filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
-    cursor: pointer;
-  }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-  .profile:not(:first-child) img {
-    margin-left: -20px;
+.box:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid #d62828;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.section-heading {
+  /* font-family: "Dancing Script", cursive; */
+  text-align: center;
+  /* font-size: 64px; */
+  margin: 0 0 70px;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.profile {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.profile:hover {
+  transform: translateY(25px);
+}
+
+.profile img {
+  max-width: 100%;
+  border-radius: 50%;
+  border: 5px solid #f7f7f7;
+  filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
+  cursor: pointer;
+}
+
+.profile:not(:first-child) img {
+  margin-left: -20px;
+}
+
+.profile .name {
+  position: absolute;
+  background-color: #8ecae6;
+  color: #fff;
+  /* font-family: "Bebas Neue", cursive; */
+  padding: 15px 30px;
+  border-radius: 100px;
+  bottom: -80px;
+  left: 50%;
+  white-space: nowrap;
+  transform: translate(-50%, -50px);
+  letter-spacing: 1px;
+  /* font-size: 20px; */
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.profile .name::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #8ecae6;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.profile img:hover + .name {
+  opacity: 1;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
+}
+
+.jollycoop {
+  font-family: "Climate Crisis", cursive;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #ff5722;
+  animation: color-animation 5s linear infinite;
+
+}
+
+.jollyanimation1{
+ --color-1: #ff5722;
+ --color-2: #f9a825;
+  --color-3:#eeff41;
+}
+
+.jollyanimation2{
+  --color-1: #43a047;
+  --color-2: #26c6da;
+   --color-3:#ef3550;
+ }
+
+ .jollyanimation3{
+  --color-1: #7e57c2;
+  --color-2: #f48fb1;
+   --color-3:#2196f3
+ }
+
+@keyframes color-animation {
+  0% {
+    color: var(--color-1)
   }
-  
-  .profile .name {
-    position: absolute;
-    background-color: #8ecae6;
-    color: #fff;
-    /* font-family: "Bebas Neue", cursive; */
-    padding: 15px 30px;
-    border-radius: 100px;
-    bottom: -80px; left: 50%;
-    white-space: nowrap;
-    transform: translate(-50%, -50px);
-    letter-spacing: 1px;
-    /* font-size: 20px; */
-    opacity: 0;
-    transition: all 0.3s;
+  32% {
+    color: var(--color-2);
   }
-  
-  .profile .name::before {
-    content: "";
-    position: absolute;
-    width: 15px; height: 15px;
-    background-color: #8ecae6;
-    top: 0; left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
+  33% {
+    color: var(--color-3)
   }
-  
-  .profile img:hover + .name {
-    opacity: 1;
-    transform: translateX(-50%);
-    box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
+  50% {
+    color: var(--color-1)  }
+  60% {
+    color: var(--color-2);
   }
+  70% {
+    color: var(--color-3)
+  }
+  80% {
+    color: var(--color-1)
+  }
+  90% {
+    color: var(--color-2);
+  }
+  100%{
+    color: var(--color-3)
+  }
+}
