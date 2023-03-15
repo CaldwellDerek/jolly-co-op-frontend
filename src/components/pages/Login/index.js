@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 export const Login = (props) => {
   const [loginEmail, setloginEmail] = useState("");
   const [loginPassword, setloginPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState(true)
   let navigate = useNavigate();
 
   const handleFormChange = (e) => {
@@ -37,13 +38,15 @@ export const Login = (props) => {
         props.setIsLoggedIn(true);
         props.setUserId(data.user.id);
         props.setUserName(data.user.username);
+        localStorage.setItem("token", data.token);
+        
+        setloginEmail("");
+        setloginPassword("");
+        let path = `/home/${data.user.id}`;
+        navigate(path);
+      }else{
+        setErrorMsg(false)
       }
-      localStorage.setItem("token", data.token);
-
-      setloginEmail("");
-      setloginPassword("");
-      let path = `/home/${data.user.id}`;
-      navigate(path);
     });
   };
 
@@ -68,6 +71,8 @@ export const Login = (props) => {
         </div>
         <div className="loginForm">
           <h1 className="loginFormh1">Login Here! </h1>
+          {!errorMsg ? (<p className="error" id="errorMsg">Your username or password is wrong!</p>) : ( null )}
+         
           <div className="Login">
             <form onSubmit={handleFormSubmit}>
               <label htmlFor="loginEmail">Email:</label>
