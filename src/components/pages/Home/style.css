@@ -1,4 +1,10 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Slab&family=Rubik+Bubbles&family=Tilt+Warp&display=swap');
+
+.body{
+  background-image: url("/src/images/rainbow.jpg");
+}
+
 .carousel-box{
    margin-top: 0%;
     border-top: 10px double #f9a825;
@@ -13,6 +19,7 @@
   justify-content: end; */
 }
 .popularGames{
+  border-top: 10px double #f9a825;
     display: flex;
     justify-content: center;
     letter-spacing: 0.15rem;
@@ -20,8 +27,56 @@
     color: #f4efef;
     text-shadow: -1px 2px #ef3550,
     -2px 4px #f48fb1;
-    margin-top: 10%;
+    margin-top: 1%;
     /* padding-bottom: 20px; */
    
     
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* .home-group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.page-container{
+  display: block;
+  justify-content: center;
+    
+  
+
+}
+.welcomePage{
+  display:flex;
+  flex-direction:row;
+  background-color: #ffd166;
+  min-width:28vw; 
+  border-radius: 30px;
+  min-height:15vh;
+  margin:1vh;
+}
+.welcomePageh1{
+ font-family: 'Tilt Warp', cursive;
+  
+    color:#240404;
+    padding-top:2%;
+    padding-bottom:2%
+}
+.top-groups{
+  font-family: 'Climate Crisis', cursive;
+  color:#240404;
+  align-items: center;
+  background-color: #43a047;
+  border-radius: 30px;
+  min-height:10vh;
+  padding-left:2vw;
+  padding-right: 2vw;
+  /* justify-content: space-between; */
+  margin:5vh;
+  min-width:5vw;
+  max-width: max-content;
 }

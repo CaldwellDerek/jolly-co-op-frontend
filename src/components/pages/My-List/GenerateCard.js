@@ -16,6 +16,11 @@ const styleImg = {
     margin: "5px"
 }
 
+const styleButton = {
+    backgroundColor: "#ec5e5e",
+    borderColor: "#ec5e5e"
+}
+
 function GenerateCard(props) {
     const platformArray = props.platform.split(',');
     const platformList = platformArray.map((element, index)=> {
@@ -79,8 +84,8 @@ function GenerateCard(props) {
                 </ul>
                 <p className="card-text">Overall Rating: {props.rating}</p>
                 <div className='d-flex flex-row'>
-                    <button type="button" className="btn btn-primary me-3" data-game-id={props.id} onClick={handleDelete}>Delete</button>
-                    <button type="button" className="btn btn-primary center" data-game-id={props.id} data-game-name={props.name} onClick={props.open}>Add to Group</button>
+                    <button type="button" className="btn btn-primary me-3" style={styleButton} data-game-id={props.id} onClick={handleDelete}>Delete</button>
+                    <button type="button" className="btn btn-primary center" style={styleButton} data-game-id={props.id} data-game-name={props.name} onClick={props.open}>Add to Group</button>
                 </div>
             </div>
         </div>

@@ -70,7 +70,7 @@ margin-top:4vh;
 .loginBox{
     display:flex;
     flex-direction:column;
-    background-color: #ffd166;
+    background-color: #ff6666;
     min-width:25vw; 
     border-radius: 30px;
     min-height:60vh;
@@ -97,6 +97,20 @@ margin-top:4vh;
     text-transform: uppercase;
     color: #ff5722;;
     animation: color-animation 5s linear infinite;
+  }
+  #errorMsg{
+    color:#e81d12
+  }
+  .error {
+    animation: kf_shake 0.4s 1 linear;
+  }
+  @keyframes kf_shake {
+    0% { transform: translate(20px); }
+    20% { transform: translate(-20px); }
+    40% { transform: translate(10px); }
+    60% {transform: translate(-10px); }
+    80% { transform: translate(4px); }
+    100% { transform: translate(0px); }
   }
 
   @media screen and (max-width: 800px) {

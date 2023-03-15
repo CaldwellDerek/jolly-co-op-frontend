@@ -18,6 +18,10 @@ const styleImg = {
     margin: "5px"
 }
 
+const styleButton = {
+    backgroundColor: "#ec5e5e",
+    borderColor: "#ec5e5e"
+}
 const styleSaveButton = {
     backgroundColor: "green",
     borderColor: "green"
@@ -25,7 +29,7 @@ const styleSaveButton = {
 
 function GenerateCard(props) {
     const [saveButtonText, setSaveButtonText] = useState("Save");
-    const [saveButtonColor, setSaveButtonColor] = useState({});
+    const [saveButtonColor, setSaveButtonColor] = useState(styleButton);
 
     const platformList = props.platform.map((element, index)=> {
         switch (element){
