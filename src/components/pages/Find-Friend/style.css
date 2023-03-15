@@ -36,6 +36,7 @@
     align-items: center;
     margin: auto;
     
+    
 }
 /* aside shown card */
 .Group-Card{
@@ -43,12 +44,18 @@
     width: 250px;
     padding: 20px;
     float: right;
-    background-color: aquamarine;
+    background-color: #26c6da;
     margin-right: 15px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(186, 119, 119);
     position: relative;
     
+}
+.Group-Card h1{
+    overflow-y: auto;
+}
+.Group-Card h3{
+    border-top: 2px solid black;
 }
 .options{
     position: absolute;
@@ -56,11 +63,13 @@
     padding-bottom: 10px;
     padding-right: 15px;
     align-content: center;
-    margin: auto;
+    z-index: 0;
     text-align: center;
 }
 .options p{
     text-align: center;
+    position: relative;
+    z-index: 0;
 
 }
 .start-group{
@@ -147,62 +156,30 @@
     color:white;
 }
 
-.add-games-btn{
-    margin: 15px;
-    height: 40px;
-    width: fit-content;
-    text-decoration: none;
-    border: 5px solid rgb(212, 100, 100);
-    transition: all 0.5s ease;
-    background-color: rgb(212, 100, 100) ;
-    border-radius: 5%;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
-    color:white;
-}
-.add-games-btn:hover{
-    margin: 15px;
-    height: 40px;
-    width: fit-content;
-    text-decoration: none;
-    border: 5px solid #43a047;
-    background-color:#43a047 ;
-    border-radius: 5%;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
-    color:white;
-}
-.see-all-groups{
-    margin: 20px;
-    height: 40px;
-    width: fit-content;
-    text-decoration: none;
-    border: 5px solid rgb(212, 100, 100);
-    transition: all 0.5s ease;
-    background-color: rgb(212, 100, 100);
-    border-radius: 5%;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
-    color:white;
-    
-}
-.see-all-groups:hover{
-    margin: 20px;
-    height: 40px;
-    width: fit-content;
-    text-decoration: none;
-    border: 5px solid #f9a825;
-    transition: all 0.5s ease;
-    background-color:#f9a825 ;
-    border-radius: 5%;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
-    color:white;
-}
 .add-list{
-  height: 300px;
+  height: 180px;
   width: auto;
   overflow-y:auto;
+  scroll-snap-align:unset;
+  border: 1px solid #43a047;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgb(186, 119, 119);
+  transition: all 0.5s ease;
+  z-index: 5000;
+  position: relative;
+
+}
+.add-list:hover{
+  height: 250px;
+  width: auto;
+  overflow-y:auto;
+  scroll-snap-align:unset;
+  background-color: #26c6da ;
+  border: 1px solid #43a047;
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px rgb(186, 119, 119);
+  z-index: 5000;
+
 }
 
 @media screen and (max-width:920px) {
