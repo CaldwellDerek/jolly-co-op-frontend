@@ -183,9 +183,9 @@ const StartGroup = () => {
             <div className="main">
 
                 <div className="Group-Card">
-                    <div className="add-list">
                         <h1>{nameGroup}</h1>
-                        <h3>added members</h3>
+                        <h3>Added members</h3>
+                    <div className="add-list">
                         <ul>
                             {groupMembers.map((groupMember, index) => {
                                 // console.log(groupMember)
@@ -209,7 +209,6 @@ const StartGroup = () => {
                     <br />
                     <input
                         className="search-input"
-
                         onChange={fetchFriends}
                         placeholder="Search by name"
 

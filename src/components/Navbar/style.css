@@ -3,9 +3,9 @@
 
 :root {--buttonCol: #ec5e5e;
 }
-/* body {
+body {
     background-image: url("../../images/rainbow.jpg");
-} */
+}
 
 .titlecontainer{
     display: flex;
