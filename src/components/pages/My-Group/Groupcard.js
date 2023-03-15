@@ -22,7 +22,7 @@ const Groupcard = (props) => {
     const leaveGroup = ()=>{
       API.leaveGroup(props.id,props.token).then((data)=>{
         console.log(data)
-        setMsg("You have leave this group")
+        setMsg("You have left this group")
         setVariant("danger")
       })
     }

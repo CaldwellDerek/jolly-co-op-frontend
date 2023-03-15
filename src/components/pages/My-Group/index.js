@@ -8,16 +8,20 @@ import { useParams } from "react-router-dom";
 const MyGroups = (props) => {
   const [groups, setGroups] = useState([]);
   const [num, setNum] = useState(0);
+  const [user, setUser] = useState(0);
  
 
   //get all groups under this user
 
   const findGroup = () => {
     API.isValidToken(localStorage.getItem("token")).then(tokenData => {
-
-      API.getUserData(props.userId, props.tokenData).then((data) => {
+      console.log(tokenData)
+      API.getUserData(tokenData.user.id, localStorage.getItem("token")).then((data) => {
         //save all groups infor under this user
+        console.log(data)
         setGroups(data.Groups);
+        setUser(data.username)
+        
       });
     })
   };
@@ -29,7 +33,7 @@ findGroup()
   return (
     <div className="classBody">
       <div className="mygroups">
-        <h1 className="JollyH1">{props.userName}'s groups:</h1>
+        <h1 className="JollyH1">{user}'s groups:</h1>
         <br></br>
         <h5>Click to see what games are competing in the group</h5>
         <div className="NewGroup">
