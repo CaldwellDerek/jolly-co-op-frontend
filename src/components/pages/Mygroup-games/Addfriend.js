@@ -17,7 +17,6 @@ const Addfriend = (props) => {
   const [isOwner, setisOwner] = useState(false);
   const [ownerId, setOwnerId] = useState(false);
   const [allUsers, setallUsers] = useState(false);
-  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -32,7 +31,7 @@ const Addfriend = (props) => {
     API.getOneGroup(params.id, localStorage.getItem("token")).then((data) => {
       setGroup(data);
       setgroupMem(data.Users);
-      setOwnerId(data.OwnerId)
+      setOwnerId(data.OwnerId);
       if (data.OwnerId === props.userId) {
         setisOwner(true);
       }
@@ -40,25 +39,48 @@ const Addfriend = (props) => {
   };
 
   const EmailSubmit = (e) => {
-    e.preventDefault();
-    //*find owner email
-    const groupOwner = groupMem.filter(mem=>mem.id === ownerId)
-    const futureMemId =  e.target.getAttribute("data-id") 
-    const futureMem = allUsers.filter(mem=>mem.id==futureMemId)
-    const emailContent = `Hi, ${groupOwner[0].username}, ${props.username} would like to invite his/her friend : ${futureMem[0].username} (${futureMem[0].email} to ${group.name}). Please add the user to the group!)`
-    setmsg("Request to add this friend has been sent to the owner of the group!")
-    const emailObj = {
-      recipient:groupOwner[0].username,
-      email:groupOwner[0].email,
-      sender:props.username,
-      groupname:group.name,
-      text:emailContent
+    // e.preventDefault();
+    //*find owner emails
+    e.target.value = "";
+    let emailContent = "";
+    let emailObj = {
+      recipient: "",
+      email: "",
+      sender: "",
+      groupname: "",
+      text: "",
     };
-    console.log(emailObj)
-    // API.sendEmail(emailObj).then((data)=>{
-    //   console.log(data)
-    //   setemailAlert("Your message has been sent!")
-    // })
+    const groupOwner = groupMem.filter((mem) => mem.id === ownerId);
+    const futureMemId = e.target.getAttribute("data-id");
+    const futureMem = allUsers.filter((mem) => mem.id == futureMemId);
+    if (isOwner) {
+      setmsg("Email has been sent to the user.");
+      emailContent = `Hi, ${groupOwner[0].username}, ${props.username} just invited you to the ${group.name}. Log in to see what games they are playing!`;
+      emailObj = {
+        recipient: futureMem[0].username,
+        email: futureMem[0].email,
+        sender: props.username,
+        groupname: group.name,
+        text: emailContent,
+      };
+    } else {
+      setmsg(
+        "Request to add this friend has been sent to the owner of the group!"
+      );
+      emailContent = `Hi, ${groupOwner[0].username}, ${props.username} would like to invite his/her friend : ${futureMem[0].username} (${futureMem[0].email} to ${group.name}). Please add the user to the group!)`;
+      emailObj = {
+        recipient: groupOwner[0].username,
+        email: groupOwner[0].email,
+        sender: props.username,
+        groupname: group.name,
+        text: emailContent,
+      };
+    }
+    console.log(emailObj);
+    API.sendEmail(emailObj).then((data) => {
+      console.log(data);
+      setmsg("Your message has been sent!");
+    });
   };
 
   const addMember = (e) => {
@@ -79,6 +101,7 @@ const Addfriend = (props) => {
         setAlert(0);
       }
     });
+    EmailSubmit(e);
   };
 
   const removeUser = (e) => {
@@ -109,7 +132,7 @@ const Addfriend = (props) => {
     const fetchUsers = async () => {
       setmsg("");
       const users = await API.getAllUsers();
-      setallUsers(users)
+      setallUsers(users);
       var newUsers = users.filter(function (user) {
         var username = user.username.toLowerCase();
         if (username.includes(e.target.value.toLowerCase())) {
@@ -137,10 +160,12 @@ const Addfriend = (props) => {
   }, [alert]);
 
   return (
-    <div>
-      <button onClick={handleShow} className="add-users addfriendbtn">
-        ✚
-      </button>
+    <div className="profile">
+      <img
+        onClick={handleShow}
+        src="https://cdn-icons-png.flaticon.com/512/9898/9898762.png"
+      ></img>
+
       <Offcanvas
         className="addfriend"
         show={show}
@@ -209,17 +234,21 @@ const Addfriend = (props) => {
               <div key={user.id} className="currentUsers">
                 <img></img>
                 <h5>{user.username}</h5>
-                {isOwner?(<button
-                  data-id={user.id}
-                  data-username={user.username}
-                  className="add-users"
-                  id="add-member"
-                  // value={friendInput}
-                  // onChange={getNewFriend}
-                  onClick={removeUser}
-                >
-                  -
-                </button>):<></>}
+                {isOwner ? (
+                  <button
+                    data-id={user.id}
+                    data-username={user.username}
+                    className="add-users"
+                    id="add-member"
+                    // value={friendInput}
+                    // onChange={getNewFriend}
+                    onClick={removeUser}
+                  >
+                    -
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
             ))}
           </div>

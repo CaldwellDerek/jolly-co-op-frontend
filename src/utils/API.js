@@ -1,4 +1,5 @@
-const URL_PREFIX = "https://vast-brushlands-39205.herokuapp.com";
+const URL_PREFIX = "http://localhost:3000"
+// const URL_PREFIX = "https://vast-brushlands-39205.herokuapp.com";
 
 const API = {
   getUserData: (id, token) => {
@@ -128,6 +129,14 @@ const API = {
 
   deleteGame: (id, token) => {
     return fetch(`${URL_PREFIX}/api/games/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+  },
+  deleteGamefromaGroup: (groupid,gameid, token) => {
+    return fetch(`${URL_PREFIX}/api/groups/delete/${groupid}/${gameid}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
