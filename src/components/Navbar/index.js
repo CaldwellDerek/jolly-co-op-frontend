@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import cloud from "./cloud.png"
 
 const Navbar = (props) => {
   return (
     <div className="Navbar">
       <div className="titlecontainer">
-      <h1 className="titlename godown">J </h1>
+      <h1 className="titlename">J </h1>
       <h1 className="titlename">0</h1>
       <h1 className="titlename">L</h1>
       <h1 className="titlename">L</h1>
@@ -18,29 +19,26 @@ const Navbar = (props) => {
       <h1 className="titlename">P</h1>
       </div>
       <div className="NavbarBtnContainer">
-        <Link className="NavbarBtn" to="/findgames">
-          Find Game
+        <Link to="/findgames"><button className="button-74"> Find Game</button>
         </Link>
 
         {props.isLoggedIn ? (
           <>
-            <Link className="NavbarBtn" to={`/home/${props.userId}`}>
-              Home
+            <Link  to={`/home/${props.userId}`}><button className="button-74">  Home</button>
+            
             </Link>
-            <Link className="NavbarBtn" to="/mylist">
-              My List
+            <Link  to="/mylist"><button className="button-74">My List</button>
             </Link>
-            <Link className="NavbarBtn" to="/mygroup">
-              My Group
+            <Link  to="/mygroup"><utton className="button-74">My Group</utton>
             </Link>
           </>
         ) : (
-          <Link className="NavbarBtn" to="/login">
-            Login
+          <Link  to="/login"><button className="button-74">Login</button>
+    
           </Link>
         )}
         {props.isLoggedIn ? (
-          <button className="NavbarBtn" onClick={props.logout}>
+          <button className="button-74" onClick={props.logout}>
             Logout
           </button>
         ) : null}
