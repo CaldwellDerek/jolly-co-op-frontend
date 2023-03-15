@@ -43,7 +43,7 @@
     width: 250px;
     padding: 20px;
     float: right;
-    background-color: aquamarine;
+    background-color: #26c6da;
     margin-right: 15px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(186, 119, 119);
@@ -200,9 +200,14 @@
     color:white;
 }
 .add-list{
-  height: 300px;
+  height: 200px;
   width: auto;
   overflow-y:auto;
+  scroll-snap-align:unset;
+  border: 1px solid #43a047;
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px rgb(186, 119, 119);
+
 }
 
 @media screen and (max-width:920px) {

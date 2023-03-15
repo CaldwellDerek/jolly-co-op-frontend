@@ -182,9 +182,9 @@ const StartGroup = () => {
             <div className="main">
 
                 <div className="Group-Card">
+                        <h3>Added members</h3>
                     <div className="add-list">
                         <h1>{nameGroup}</h1>
-                        <h3>added members</h3>
                         <ul>
                             {groupMembers.map((groupMember, index) => {
                                 // console.log(groupMember)
