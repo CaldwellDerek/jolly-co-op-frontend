@@ -23,20 +23,24 @@
     justify-content: center;
     margin-left: 15px;
     padding: 20px;
-    width: 600px;
+    max-width: 600px;
     height: 500px;
     background-color: blueviolet;
-
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(186, 119, 119);
+    
 }
 .main{
     justify-content: center;
+    max-width: 925px;
+    align-items: center;
+    margin: auto;
+    
 }
 /* aside shown card */
 .Group-Card{
     height: 500px;
-    width: 30vw;
+    width: 250px;
     padding: 20px;
     float: right;
     background-color: aquamarine;
@@ -50,14 +54,17 @@
     position: absolute;
     bottom:0;
     padding-bottom: 10px;
+    padding-right: 15px;
     align-content: center;
     margin: auto;
-    
-    
-    
+    text-align: center;
+}
+.options p{
+    text-align: center;
+
 }
 .start-group{
-    height: 40px;
+    height: fit-content;
     width: 140px;
     margin: 15px;
     text-decoration: none;
@@ -196,4 +203,13 @@
   height: 300px;
   width: auto;
   overflow-y:auto;
+}
+
+@media screen and (max-width:920px) {
+    .main {
+        
+        display: inline-flex;
+        
+
+    }
 }

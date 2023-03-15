@@ -1,0 +1,4 @@
+#submit-style {
+    border: 5px solid var(--buttonCol);
+    background-color: var(--buttonCol);
+}

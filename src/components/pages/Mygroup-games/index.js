@@ -61,6 +61,7 @@ const Allgamesingroup = (props) => {
 }
 
   useEffect(() => {
+    
     fetchGames();
 
   }, []);

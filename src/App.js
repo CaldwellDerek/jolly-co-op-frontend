@@ -51,7 +51,6 @@ function App() {
     )
   }
 
-console.log(window.location.pathname!=="/login" || window.location.pathname!=="/signup")
   return (
     <div className="App">
       <BrowserRouter>
@@ -70,7 +69,6 @@ console.log(window.location.pathname!=="/login" || window.location.pathname!=="/
         <Route path="/mygroup" element={<MyGroups token={token} userId={userId} userName={userName}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>}/>
       </Routes>
-      {/* {window.location.href=="/signup" &&} */}
       {window.location.pathname!=="/login" &&<Footer/>}
       </BrowserRouter>
     </div>

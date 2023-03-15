@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const members = [];
 
 // const group= ('')
-const memberIds = []
+let memberIds = []
 console.log("memberIds", memberIds)
 
 
@@ -22,7 +22,7 @@ const StartGroup = () => {
     const [name, setName] = useState('');
     const [nameGroup, setnameGroup] = useState('');
     const [groupMembers, setGroupMembers] = useState([])
-
+    console.log(groupMembers)
 
     const getGroupName = (e) => {
         setInput(e.target.value)
@@ -67,7 +67,7 @@ const StartGroup = () => {
         console.log(containsObject(member,groupMembers))
         if (!containsObject(member,groupMembers)) {
         members.push(member)
-        console.log(members)
+        // console.log(members)
         setGroupMembers([...groupMembers, member])
         memberIds.push(member.id)
         }
@@ -76,15 +76,18 @@ const StartGroup = () => {
     }
 
 
-
-    const removeUser = (id) => {
-        const removed = groupMembers.filter((groupMember) => groupMember.id != id)
-        setGroupMembers(removed);
-        memberIds.push(groupMembers.id)
-        console.log(groupMembers)
-        // setGroupMembers(groupMembers.length-1)
-    }
     
+    const removeUser = (id) => {
+            const removed = groupMembers.filter((groupMember) => groupMember.id !== id)
+            setGroupMembers(removed);
+            const removedIds = memberIds.filter((groupMember) => groupMember !== id)
+            memberIds=removedIds
+            console.log(removedIds)
+            console.log(groupMembers)
+            console.log(memberIds)
+            
+        };
+  
 
 
     const fetchFriends = (e) => {
@@ -111,20 +114,52 @@ const StartGroup = () => {
 
 
     }
-    const createNew = async () => {
-            console.log(nameGroup[0])
-            const memGroup = nameGroup[0]
+    const createNewMyGroups = async () => {
+            
         const groupObj = {
-            name: memGroup,
+            name: nameGroup[0],
             users: memberIds
         }
-        const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+        if (nameGroup.length===0){
+            alert("you need a name!")
+        } 
+        else if (groupObj.users.length===0){
+            alert("you havent added anyone in the group! Please search for friends")
+        }
+        else { 
+            const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+            return (
+            window.location.href = "/mygroup"
+        )
+        }
 
         // let path = `/mylist`;
         // navigate(path);
-        // return (
-        //     window.location.href = "/mylist"
-        // )
+        
+    }
+    const createNewAddGames = async () => {
+            
+        const groupObj = {
+            name: nameGroup[0],
+            users: memberIds
+        }  
+        if (nameGroup.length===0){
+            alert("you need a name!")
+        } 
+        else if (groupObj.users.length===0){
+            alert("you havent added anyone in the group! Please search for friends")
+        } 
+        else { 
+            const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+            return (
+                window.location.href = "/mylist"
+            )
+        }
+        // const newGroup = await API.createGroup(groupObj, localStorage.getItem("token"));
+
+        // let path = `/mylist`;
+        // navigate(path);
+    
     }
    
 
@@ -142,9 +177,10 @@ const StartGroup = () => {
                 // group-name={value.toString()}
                 />
                 <br />
-                <button onClick={addGroupName} className="start-group" >Start Group</button>
+                <br/>
+                <button onClick={addGroupName} className="button-74" >Start Group</button>
             </div>
-            <div className="">
+            <div className="main">
 
                 <div className="Group-Card">
                     <div className="add-list">
@@ -161,8 +197,10 @@ const StartGroup = () => {
                     </div>
                     <div className="options">
                         <p>You may add games now, or add them from your list later!</p>
-                        <button className="add-games-btn" onClick={createNew}>add games</button>
-                        <button className="see-all-groups" onClick={createNew}>See all groups</button>
+                        <button className="button-74" onClick={createNewAddGames}>add games</button>
+                        <br></br>
+                        <br></br>
+                        <button className="button-74" onClick={createNewMyGroups}>See all groups</button>
                     </div>
                 </div>
 
@@ -188,6 +226,7 @@ const StartGroup = () => {
                                     return (
                                         <tr key={index}>
                                             <th >{users.username}
+                                        
                                                 <button
                                                     data-id={users.id}
                                                     data-username={users.username}
