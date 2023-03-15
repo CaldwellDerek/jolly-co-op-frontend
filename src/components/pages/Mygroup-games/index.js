@@ -73,6 +73,7 @@ const Allgamesingroup = (props) => {
   //useEffect on first to rerender cards.
 
   useEffect(() => {
+    
     fetchGames();
     winnerMachine();
     console.log(games)
