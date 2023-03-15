@@ -24,7 +24,7 @@ const MyGroups = (props) => {
 
   useEffect(() => {
 findGroup()
-  })
+  },[])
 
   return (
     <div className="classBody">
