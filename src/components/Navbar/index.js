@@ -29,7 +29,7 @@ const Navbar = (props) => {
             </Link>
             <Link  to="/mylist"><button className="button-74">My List</button>
             </Link>
-            <Link  to="/mygroup"><utton className="button-74">My Group</utton>
+            <Link  to="/mygroup"><button className="button-74">My Group</button>
             </Link>
           </>
         ) : (
